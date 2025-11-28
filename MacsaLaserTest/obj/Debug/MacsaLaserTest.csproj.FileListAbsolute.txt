@@ -1,0 +1,10 @@
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\bin\Debug\SocketCommDll.dll
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\bin\Debug\MacsaLaserTest.exe.config
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\bin\Debug\MacsaLaserTest.exe
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\bin\Debug\MacsaLaserTest.pdb
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\bin\Debug\SocketCommNet.dll
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\obj\Debug\MacsaLaserTest.csproj.AssemblyReference.cache
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\obj\Debug\MacsaLaserTest.csproj.CoreCompileInputs.cache
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\obj\Debug\MacsaLas.4BBAA1F9.Up2Date
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\obj\Debug\MacsaLaserTest.exe
+C:\Users\Yaser\OneDrive\Documentos\trabajo\LaserMacsaUser\MacsaLaserTest\obj\Debug\MacsaLaserTest.pdb
