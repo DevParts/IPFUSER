@@ -64,6 +64,7 @@
             btnExit = new Button();
             menuStrip1 = new MenuStrip();
             configurationToolStripMenuItem = new ToolStripMenuItem();
+            configPruebaToolStripMenuItem = new ToolStripMenuItem();
             pnlArtwork.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             pnlProduction.SuspendLayout();
@@ -321,6 +322,7 @@
             // 
             // txtCode
             // 
+            txtCode.Enabled = false;
             txtCode.Location = new Point(520, 159);
             txtCode.Name = "txtCode";
             txtCode.Size = new Size(433, 23);
@@ -337,10 +339,12 @@
             // 
             // txtPromoIndex
             // 
+            txtPromoIndex.Enabled = false;
             txtPromoIndex.Location = new Point(149, 158);
             txtPromoIndex.Name = "txtPromoIndex";
             txtPromoIndex.Size = new Size(303, 23);
             txtPromoIndex.TabIndex = 12;
+            txtPromoIndex.Visible = false;
             // 
             // progressProd
             // 
@@ -393,7 +397,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { configurationToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { configurationToolStripMenuItem, configPruebaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1000, 24);
@@ -406,6 +410,13 @@
             configurationToolStripMenuItem.Size = new Size(93, 20);
             configurationToolStripMenuItem.Text = "Configuration";
             configurationToolStripMenuItem.Click += configurationToolStripMenuItem_Click;
+            // 
+            // configPruebaToolStripMenuItem
+            // 
+            configPruebaToolStripMenuItem.Name = "configPruebaToolStripMenuItem";
+            configPruebaToolStripMenuItem.Size = new Size(95, 20);
+            configPruebaToolStripMenuItem.Text = "Config Prueba";
+            configPruebaToolStripMenuItem.Click += configPruebaToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -471,5 +482,6 @@
         private ComboBox comboBox1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem configurationToolStripMenuItem;
+        private ToolStripMenuItem configPruebaToolStripMenuItem;
     }
 }

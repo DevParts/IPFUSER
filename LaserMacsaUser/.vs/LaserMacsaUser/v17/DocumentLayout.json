@@ -3,20 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfoprueba\\appconfirformprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfoprueba\\appconfirformprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfoprueba\\appconfirformprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfoprueba\\appconfirformprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfo\\appconfigform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfo\\appconfigform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfo\\appconfigform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfo\\appconfigform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfoprueba\\appconfirformprueba.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfoprueba\\appconfirformprueba.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfo\\appconfigform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfo\\appconfigform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfoprueba\\appsettingsprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfoprueba\\appsettingsprueba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\appinfo\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\appinfo\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|c:\\users\\luis arias\\source\\repos\\lasermacsauser\\lasermacsauser\\lasermacsauser\\views\\login\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72AA5CBC-8489-4B9B-8CE9-C9B73062259D}|LaserMacsaUser\\LaserMacsaUser.csproj|solutionrelative:lasermacsauser\\views\\login\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +50,134 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.cs",
-              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\Form1.cs",
-              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "LaserMacsaUser\\Views\\Form1.cs [Dise\u00F1o]",
+              "DocumentIndex": 1,
+              "Title": "AppConfirFormPrueba.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs",
+              "ViewState": "AgIAABQAAAAA0czMzMwVwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T06:52:25.408Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Program.cs",
-              "RelativeDocumentMoniker": "LaserMacsaUser\\Program.cs",
-              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Program.cs",
-              "RelativeToolTip": "LaserMacsaUser\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T06:49:50.458Z",
+              "WhenOpened": "2025-11-28T07:43:19.908Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.cs",
-              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\Form1.cs",
-              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.cs",
-              "RelativeToolTip": "LaserMacsaUser\\Views\\Form1.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAgwCIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AppConfigForm.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs",
+              "ViewState": "AgIAABQAAADAAAAAAIAwwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T06:42:33.719Z",
+              "WhenOpened": "2025-11-28T07:33:04.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppSettingsPrueba.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppSettingsPrueba.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppSettingsPrueba.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppSettingsPrueba.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppSettingsPrueba.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T07:41:13.261Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.Designer.cs",
-              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.Designer.cs",
-              "RelativeToolTip": "LaserMacsaUser\\Views\\Form1.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Title": "AppConfigForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T06:41:53.189Z",
+              "WhenOpened": "2025-11-28T07:40:06.504Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppConfirFormPrueba.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs [Dise\u00F1o]",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T07:37:58.455Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppConfirFormPrueba.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.Designer.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.Designer.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.Designer.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfoPrueba\\AppConfirFormPrueba.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T07:32:34.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppConfigForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.Designer.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.Designer.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfo\\AppConfigForm.Designer.cs",
+              "ViewState": "AgIAACYAAAAA08zMzMwUwBcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T07:30:42.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Login\\LoginForm.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\Login\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Login\\LoginForm.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\Login\\LoginForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T07:35:56.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppSettings.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\AppInfo\\AppSettings.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\AppInfo\\AppSettings.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\AppInfo\\AppSettings.cs",
+              "ViewState": "AgIAAG0AAADAMTMzMzMkwHgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T07:40:11.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.cs",
+              "RelativeDocumentMoniker": "LaserMacsaUser\\Views\\Form1.cs",
+              "ToolTip": "C:\\Users\\Luis Arias\\source\\repos\\LaserMacsaUser\\LaserMacsaUser\\LaserMacsaUser\\Views\\Form1.cs",
+              "RelativeToolTip": "LaserMacsaUser\\Views\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T06:42:33.719Z",
               "EditorCaption": ""
             }
           ]

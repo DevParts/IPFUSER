@@ -1,4 +1,5 @@
-﻿using LaserMacsaUser.Views.Login;
+﻿using LaserMacsaUser.Views.AppInfoPrueba;
+using LaserMacsaUser.Views.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +34,12 @@ namespace LaserMacsaUser.Views
         private void lblCodes_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void configPruebaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppConfirFormPrueba formAppInfoPrueba = new AppConfirFormPrueba();
+            formAppInfoPrueba.ShowDialog();
         }
     }
 }
