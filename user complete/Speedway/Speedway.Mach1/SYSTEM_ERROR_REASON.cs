@@ -1,0 +1,8 @@
+namespace Speedway.Mach1;
+
+public enum SYSTEM_ERROR_REASON
+{
+	MODEM_WATCHDOG_EXPIRED,
+	MACH1_FUP_TIMEOUT,
+	OTHER_SYSTEM_ERR
+}

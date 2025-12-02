@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E708C3C5-9B41-42D1-BC9F-EF55F0E18F44}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SocketCommDllTest</RootNamespace>
+    <AssemblyName>SocketCommDllTest</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SocketCommNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SocketCommNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainW.Designer.cs">
+      <DependentUpon>MainW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyInfoBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyInfoBox.Designer.cs">
+      <DependentUpon>MyInfoBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainW.resx">
+      <DependentUpon>MainW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyInfoBox.resx">
+      <DependentUpon>MyInfoBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inf_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inf_init.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_i.png" />
+    <Content Include="Resources\inf_asciiconfig.PNG" />
+    <Content Include="Resources\inf_copyfile.PNG" />
+    <Content Include="Resources\inf_coretemp.PNG" />
+    <Content Include="Resources\inf_counterreset.png" />
+    <Content Include="Resources\inf_delete.PNG" />
+    <Content Include="Resources\inf_dumpsvg.PNG" />
+    <Content Include="Resources\inf_enablebuffereddatastring.PNG" />
+    <Content Include="Resources\inf_enablebufferedumext.png" />
+    <Content Include="Resources\inf_endprintsession.PNG" />
+    <Content Include="Resources\inf_eventhandler.PNG" />
+    <Content Include="Resources\inf_fastasciiusermessage.png" />
+    <Content Include="Resources\inf_fastdatastring.png" />
+    <Content Include="Resources\inf_fastutf8usermessage.png" />
+    <Content Include="Resources\inf_fifodump.png" />
+    <Content Include="Resources\inf_finish.PNG" />
+    <Content Include="Resources\inf_getdllversion.png" />
+    <Content Include="Resources\inf_getdynamic.PNG" />
+    <Content Include="Resources\inf_getfastdatastring.PNG" />
+    <Content Include="Resources\inf_getfastusermessage.PNG" />
+    <Content Include="Resources\inf_getfastutf8usermessage.PNG" />
+    <Content Include="Resources\inf_getfifofield.png" />
+    <Content Include="Resources\inf_getfilenames.png" />
+    <Content Include="Resources\inf_getglobalcounter.PNG" />
+    <Content Include="Resources\inf_getlasterror.png" />
+    <Content Include="Resources\inf_getmultipleusermessage.png" />
+    <Content Include="Resources\inf_getmultipleutf8usermessage.PNG" />
+    <Content Include="Resources\inf_getutf8fifofield.PNG" />
+    <Content Include="Resources\inf_getversion.PNG" />
+    <Content Include="Resources\inf_isconnected.PNG" />
+    <Content Include="Resources\inf_knockout.png" />
+    <Content Include="Resources\inf_mode.PNG" />
+    <Content Include="Resources\inf_mtable.png" />
+    <Content Include="Resources\inf_multipleusermessage.png" />
+    <Content Include="Resources\inf_multipleutf8usermessage.PNG" />
+    <Content Include="Resources\inf_offset.png" />
+    <Content Include="Resources\inf_powerscale.PNG" />
+    <Content Include="Resources\inf_reload.PNG" />
+    <Content Include="Resources\inf_setdefault.png" />
+    <Content Include="Resources\inf_setdynamic.png" />
+    <Content Include="Resources\inf_setglobalcounter.PNG" />
+    <Content Include="Resources\inf_setprivatecounter.png" />
+    <Content Include="Resources\inf_settime.PNG" />
+    <Content Include="Resources\inf_shiftrotate.png" />
+    <Content Include="Resources\inf_start.png" />
+    <Content Include="Resources\inf_startclient.PNG" />
+    <Content Include="Resources\inf_startextended.png" />
+    <Content Include="Resources\inf_startprintsession.png" />
+    <Content Include="Resources\inf_statusext.png" />
+    <Content Include="Resources\inf_stop.PNG" />
+    <Content Include="Resources\inf_store.PNG" />
+    <Content Include="Resources\inf_sysinfo.PNG" />
+    <Content Include="Resources\inf_testpointer.png" />
+    <Content Include="Resources\inf_triggerprint.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

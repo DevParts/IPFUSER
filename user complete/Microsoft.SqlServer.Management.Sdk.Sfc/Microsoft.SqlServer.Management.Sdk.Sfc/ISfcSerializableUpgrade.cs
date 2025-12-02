@@ -1,0 +1,6 @@
+namespace Microsoft.SqlServer.Management.Sdk.Sfc;
+
+public interface ISfcSerializableUpgrade
+{
+	UpgradeSession StartSerializationUpgrade();
+}

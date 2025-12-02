@@ -1,0 +1,14 @@
+<?xml version='1.0' ?>
+<EnumObject type='DatabaseActiveDirectory' impl_type='SqlObject' min_major='8' max_major='10' max_minor='50' >
+	<settings>
+		<prefix fields="#IsRegistered#">
+			declare @SmoActiveDirectory sysname
+			declare @RegPath nvarchar(1024)
+			select @RegPath = N'Software\Microsoft\MSSQLServer\SQLServerSCP\' + db_name()
+			exec master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE', @RegPath, N'objectGUID', @SmoActiveDirectory OUTPUT
+		</prefix>
+	</settings>
+	<properties>
+		<property name='IsRegistered' type='bit' cast='true' access='Read'>CASE WHEN (@SmoActiveDirectory IS NULL) THEN 0 ELSE 1 END</property>
+	</properties>
+</EnumObject>

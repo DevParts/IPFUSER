@@ -1,0 +1,35 @@
+namespace Advantech.Common;
+
+public enum ErrorCode
+{
+	No_Error = 0,
+	ComPort_Error = 1073741825,
+	ComPort_Open_Fail = 1073741826,
+	ComPort_Send_Fail = 1073741827,
+	ComPort_Recv_Fail = 1073741828,
+	Socket_Null = 1073807361,
+	Socket_Connect_Fail = 1073807362,
+	Socket_Invalid_IP = 1073807363,
+	Socket_Send_Fail = 1073807364,
+	Socket_Recv_Fail = 1073807365,
+	Socket_Unknown = 1073872895,
+	Adam_Invalid_Head = 1074266113,
+	Adam_Invalid_End = 1074266114,
+	Adam_Invalid_Length = 1074266115,
+	Adam_Invalid_Data = 1074266116,
+	Adam_Invalid_Checksum = 1074266117,
+	Adam_Invalid_Param = 1074266118,
+	Adam_Invalid_Password = 1074266119,
+	Modbus_Invalid_CRC = 1074331649,
+	Modbus_Invalid_Length = 1074331650,
+	Modbus_Exception = 1074335744,
+	Modbus_Exception_IllegalFunction = 1074335745,
+	Modbus_Exception_IllegalDataAddress = 1074335746,
+	Modbus_Exception_IllegalDataValue = 1074335747,
+	Modbus_Exception_SlaveDeviceFailure = 1074335748,
+	Modbus_Exception_Acknowledge = 1074335749,
+	Modbus_Exception_SlaveDeviceBusy = 1074335750,
+	Modbus_Exception_NativeAcknowledge = 1074335751,
+	Modbus_Exception_MemoryParityError = 1074335752,
+	Adam_Null_Error = 1074397185
+}

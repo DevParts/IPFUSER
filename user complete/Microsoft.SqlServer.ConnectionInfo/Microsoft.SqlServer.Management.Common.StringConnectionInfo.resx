@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="CannotRestart" xml:space="preserve"><value>Failed to restart trace.</value></data>
+  <data name="ConnectionCannotBeChanged" xml:space="preserve"><value>Connection properties cannot be changed after a connection has been established.</value></data>
+  <data name="PasswordCouldNotBeChanged" xml:space="preserve"><value>Password could not be changed.</value></data>
+  <data name="Standalone" xml:space="preserve"><value>Standalone SQL Server</value></data>
+  <data name="CannotCloseWriter" xml:space="preserve"><value>Failed to close writer.</value></data>
+  <data name="PropertyNotSetException" xml:space="preserve"><value>Property {0} was not set.</value></data>
+  <data name="CannotStartReplay" xml:space="preserve"><value>Failed to start replay.</value></data>
+  <data name="CannotInitializeAsWriter" xml:space="preserve"><value>Failed to initialize object as writer.</value></data>
+  <data name="InstAPIIsNotInstalled" xml:space="preserve"><value>InstAPI is required for this type, but it is not installed on this computer.</value></data>
+  <data name="CannotInitializeAsReader" xml:space="preserve"><value>Failed to initialize object as reader.</value></data>
+  <data name="InvalidPropertyValueReasonString" xml:space="preserve"><value>Value cannot be null.</value></data>
+  <data name="CannotPauseReplay" xml:space="preserve"><value>Failed to pause replay.</value></data>
+  <data name="CannotGetOrdinal" xml:space="preserve"><value>Failed to find column ordinal.</value></data>
+  <data name="NotInTransaction" xml:space="preserve"><value>Cannot perform this operation as there is no open transaction.</value></data>
+  <data name="ParseError" xml:space="preserve"><value>Parse error occurred while looking for GO statement. Line {0}.</value></data>
+  <data name="CannotSetTrueName" xml:space="preserve"><value>TrueName cannot be set, unless the connection is forced to be disconnected.</value></data>
+  <data name="CannotSetColumnValue" xml:space="preserve"><value>Failed to set column value.</value></data>
+  <data name="InvalidPropertyValueReasonInt" xml:space="preserve"><value>Value cannot be smaller than {0}.</value></data>
+  <data name="FailedToGetSQLToolsDirPathFromInstAPI" xml:space="preserve"><value>Failed to get SQL Tools directory path from InstAPI.</value></data>
+  <data name="StandardEdition" xml:space="preserve"><value>Microsoft SQL Server Standard Edition</value></data>
+  <data name="CannotBeSetWhileConnected" xml:space="preserve"><value>ServerVersion cannot be set while connected.</value></data>
+  <data name="CannotPause" xml:space="preserve"><value>Failed to pause trace.</value></data>
+  <data name="InvalidLockTimeout" xml:space="preserve"><value>Invalid LockTimeout value: {0}.</value></data>
+  <data name="CannotReadNextEvent" xml:space="preserve"><value>Failed to read next event.</value></data>
+  <data name="CannotStopReplay" xml:space="preserve"><value>Failed to stop replay.</value></data>
+  <data name="SqlAzureDatabaseEdition" xml:space="preserve"><value>Microsoft Azure SQL Database Edition</value></data>
+  <data name="CannotPerformOperationWhileDisconnected" xml:space="preserve"><value>Operation cannot be performed when the connection is forced to be disconnected.</value></data>
+  <data name="PersonalEdition" xml:space="preserve"><value>Microsoft SQL Server Personal Edition</value></data>
+  <data name="ExpressEdition" xml:space="preserve"><value>Microsoft SQL Server Express Edition</value></data>
+  <data name="StretchEdition" xml:space="preserve"><value>Microsoft SQL Server Stretch Database Edition</value></data>
+  <data name="InvalidPropertyValue" xml:space="preserve"><value>Cannot apply value '{0}' to property {1}: {2}.</value></data>
+  <data name="ExecutionFailure" xml:space="preserve"><value>An exception occurred while executing a Transact-SQL statement or batch.</value></data>
+  <data name="InvalidIntegratedSecureValue" xml:space="preserve"><value>Property {0} is only supported on Windows operating systems.</value></data>
+  <data name="MethodNotSupported" xml:space="preserve"><value>Method {0} is not supported.</value></data>
+  <data name="CannotCloseTraceController" xml:space="preserve"><value>Failed to close trace controller.</value></data>
+  <data name="CannotWriteEvent" xml:space="preserve"><value>Failed to write event.</value></data>
+  <data name="TrueNameMustBeSet" xml:space="preserve"><value>TrueName must be set if the connection is forced to be disconnected.</value></data>
+  <data name="InvalidArgumentCacheCapacity" xml:space="preserve"><value>Cache capacity must be greater than {0}.</value></data>
+  <data name="CannotRetrieveSchemaTable" xml:space="preserve"><value>Failed to retrieve schema table.</value></data>
+  <data name="SqlAzureDatabase" xml:space="preserve"><value>Microsoft Azure SQL Database</value></data>
+  <data name="EnterpriseEdition" xml:space="preserve"><value>Microsoft SQL Server Enterprise Edition</value></data>
+  <data name="CannotSetWhenLoginSecure" xml:space="preserve"><value>Cannot set {0} property because LoginSecure property is set to true.</value></data>
+  <data name="InvalidArgumentCacheNullKey" xml:space="preserve"><value>The cache item returns a null key.</value></data>
+  <data name="CouldNotInstantiateInstAPI" xml:space="preserve"><value>Could not instantiate InstAPI.</value></data>
+  <data name="ClassDefaulConstructorCannotBeUsed" xml:space="preserve"><value>{0} class default constructor cannot be used.</value></data>
+  <data name="SqlDataWarehouseEdition" xml:space="preserve"><value>Microsoft Azure SQL Data Warehouse Edition</value></data>
+  <data name="CannotTranslateSubclass" xml:space="preserve"><value>Failed to translate subclass value.</value></data>
+  <data name="CannotInitializeAsReplayOutputWriter" xml:space="preserve"><value>Failed to initialize object as replay output writer.</value></data>
+  <data name="ConnectToInvalidVersion" xml:space="preserve"><value>This SQL Server version ({0}) is not supported.</value></data>
+  <data name="PropertyNotAvailable" xml:space="preserve"><value>Property {0} cannot be changed or read after a connection string has been set.</value></data>
+  <data name="CannotStop" xml:space="preserve"><value>Failed to stop trace.</value></data>
+  <data name="CannotLoadInAppDomain" xml:space="preserve"><value>Initializing Trace or Replay Objects in a non-default AppDomain is not fully supported. Verify that you invoke an instance of Trace or Replay Object from the same domain and that the caller object is not marshaled-by-reference.</value></data>
+  <data name="CouldNotLoadMethodInfoFromInstAPI" xml:space="preserve"><value>Could not load MethodInfo from InstAPI.</value></data>
+  <data name="CannotLoadType" xml:space="preserve"><value>Failed to create an instance of type {0}.</value></data>
+  <data name="UnableToSavePasswordFormat" xml:space="preserve"><value>The password for user '{0}' could not be saved to the Windows credential manager.</value></data>
+  <data name="ConnectionFailure" xml:space="preserve"><value>Failed to connect to server {0}.</value></data>
+  <data name="CannotGetColumnValue" xml:space="preserve"><value>Failed to retrieve column value.</value></data>
+  <data name="SmoSQLCLRUnAvailable" xml:space="preserve"><value>This functionality is disabled in the SQLCLR. It is recommended that you execute from your client application.</value></data>
+  <data name="CannotGetColumnType" xml:space="preserve"><value>Failed to retrieve column type.</value></data>
+  <data name="CannotGetColumnName" xml:space="preserve"><value>Failed to retrieve column name.</value></data>
+  <data name="SqlManagedInstanceEdition" xml:space="preserve"><value>Microsoft Azure SQL Database Managed Instance Edition</value></data>
+  <data name="InvalidArgumentCacheDuplicateKey" xml:space="preserve"><value>The cache already contains an item with the same key {0}.</value></data>
+  <data name="AssemblyLoadFailed" xml:space="preserve"><value>Failed to load assembly {0}. Error message: {1}</value></data>
+  </root>

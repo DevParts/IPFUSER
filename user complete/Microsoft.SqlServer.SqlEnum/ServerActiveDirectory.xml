@@ -1,0 +1,28 @@
+<?xml version='1.0' ?>
+<EnumObject type='ServerActiveDirectory' impl_type='SqlObject' min_major='8' max_major='10' max_minor='50'>
+	<settings>
+		<property_link table='#temp_ad AS ad'/>
+		<prefix fields="#IsRegistered#">
+			declare @scmPath sysname
+			select @scmPath = N'Software\Microsoft\MSSQLServer\SQLServerSCP'
+			declare @SmoActiveDirectory sysname
+			exec master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE', @scmPath, N'objectGUID', @SmoActiveDirectory OUTPUT
+		</prefix>
+		<prefix>
+		    DECLARE @res INT
+			CREATE table #temp_ad(result BIT)
+			EXECUTE @res = master.dbo.xp_MSADEnabled
+			if @res = 0
+			    INSERT INTO #temp_ad VALUES (1)
+			else
+			    INSERT INTO #temp_ad VALUES (0)
+		</prefix>
+		<postfix>
+			DROP table #temp_ad
+		</postfix>
+	</settings>
+	<properties>
+		<property name='IsEnabled' type='bit' cast='true' access='Read'>ad.result</property>
+		<property name='IsRegistered' type='bit' cast='true' access='Read'>CASE WHEN (@SmoActiveDirectory IS NULL) THEN 0 ELSE 1 END</property>
+	</properties>
+</EnumObject>

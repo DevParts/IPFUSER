@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pnlArtwork = new Panel();
-            comboBox1 = new ComboBox();
+            cmboxtxtCodes = new ComboBox();
             lblHeaderArtwork = new Label();
             lblArtwork = new Label();
             txtArtwork = new TextBox();
@@ -75,7 +75,7 @@
             // 
             pnlArtwork.BackColor = Color.White;
             pnlArtwork.BorderStyle = BorderStyle.FixedSingle;
-            pnlArtwork.Controls.Add(comboBox1);
+            pnlArtwork.Controls.Add(cmboxtxtCodes);
             pnlArtwork.Controls.Add(lblHeaderArtwork);
             pnlArtwork.Controls.Add(lblArtwork);
             pnlArtwork.Controls.Add(txtArtwork);
@@ -93,13 +93,14 @@
             pnlArtwork.Size = new Size(970, 220);
             pnlArtwork.TabIndex = 1;
             // 
-            // comboBox1
+            // cmboxtxtCodes
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(722, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(233, 23);
-            comboBox1.TabIndex = 12;
+            cmboxtxtCodes.DropDownStyle = ComboBoxStyle.DropDown;
+            cmboxtxtCodes.FormattingEnabled = true;
+            cmboxtxtCodes.Location = new Point(722, 3);
+            cmboxtxtCodes.Name = "cmboxtxtCodes";
+            cmboxtxtCodes.Size = new Size(233, 23);
+            cmboxtxtCodes.TabIndex = 12;
             // 
             // lblHeaderArtwork
             // 
@@ -128,6 +129,7 @@
             txtArtwork.BackColor = Color.Yellow;
             txtArtwork.Location = new Point(110, 48);
             txtArtwork.Name = "txtArtwork";
+            txtArtwork.ReadOnly = true;
             txtArtwork.Size = new Size(150, 23);
             txtArtwork.TabIndex = 2;
             // 
@@ -144,6 +146,7 @@
             // 
             txtLaser.Location = new Point(360, 48);
             txtLaser.Name = "txtLaser";
+            txtLaser.ReadOnly = true;
             txtLaser.Size = new Size(310, 23);
             txtLaser.TabIndex = 4;
             // 
@@ -170,6 +173,7 @@
             // 
             txtPromotion.Location = new Point(110, 88);
             txtPromotion.Name = "txtPromotion";
+            txtPromotion.ReadOnly = true;
             txtPromotion.Size = new Size(560, 23);
             txtPromotion.TabIndex = 7;
             // 
@@ -187,12 +191,14 @@
             // 
             txtCodes.Location = new Point(137, 130);
             txtCodes.Name = "txtCodes";
+            txtCodes.ReadOnly = true;
             txtCodes.Size = new Size(533, 23);
             txtCodes.TabIndex = 9;
             // 
             // progressCodes
             // 
             progressCodes.Location = new Point(20, 175);
+            progressCodes.Maximum = 100;
             progressCodes.Name = "progressCodes";
             progressCodes.Size = new Size(520, 25);
             progressCodes.TabIndex = 10;
@@ -479,7 +485,7 @@
         #endregion
 
         private Label lblProgressCodes;
-        private ComboBox comboBox1;
+        private ComboBox cmboxtxtCodes;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem configurationToolStripMenuItem;
         private ToolStripMenuItem configPruebaToolStripMenuItem;

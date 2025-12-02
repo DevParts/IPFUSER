@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="String1" xml:space="preserve"><value>Error al enviar los datos. Revise el log.</value></data>
+  <data name="String2" xml:space="preserve"><value>Error al terminar el objeto.</value></data>
+  <data name="String3" xml:space="preserve"><value>Problema al cerrar el canal de comunicaciones.</value></data>
+  <data name="String4" xml:space="preserve"><value>Error al ABRIR/CONFIGURAR el puerto serie:</value></data>
+  <data name="String5" xml:space="preserve"><value>Error al ABRIR/CONFIGURAR el socket:</value></data>
+  <data name="String6" xml:space="preserve"><value>Puerto:</value></data>
+  <data name="String7" xml:space="preserve"><value>No hay ping</value></data>
+  <data name="String8" xml:space="preserve"><value>Error enviando cadena de datos. No hay conectividad con el dispositivo.</value></data>
+  <data name="String9" xml:space="preserve"><value>Error enviando cadena de datos.</value></data>
+  <data name="PCI17602" xml:space="preserve"><value>PCI1760: Thread de Entradas Finalizado</value></data>
+  <data name="PCI17601" xml:space="preserve"><value>PCI1760: Error en generación de pulso </value></data>
+  <data name="LaserDLL8" xml:space="preserve"><value>YAG RS232 error</value></data>
+  <data name="LaserDLL9" xml:space="preserve"><value>Cinta detenida</value></data>
+  <data name="LaserDLL0" xml:space="preserve"><value>Sin Comunicación</value></data>
+  <data name="LaserDLL1" xml:space="preserve"><value>Laser está Off</value></data>
+  <data name="LaserDLL2" xml:space="preserve"><value>Shutter Cerrado</value></data>
+  <data name="LaserDLL3" xml:space="preserve"><value>fallo DC Power</value></data>
+  <data name="LaserDLL4" xml:space="preserve"><value>Sobretemperatura del amplificador</value></data>
+  <data name="LaserDLL5" xml:space="preserve"><value>Q-switch sobrecalentamiento</value></data>
+  <data name="LaserDLL6" xml:space="preserve"><value>high reverse power</value></data>
+  <data name="LaserDLL7" xml:space="preserve"><value>low forward power</value></data>
+  <data name="Zodiac4" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="Zodiac3" xml:space="preserve"><value>Error Envío</value></data>
+  <data name="Zodiac2" xml:space="preserve"><value>Error en la impresora</value></data>
+  <data name="Zodiac1" xml:space="preserve"><value>Warning en impresora</value></data>
+  <data name="Linx71" xml:space="preserve"><value>Memoria llena</value></data>
+  <data name="Linx70" xml:space="preserve"><value>Parámetro no válido</value></data>
+  <data name="Linx73" xml:space="preserve"><value>Campo demasiado largo</value></data>
+  <data name="Linx72" xml:space="preserve"><value>Mensaje desconocido</value></data>
+  <data name="Linx75" xml:space="preserve"><value>Print mode inválido</value></data>
+  <data name="Linx74" xml:space="preserve"><value>Formato de mensaje inválido</value></data>
+  <data name="Linx77" xml:space="preserve"><value>El mensaje actual no contiene campos remotos</value></data>
+  <data name="Linx76" xml:space="preserve"><value>Invalid buffer divisor</value></data>
+  <data name="Linx79" xml:space="preserve"><value>Campos remotos: datos demasiado largos</value></data>
+  <data name="Linx78" xml:space="preserve"><value>Campos remotos: El número carácteres enviados no se corresponde con los esperados</value></data>
+  <data name="Linx60" xml:space="preserve"><value>No se ha podido leer información del sistema</value></data>
+  <data name="Linx61" xml:space="preserve"><value>No se ha cambiado el print width</value></data>
+  <data name="Linx62" xml:space="preserve"><value>Error de paridad</value></data>
+  <data name="Linx63" xml:space="preserve"><value>Error en el framing</value></data>
+  <data name="Linx64" xml:space="preserve"><value>Data overrun</value></data>
+  <data name="Linx65" xml:space="preserve"><value>Buffer de recepción overflow</value></data>
+  <data name="Linx66" xml:space="preserve"><value>Invalid Checksum</value></data>
+  <data name="Linx67" xml:space="preserve"><value>Comando inválido</value></data>
+  <data name="Linx68" xml:space="preserve"><value>El comando no es válido con el inyector parado</value></data>
+  <data name="Linx69" xml:space="preserve"><value>El comando no es válido con el inyector en marcha</value></data>
+  <data name="Linx53" xml:space="preserve"><value>No se ha cambiado el modo de la fotocelula</value></data>
+  <data name="Linx52" xml:space="preserve"><value>No se ha cambiado el estado del teclado/display</value></data>
+  <data name="Linx51" xml:space="preserve"><value>No se ha cambiado el modo de impresión</value></data>
+  <data name="Linx50" xml:space="preserve"><value>Error de Comunicación</value></data>
+  <data name="Linx57" xml:space="preserve"><value>No se ha leido el directorio de mensajes</value></data>
+  <data name="Linx56" xml:space="preserve"><value>No se ha leido el contador de impresión</value></data>
+  <data name="Linx55" xml:space="preserve"><value>No se ha cambiado el contador de impresión</value></data>
+  <data name="Linx54" xml:space="preserve"><value>No se ha cambiado el retardo de impresión</value></data>
+  <data name="Linx59" xml:space="preserve"><value>No se ha podido leer mensaje en curso</value></data>
+  <data name="Linx58" xml:space="preserve"><value>No se ha podido revertir el mensaje</value></data>
+  <data name="Linx42" xml:space="preserve"><value>Error Detector de Fase</value></data>
+  <data name="Linx43" xml:space="preserve"><value>Error Detector de Fase TDV</value></data>
+  <data name="Linx40" xml:space="preserve"><value>Derrame de Tinta</value></data>
+  <data name="Linx41" xml:space="preserve"><value>Error Ruido de Fase</value></data>
+  <data name="Linx46" xml:space="preserve"><value>Error de Fase</value></data>
+  <data name="Linx47" xml:space="preserve"><value>Error de Inicio del TDV</value></data>
+  <data name="Linx44" xml:space="preserve"><value>Error Detector TDV TDV</value></data>
+  <data name="Linx45" xml:space="preserve"><value>Error Ruido TDV</value></data>
+  <data name="Linx48" xml:space="preserve"><value>Error Inicio de Fase</value></data>
+  <data name="Linx49" xml:space="preserve"><value>Error Interno por Exceso de Tinta</value></data>
+  <data name="Linx35" xml:space="preserve"><value>Carga</value></data>
+  <data name="Linx34" xml:space="preserve"><value>Tensión del Deflector</value></data>
+  <data name="Linx37" xml:space="preserve"><value>Fuente de Alimentación 300V</value></data>
+  <data name="Linx36" xml:space="preserve"><value>Tiempo de Vuelo</value></data>
+  <data name="Linx31" xml:space="preserve"><value>Long Diverter Delay</value></data>
+  <data name="Linx30" xml:space="preserve"><value>Invalid parallel input</value></data>
+  <data name="Linx33" xml:space="preserve"><value>Temperatura del Cabezal</value></data>
+  <data name="Linx32" xml:space="preserve"><value>Extended errors present</value></data>
+  <data name="Linx39" xml:space="preserve"><value>Depósito de Tinta Vacío</value></data>
+  <data name="Linx38" xml:space="preserve"><value>Temperatura/Deflector</value></data>
+  <data name="Linx24" xml:space="preserve"><value>No Aux Board Fitted</value></data>
+  <data name="Linx25" xml:space="preserve"><value>Print Go/Old Pattern</value></data>
+  <data name="Linx26" xml:space="preserve"><value>Parallel I/O Init</value></data>
+  <data name="Linx27" xml:space="preserve"><value>Msg Change in print delay</value></data>
+  <data name="Linx20" xml:space="preserve"><value>TDV inferior al rango</value></data>
+  <data name="Linx21" xml:space="preserve"><value>TDV superior al rango</value></data>
+  <data name="Linx22" xml:space="preserve"><value>No se encuentran los códigos del teclado</value></data>
+  <data name="Linx23" xml:space="preserve"><value>Corrupción de datos del mensaje</value></data>
+  <data name="Linx28" xml:space="preserve"><value>Print Go after schedule end</value></data>
+  <data name="Linx29" xml:space="preserve"><value>Incompatible Aux photocell mode</value></data>
+  <data name="Linx17" xml:space="preserve"><value>Fallo de Memoria</value></data>
+  <data name="Linx16" xml:space="preserve"><value>No se encuentra el idioma seleccionado</value></data>
+  <data name="Linx15" xml:space="preserve"><value>Sobrevelocidad (datos variables)</value></data>
+  <data name="Linx14" xml:space="preserve"><value>Modulacion</value></data>
+  <data name="Linx13" xml:space="preserve"><value>Cambiar Filtro (Presion Baja)</value></data>
+  <data name="Linx12" xml:space="preserve"><value>Indefinido</value></data>
+  <data name="Linx11" xml:space="preserve"><value>Cargar Rango de calibración</value></data>
+  <data name="Linx10" xml:space="preserve"><value>Nuevo cabezal instalado</value></data>
+  <data name="Linx19" xml:space="preserve"><value>No hay mensages en memoria</value></data>
+  <data name="Linx18" xml:space="preserve"><value>Memoria corrupta</value></data>
+  <data name="Linx84" xml:space="preserve"><value>Error Set Date &amp; Time</value></data>
+  <data name="Linx85" xml:space="preserve"><value>No se ha podido invertir el mensaje</value></data>
+  <data name="Linx82" xml:space="preserve"><value>Impresora ocupada</value></data>
+  <data name="Linx83" xml:space="preserve"><value>Print Error Desconocido</value></data>
+  <data name="Linx80" xml:space="preserve"><value>El buffer de campos remotos está lleno</value></data>
+  <data name="Linx81" xml:space="preserve"><value>El buffer de campos remotos sigue lleno</value></data>
+  <data name="Laser8" xml:space="preserve"><value>Tipo de Figura incorrecta en el fichero</value></data>
+  <data name="Laser9" xml:space="preserve"><value>No Memory available</value></data>
+  <data name="Laser4" xml:space="preserve"><value>Puerto de Mensaje Incorrecto</value></data>
+  <data name="Laser5" xml:space="preserve"><value>Error Hardware en laser</value></data>
+  <data name="Laser6" xml:space="preserve"><value>Laser is Off</value></data>
+  <data name="Laser7" xml:space="preserve"><value>Cinta Detenida</value></data>
+  <data name="Laser1" xml:space="preserve"><value>Indice de Contador Incorrecto</value></data>
+  <data name="Laser2" xml:space="preserve"><value>El fichero no existe</value></data>
+  <data name="Laser3" xml:space="preserve"><value>Existen alarmas activas</value></data>
+  <data name="Scanner2" xml:space="preserve"><value>Scanner: Error al processar los datos recibidos.</value></data>
+  <data name="Scanner1" xml:space="preserve"><value>Scanner:  Error al enviar los datos</value></data>
+  <data name="Zebra12" xml:space="preserve"><value>Etiquetadora OffLine</value></data>
+  <data name="Zebra13" xml:space="preserve"><value>Sin Conexión</value></data>
+  <data name="Zebra10" xml:space="preserve"><value>Etiqueta en Cola</value></data>
+  <data name="Zebra11" xml:space="preserve"><value>Error en Cabezal</value></data>
+  <data name="Zebra16" xml:space="preserve"><value>Zebra: Error al LEER y SUSTITUIR los campos en el fichero modelo de etiqueta:</value></data>
+  <data name="Zebra17" xml:space="preserve"><value>Zebra: Error al procesar los datos recibidos:</value></data>
+  <data name="Zebra14" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="Zebra15" xml:space="preserve"><value>Zebra: Error al GUARDAR la etiqueta con los campos sustituidos.</value></data>
+  <data name="Datamax1" xml:space="preserve"><value>En Línea</value></data>
+  <data name="Datamax3" xml:space="preserve"><value>Falta Papel</value></data>
+  <data name="Datamax2" xml:space="preserve"><value>Etiqueta en Proceso</value></data>
+  <data name="Datamax5" xml:space="preserve"><value>Etiqueta en Cola</value></data>
+  <data name="Datamax4" xml:space="preserve"><value>Falta Ribbon</value></data>
+  <data name="Datamax7" xml:space="preserve"><value>En Pausa</value></data>
+  <data name="Datamax6" xml:space="preserve"><value>Impresora Ocupada</value></data>
+  <data name="Datamax9" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="Datamax8" xml:space="preserve"><value>Sin Conexión</value></data>
+  <data name="Sato20" xml:space="preserve"><value>Sato: Error al enviar etiqueta</value></data>
+  <data name="Sato19" xml:space="preserve"><value>Inicio inserción campos RFID a etiqueta a enviar.</value></data>
+  <data name="Sato18" xml:space="preserve"><value>Inserción campos RFID: OK</value></data>
+  <data name="Sato15" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="Sato14" xml:space="preserve"><value>Sin Conexión</value></data>
+  <data name="Sato17" xml:space="preserve"><value>Error al abrir el fichero de etiqueta a enviar.</value></data>
+  <data name="Sato16" xml:space="preserve"><value>Sato: Error al procesar los datos recibidos</value></data>
+  <data name="Sato11" xml:space="preserve"><value>Etiquetadora Off-Line</value></data>
+  <data name="Sato10" xml:space="preserve"><value>Error en Cabezal</value></data>
+  <data name="Sato13" xml:space="preserve"><value>Sensor Error</value></data>
+  <data name="Sato12" xml:space="preserve"><value>Media Error</value></data>
+  <data name="TouchScreen1" xml:space="preserve"><value>TouchScreen: Error al processar los datos recibidos.</value></data>
+  <data name="String22" xml:space="preserve"><value>Command Error Desconocido</value></data>
+  <data name="String20" xml:space="preserve"><value>Error</value></data>
+  <data name="String21" xml:space="preserve"><value>Excepción</value></data>
+  <data name="String11" xml:space="preserve"><value>Se ha desconectado</value></data>
+  <data name="String10" xml:space="preserve"><value>El equipo remoto</value></data>
+  <data name="String13" xml:space="preserve"><value>Error esperando respuesta a envío de datos.</value></data>
+  <data name="String12" xml:space="preserve"><value>Error al capturar los datos recibidos por TCP desde</value></data>
+  <data name="String15" xml:space="preserve"><value>Etiquetadora: Error al GUARDAR la etiqueta con los campos sustituidos.</value></data>
+  <data name="String14" xml:space="preserve"><value>Etiquetadora: Error al LEER y SUSTITUIR los campos en el fichero modelo de etiqueta:</value></data>
+  <data name="String17" xml:space="preserve"><value>por el valor</value></data>
+  <data name="String16" xml:space="preserve"><value>Etiquetadora: Error al SUSTITUIR el campo</value></data>
+  <data name="String19" xml:space="preserve"><value>hasta:</value></data>
+  <data name="String18" xml:space="preserve"><value>Etiquetadora: Error al ELIMINAR el campo desde</value></data>
+  <data name="Zebra9" xml:space="preserve"><value>Etiqueta Esperando</value></data>
+  <data name="Zebra8" xml:space="preserve"><value>Falta Ribbon</value></data>
+  <data name="Zebra3" xml:space="preserve"><value>Sin Papel</value></data>
+  <data name="Zebra2" xml:space="preserve"><value>En Línea</value></data>
+  <data name="Zebra1" xml:space="preserve"><value>Zebra: Error al enviar etiqueta:</value></data>
+  <data name="Zebra7" xml:space="preserve"><value>Cabezal Levantado</value></data>
+  <data name="Zebra6" xml:space="preserve"><value>Ram Corrupta</value></data>
+  <data name="Zebra5" xml:space="preserve"><value>Buffer Lleno</value></data>
+  <data name="Zebra4" xml:space="preserve"><value>En Pausa</value></data>
+  <data name="Datamax10" xml:space="preserve"><value>Datamax: Error al procesar los datos recibidos</value></data>
+  <data name="LaserDLL19" xml:space="preserve"><value>Shutter Cerrado</value></data>
+  <data name="LaserDLL18" xml:space="preserve"><value>Sobrecalentamiento</value></data>
+  <data name="LaserDLL11" xml:space="preserve"><value>Figure-types incorrectas en fichero</value></data>
+  <data name="LaserDLL10" xml:space="preserve"><value>Check Programam no correcto</value></data>
+  <data name="LaserDLL13" xml:space="preserve"><value>No se encuentra el fichero</value></data>
+  <data name="LaserDLL12" xml:space="preserve"><value>Sin memoria disponible</value></data>
+  <data name="LaserDLL15" xml:space="preserve"><value>Interlock</value></data>
+  <data name="LaserDLL14" xml:space="preserve"><value>Falla Refrigeración Agua</value></data>
+  <data name="LaserDLL17" xml:space="preserve"><value>Fuente Inválida</value></data>
+  <data name="LaserDLL16" xml:space="preserve"><value>Fallo del Laser</value></data>
+  <data name="LaserDLL33" xml:space="preserve"><value>Inicialización</value></data>
+  <data name="LaserDLL32" xml:space="preserve"><value>Mensaje Vacio</value></data>
+  <data name="LaserDLL31" xml:space="preserve"><value>Scanner Y Falla</value></data>
+  <data name="LaserDLL30" xml:space="preserve"><value>Scanner X Falla</value></data>
+  <data name="LaserDLL37" xml:space="preserve"><value>OEM Shutter Cerrado</value></data>
+  <data name="LaserDLL36" xml:space="preserve"><value>Error en Laser</value></data>
+  <data name="LaserDLL35" xml:space="preserve"><value>Código Error</value></data>
+  <data name="LaserDLL34" xml:space="preserve"><value>Falta Fichero .csf</value></data>
+  <data name="LaserDLL28" xml:space="preserve"><value>Alarma Distancia</value></data>
+  <data name="LaserDLL29" xml:space="preserve"><value>Alarma Min Distancia</value></data>
+  <data name="LaserDLL22" xml:space="preserve"><value>Fichero sin permiso de impresión</value></data>
+  <data name="LaserDLL23" xml:space="preserve"><value>Falla creación barcode</value></data>
+  <data name="LaserDLL20" xml:space="preserve"><value>Laser No está listo</value></data>
+  <data name="LaserDLL21" xml:space="preserve"><value>Sobrevelocidad</value></data>
+  <data name="LaserDLL26" xml:space="preserve"><value>Señal Trigger</value></data>
+  <data name="LaserDLL27" xml:space="preserve"><value>Alarma Database</value></data>
+  <data name="LaserDLL24" xml:space="preserve"><value>Sin licencia barcode</value></data>
+  <data name="LaserDLL25" xml:space="preserve"><value>Sin libreria barcode</value></data>
+  <data name="Adam4" xml:space="preserve"><value>Adam: Se ha abortado el Scanning de Entradas.</value></data>
+  <data name="Adam1" xml:space="preserve"><value>Adam: Scanning de Contadores Iniciado</value></data>
+  <data name="Adam2" xml:space="preserve"><value>Adam: Scanning de Entradas Iniciado</value></data>
+  <data name="Adam3" xml:space="preserve"><value>Adam: Se ha abortado el Scanning de Contadores.</value></data>
+  <data name="MLA41" xml:space="preserve"><value>Parando</value></data>
+  <data name="MLA40" xml:space="preserve"><value>Iniciando</value></data>
+  <data name="MLA43" xml:space="preserve"><value>Vaciar Buffer Esclavo</value></data>
+  <data name="MLA42" xml:space="preserve"><value>Buffer Vacío</value></data>
+  <data name="MLA14" xml:space="preserve"><value>Error Cilindro 2 Home</value></data>
+  <data name="MLA15" xml:space="preserve"><value>Error no hay etiqueta en GAP</value></data>
+  <data name="MLA16" xml:space="preserve"><value>Error Cilindro 2 Tope</value></data>
+  <data name="MLA17" xml:space="preserve"><value>Error Cilindro 1 Tope</value></data>
+  <data name="MLA10" xml:space="preserve"><value>Error Rampa</value></data>
+  <data name="MLA11" xml:space="preserve"><value>Error 4L Pasos</value></data>
+  <data name="MLA12" xml:space="preserve"><value>Error Cilindro 1 Home</value></data>
+  <data name="MLA13" xml:space="preserve"><value>Error Protección Avance</value></data>
+  <data name="MLA18" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="MLA19" xml:space="preserve"><value>Error Sensor Rebobinado Arriba</value></data>
+  <data name="MLA36" xml:space="preserve"><value>Falla Lectura Scanner</value></data>
+  <data name="MLA37" xml:space="preserve"><value>No hay Etiquetas</value></data>
+  <data name="MLA34" xml:space="preserve"><value>Error RFU10</value></data>
+  <data name="MLA35" xml:space="preserve"><value>Error Rebobinador Lleno</value></data>
+  <data name="MLA32" xml:space="preserve"><value>Error Longitud Etiqueta</value></data>
+  <data name="MLA33" xml:space="preserve"><value>Error RFU9</value></data>
+  <data name="MLA30" xml:space="preserve"><value>Error No Hay Etiquetas</value></data>
+  <data name="MLA31" xml:space="preserve"><value>Error Ribbon Terminado</value></data>
+  <data name="MLA38" xml:space="preserve"><value>Bajo Nivel Etiquetas</value></data>
+  <data name="MLA39" xml:space="preserve"><value>Bajo Nivel Ribbon</value></data>
+  <data name="MLA27" xml:space="preserve"><value>Error Impresora Apagada</value></data>
+  <data name="MLA26" xml:space="preserve"><value>Error Eeprom</value></data>
+  <data name="MLA25" xml:space="preserve"><value>Error Tiempo Subaplicador</value></data>
+  <data name="MLA24" xml:space="preserve"><value>Error Tiempo Aplicador</value></data>
+  <data name="MLA23" xml:space="preserve"><value>Error Pala</value></data>
+  <data name="MLA22" xml:space="preserve"><value>Error Falta Teaching</value></data>
+  <data name="MLA21" xml:space="preserve"><value>Error Precisión</value></data>
+  <data name="MLA20" xml:space="preserve"><value>Error Sensor Rebobinado Abajo</value></data>
+  <data name="MLA29" xml:space="preserve"><value>Error Impresora No Lista</value></data>
+  <data name="MLA28" xml:space="preserve"><value>Error Impresora</value></data>
+  <data name="MLP51" xml:space="preserve"><value>ML: Error al enviar etiqueta:</value></data>
+  <data name="MLP50" xml:space="preserve"><value>ML: Error al Procesar los datos recibidos</value></data>
+  <data name="MLP53" xml:space="preserve"><value>ML: Error al capturar los datos del canal serie</value></data>
+  <data name="MLP52" xml:space="preserve"><value>ML: Error al procesar IO's</value></data>
+  <data name="MLP55" xml:space="preserve"><value>ML: Error al comprobar el checksum de la trama</value></data>
+  <data name="MLP54" xml:space="preserve"><value>ML: Error al procesar el buffer recibido</value></data>
+  <data name="MLP57" xml:space="preserve"><value>ML: Error al capturar los datos del TCP</value></data>
+  <data name="MLP56" xml:space="preserve"><value>ML: Error al enviar el comando.</value></data>
+  <data name="MLP59" xml:space="preserve"><value>Nivel Etiquetas Bajo</value></data>
+  <data name="MLP58" xml:space="preserve"><value>Falla Lectura Scanner</value></data>
+  <data name="MLP40" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="MLP41" xml:space="preserve"><value>Error Impresora Off</value></data>
+  <data name="MLP42" xml:space="preserve"><value>Error Impresora</value></data>
+  <data name="MLP43" xml:space="preserve"><value>Error Impresora Lista</value></data>
+  <data name="MLP44" xml:space="preserve"><value>Error No Hay Etiquetas</value></data>
+  <data name="MLP45" xml:space="preserve"><value>Error Ribbon Terminado</value></data>
+  <data name="MLP46" xml:space="preserve"><value>Ciclo No Iniciado</value></data>
+  <data name="MLP47" xml:space="preserve"><value>Totem No Home </value></data>
+  <data name="MLP48" xml:space="preserve"><value>No Avance Totem</value></data>
+  <data name="MLP49" xml:space="preserve"><value>Secuencia Mov. Servo</value></data>
+  <data name="MLP62" xml:space="preserve"><value>Parando Ciclo</value></data>
+  <data name="MLP63" xml:space="preserve"><value>Test Totem</value></data>
+  <data name="MLP60" xml:space="preserve"><value>Nivel Ribbon Bajo</value></data>
+  <data name="MLP61" xml:space="preserve"><value>Iniciando Sistema</value></data>
+  <data name="MLP66" xml:space="preserve"><value>Etiqueta Caída</value></data>
+  <data name="MLP64" xml:space="preserve"><value>Stop Totem</value></data>
+  <data name="MLP65" xml:space="preserve"><value>Posicion Totem</value></data>
+  <data name="MLP15" xml:space="preserve"><value>Error Cilindro 5 Home</value></data>
+  <data name="MLP14" xml:space="preserve"><value>Error Cilindro 4 Home</value></data>
+  <data name="MLP17" xml:space="preserve"><value>Error Cilindro 2 Tope</value></data>
+  <data name="MLP16" xml:space="preserve"><value>Error Cilindro 1 Tope</value></data>
+  <data name="MLP11" xml:space="preserve"><value>Error Cilindro 1 Home</value></data>
+  <data name="MLP10" xml:space="preserve"><value>Error Hall 1</value></data>
+  <data name="MLP13" xml:space="preserve"><value>Error Cilindro 3 Home</value></data>
+  <data name="MLP12" xml:space="preserve"><value>Error Cilindro 2 Home</value></data>
+  <data name="MLP19" xml:space="preserve"><value>Error Cilindro 4 Tope</value></data>
+  <data name="MLP18" xml:space="preserve"><value>Error Cilindro 3 Tope</value></data>
+  <data name="MLP37" xml:space="preserve"><value>XY Fuera de Rango</value></data>
+  <data name="MLP36" xml:space="preserve"><value>Reset Home Activo</value></data>
+  <data name="MLP35" xml:space="preserve"><value>Error No Home Guardado</value></data>
+  <data name="MLP34" xml:space="preserve"><value>Error Falta Producto</value></data>
+  <data name="MLP33" xml:space="preserve"><value>Error Send Prog</value></data>
+  <data name="MLP32" xml:space="preserve"><value>Error Stop Servos</value></data>
+  <data name="MLP31" xml:space="preserve"><value>Error Programa Servos</value></data>
+  <data name="MLP30" xml:space="preserve"><value>Error Posición Servos</value></data>
+  <data name="MLP39" xml:space="preserve"><value>Error RFU</value></data>
+  <data name="MLP38" xml:space="preserve"><value>Etiqueta Caida</value></data>
+  <data name="MLP26" xml:space="preserve"><value>Error Home Servos</value></data>
+  <data name="MLP27" xml:space="preserve"><value>Error Servo 1</value></data>
+  <data name="MLP24" xml:space="preserve"><value>Error Borrado Eeprom</value></data>
+  <data name="MLP25" xml:space="preserve"><value>Error Comunicación Servos</value></data>
+  <data name="MLP22" xml:space="preserve"><value>Error Tiempo Aplicador</value></data>
+  <data name="MLP23" xml:space="preserve"><value>Error Tiempo Subplicador</value></data>
+  <data name="MLP20" xml:space="preserve"><value>Error Cilindro 5 Tope</value></data>
+  <data name="MLP21" xml:space="preserve"><value>Error Pala</value></data>
+  <data name="MLP28" xml:space="preserve"><value>Error Servo 2</value></data>
+  <data name="MLP29" xml:space="preserve"><value>Error Servo 3</value></data>
+  <data name="Linx6" xml:space="preserve"><value>Print Go/Datos Remotos</value></data>
+  <data name="Linx7" xml:space="preserve"><value>Tiempo de Mantenimiento</value></data>
+  <data name="Linx4" xml:space="preserve"><value>Tinta Baja</value></data>
+  <data name="Linx5" xml:space="preserve"><value>Disolvente Bajo</value></data>
+  <data name="Linx2" xml:space="preserve"><value>Parada del inyector incompleta</value></data>
+  <data name="Linx3" xml:space="preserve"><value>Sobrevelocidad</value></data>
+  <data name="Linx1" xml:space="preserve"><value>No hay ajustes de TDV</value></data>
+  <data name="Linx8" xml:space="preserve"><value>Tapa del cabezal no colocada</value></data>
+  <data name="Linx9" xml:space="preserve"><value>Código del cabezal erróneo</value></data>
+  <data name="Sato8" xml:space="preserve"><value>Etiqueta Esperando</value></data>
+  <data name="Sato9" xml:space="preserve"><value>Etiqueta en Cola</value></data>
+  <data name="Sato4" xml:space="preserve"><value>Buffer Lleno</value></data>
+  <data name="Sato5" xml:space="preserve"><value>Ram Corrupta</value></data>
+  <data name="Sato6" xml:space="preserve"><value>Cabezal Levantado</value></data>
+  <data name="Sato7" xml:space="preserve"><value>Falta Ribbon</value></data>
+  <data name="Sato1" xml:space="preserve"><value>En línea</value></data>
+  <data name="Sato2" xml:space="preserve"><value>Sin Papel</value></data>
+  <data name="Sato3" xml:space="preserve"><value>En Pausa</value></data>
+  <data name="FoxjetDuo1" xml:space="preserve"><value>Alm. Residuos Lleno </value></data>
+  <data name="FoxjetDuo3" xml:space="preserve"><value>Tinta Baja</value></data>
+  <data name="FoxjetDuo2" xml:space="preserve"><value>Falta Tinta</value></data>
+  <data name="FoxjetDuo5" xml:space="preserve"><value>Falta Tinta H2</value></data>
+  <data name="FoxjetDuo4" xml:space="preserve"><value>Falta Tinta H1</value></data>
+  <data name="FoxjetDuo7" xml:space="preserve"><value>Tinta Baja H2</value></data>
+  <data name="FoxjetDuo6" xml:space="preserve"><value>Tinta Baja H1</value></data>
+  <data name="FoxjetPro1" xml:space="preserve"><value>FoxjetPro: Error al processar los datos recibidos.</value></data>
+  <data name="Mectec24" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="Mectec25" xml:space="preserve"><value>Inicio Envío de Etiqueta</value></data>
+  <data name="Mectec22" xml:space="preserve"><value>Impresión en progreso</value></data>
+  <data name="Mectec23" xml:space="preserve"><value>Comando no aceptado</value></data>
+  <data name="Mectec20" xml:space="preserve"><value>Etiqueta en proceso</value></data>
+  <data name="Mectec21" xml:space="preserve"><value>Cilindro fuera</value></data>
+  <data name="Mectec19" xml:space="preserve"><value>Código no legible</value></data>
+  <data name="Mectec18" xml:space="preserve"><value>Cabezal levantado</value></data>
+  <data name="Mectec15" xml:space="preserve"><value>Falta Ribbon</value></data>
+  <data name="Mectec14" xml:space="preserve"><value>Sin Papel</value></data>
+  <data name="Mectec17" xml:space="preserve"><value>Sin Conexión</value></data>
+  <data name="Mectec16" xml:space="preserve"><value>Pulsador Emergencia On</value></data>
+  <data name="Mectec11" xml:space="preserve"><value>Identificador de layout desconocido</value></data>
+  <data name="Mectec10" xml:space="preserve"><value>Tipo ilegal en el layout</value></data>
+  <data name="Mectec13" xml:space="preserve"><value>Demasiados string dinámicos para el layout seleccionado</value></data>
+  <data name="Mectec12" xml:space="preserve"><value>Faltan string dinámicos para el layout seleccionado</value></data>
+  <data name="Laser19" xml:space="preserve"><value>Sin Licencia Para Código de Barras</value></data>
+  <data name="Laser18" xml:space="preserve"><value>Error en Creación de Código de Barras</value></data>
+  <data name="Laser15" xml:space="preserve"><value>Sobrevelocidad</value></data>
+  <data name="Laser14" xml:space="preserve"><value>Laser no preparado</value></data>
+  <data name="Laser17" xml:space="preserve"><value>Fichero sin permiso de impresión</value></data>
+  <data name="Laser16" xml:space="preserve"><value>Disco Duro Lleno</value></data>
+  <data name="Laser11" xml:space="preserve"><value>Fuente inválida</value></data>
+  <data name="Laser10" xml:space="preserve"><value>Fichero no encontrado</value></data>
+  <data name="Laser13" xml:space="preserve"><value>Shutter Cerrado</value></data>
+  <data name="Laser12" xml:space="preserve"><value>Sobretemperatura</value></data>
+  <data name="Laser30" xml:space="preserve"><value>Error Desconocido</value></data>
+  <data name="Laser28" xml:space="preserve"><value>Mensaje Vacío</value></data>
+  <data name="Laser29" xml:space="preserve"><value>Fallo en Inicialización (Se precisa un Reinicio)</value></data>
+  <data name="Laser26" xml:space="preserve"><value>Scanner-x no disponible</value></data>
+  <data name="Laser27" xml:space="preserve"><value>Scanner-y no disponible</value></data>
+  <data name="Laser24" xml:space="preserve"><value>Se ha alcanzado la distancia mínima entre impresiones</value></data>
+  <data name="Laser25" xml:space="preserve"><value>Cliente(Timeout)</value></data>
+  <data name="Laser22" xml:space="preserve"><value>Base de Datos no Disponible</value></data>
+  <data name="Laser23" xml:space="preserve"><value>Se ha alcanzado la distancia máxima entre impresiones</value></data>
+  <data name="Laser20" xml:space="preserve"><value>Falta Librería de Código de Barras</value></data>
+  <data name="Laser21" xml:space="preserve"><value>Múltiples disparos de impresión durante impresión.</value></data>
+  <data name="Mectec8" xml:space="preserve"><value>Valor Y ilegal en el layout</value></data>
+  <data name="Mectec9" xml:space="preserve"><value>Dimensiones del código de barras incorrectas</value></data>
+  <data name="Mectec4" xml:space="preserve"><value>Mectec: Comando no enviado. Existe otro proceso activo.</value></data>
+  <data name="Mectec5" xml:space="preserve"><value>Mectec: Error al enviar datos con el CMD41 de la etiqueta</value></data>
+  <data name="Mectec6" xml:space="preserve"><value>En Línea</value></data>
+  <data name="Mectec7" xml:space="preserve"><value>Valor X ilegal en el layout</value></data>
+  <data name="Mectec1" xml:space="preserve"><value>Mectec: Error al procesar los datos recibidos</value></data>
+  <data name="Mectec2" xml:space="preserve"><value>Mectec :Final Envio etiqueta</value></data>
+  <data name="Mectec3" xml:space="preserve"><value>Mectec: Error al enviar etiqueta.</value></data>
+  <data name="Foxjet1" xml:space="preserve"><value>Falta Tinta</value></data>
+  <data name="MLA5" xml:space="preserve"><value>Error Puerta Cabina</value></data>
+  <data name="MLA4" xml:space="preserve"><value>Error Lectura Etiqueta</value></data>
+  <data name="MLA7" xml:space="preserve"><value>Error Rotura Papel</value></data>
+  <data name="MLA6" xml:space="preserve"><value>Error Final de Producción</value></data>
+  <data name="MLA1" xml:space="preserve"><value>Error Parámetros</value></data>
+  <data name="MLA3" xml:space="preserve"><value>Error Paro</value></data>
+  <data name="MLA2" xml:space="preserve"><value>Error Paro de Emergencia</value></data>
+  <data name="MLA9" xml:space="preserve"><value>Error RFU</value></data>
+  <data name="MLA8" xml:space="preserve"><value>Error Scanner</value></data>
+  <data name="MLP4" xml:space="preserve"><value>Error Paro</value></data>
+  <data name="MLP5" xml:space="preserve"><value>Error Reset</value></data>
+  <data name="MLP6" xml:space="preserve"><value>Error Puerta Cabina</value></data>
+  <data name="MLP7" xml:space="preserve"><value>Error Scanner</value></data>
+  <data name="MLP1" xml:space="preserve"><value>Error SM130</value></data>
+  <data name="MLP2" xml:space="preserve"><value>Error Parámetros</value></data>
+  <data name="MLP3" xml:space="preserve"><value>Error Paro de Emergencia</value></data>
+  <data name="MLP8" xml:space="preserve"><value>Rotura Papel</value></data>
+  <data name="MLP9" xml:space="preserve"><value>Error Hall 2</value></data>
+  </root>

@@ -1,0 +1,256 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Spanish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESN)
+#ifdef _WIN32
+LANGUAGE LANG_SPANISH, SUBLANG_SPANISH_MODERN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESP)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 10, 3\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\SocketCommCPPTest.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.esp\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SocketCommCPPTest.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Acerca de SocketCommCPPTest"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "SocketCommCPPTest Versión 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "Aceptar",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_SOCKETCOMMCPPTEST_DIALOG DIALOGEX 0, 0, 431, 278
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "SocketCommCPPTest"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,239,257,50,14
+    PUSHBUTTON      "send...",IDC_TEST_LASER,31,84,45,18
+    EDITTEXT        IDC_TEST_USERMESSAGE,79,87,76,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEST_USERMESSAGEFIELD,180,87,31,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Usermessage",IDC_STATIC,81,75,44,8
+    LTEXT           "Field",IDC_STATIC,181,75,16,8
+    PUSHBUTTON      "connect.....",IDC_TEST_CONNECT,33,19,49,17
+    PUSHBUTTON      "disconnect.....",IDC_TEST_DISCONNECT,117,254,49,17
+    GROUPBOX        "",IDC_STATIC,24,38,298,206
+    PUSHBUTTON      "offset X/Y...",IDC_TEST_LASER2,31,137,41,18
+    EDITTEXT        IDC_TEST_OFFSETX,79,138,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEST_OFFSETY,125,138,40,14,ES_AUTOHSCROLL
+    LTEXT           "OffsetX[um]:",IDC_STATIC,79,130,37,8
+    LTEXT           "OffsetY[um]:",IDC_STATIC,127,130,37,8
+    CONTROL         "IPAddress1",IDC_IPADDRESS,"SysIPAddress32",WS_TABSTOP,101,18,100,15
+    PUSHBUTTON      "test buffered Usermessage...",IDC_TEST_BUFFEREDUM,72,47,61,21,BS_MULTILINE
+    PUSHBUTTON      "stop",IDC_TESTSTOP,139,47,26,21,BS_MULTILINE
+    EDITTEXT        IDC_TEST_BUFFERSIZE,193,45,19,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Size",IDC_STATIC,176,46,14,8
+    CONTROL         "reset after print",IDC_RESETAFTERPRINT,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,174,135,43,21
+    EDITTEXT        IDC_PERCENTAGE,97,186,47,12,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Pixel-Time",IDC_TEST_POWERSCALE0,41,169,35,14
+    PUSHBUTTON      "Pixel-Power",IDC_TEST_POWERSCALE1,80,169,41,14
+    PUSHBUTTON      "Layerspeed",IDC_TEST_POWERSCALE2,127,169,47,14
+    PUSHBUTTON      "Layerpower",IDC_TEST_POWERSCALE3,177,169,43,14
+    GROUPBOX        "Power scaling",IDC_STATIC,35,159,190,44
+    LTEXT           "%",IDC_STATIC,145,188,8,8
+    PUSHBUTTON      "Encoder speed",IDC_TEST_DYNAMICVELOCITY,46,212,70,14
+    EDITTEXT        IDC_ENCODERSPEED,125,212,47,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "m/min",IDC_STATIC,177,215,35,8
+    PUSHBUTTON      "get...",IDC_TEST_LASER_GETUM,182,100,28,13
+    CONTROL         "use as datastring",IDC_CHECK_DATASTRING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,32,108,90,13
+    PUSHBUTTON      "Distance",IDC_TEST_DYNAMICDISTANCE,45,228,70,14
+    EDITTEXT        IDC_ENCODERDISTANCE,125,229,47,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "mm",IDC_STATIC,178,229,35,8
+    EDITTEXT        IDC_ENCODERSPEED2,213,213,47,12,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    EDITTEXT        IDC_ENCODERDISTANCE2,213,228,47,12,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    PUSHBUTTON      "Refresh",IDC_BUTTON2,271,221,32,15
+    EDITTEXT        IDC_EDIT_ACTSIZE,281,100,38,11,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_FILLSTATUS,281,113,38,11,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Size:",IDC_STATIC,259,101,21,10
+    LTEXT           "Filled:",IDC_STATIC,260,114,21,10
+    EDITTEXT        IDC_EDIT1,218,45,101,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,282,70,38,10,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Max. time [ms]:",IDC_STATIC,230,71,48,10
+    EDITTEXT        IDC_EDIT3,282,83,38,10,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Messages/sec:",IDC_STATIC,230,83,48,10
+    EDITTEXT        IDC_EDIT_FILLSTATUS2,282,126,38,11,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Min.fillstatus:",IDC_STATIC,236,127,42,10
+    LTEXT           "Limit[%]:",IDC_STATIC,170,63,29,8
+    EDITTEXT        IDC_TEST_BUFFERSIZE2,193,60,19,14,ES_CENTER | ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Timings[ms]",IDC_STATIC,332,42,91,114
+    EDITTEXT        IDC_EDIT_MS1,385,59,29,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MS2,385,76,29,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MS3,385,94,29,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Queue full:",IDC_STATIC,338,61,43,10
+    LTEXT           "Queue > limit:",IDC_STATIC,338,78,43,10
+    LTEXT           "Queue < limit:",IDC_STATIC,337,95,43,10
+    EDITTEXT        IDC_EDIT_MS4,385,117,29,12,ES_AUTOHSCROLL
+    LTEXT           "Prints/sec:",IDC_STATIC,339,118,43,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "0C0A04B0"
+        BEGIN
+            VALUE "FileDescription", "Aplicación MFC SocketCommCPPTest"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "SocketCommCPPTest"
+            VALUE "LegalCopyright", "Copyright (C) 2005"
+            VALUE "OriginalFilename", "SocketCommCPPTest.EXE"
+            VALUE "ProductName", "Aplicación SocketCommCPPTest"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0xc0a, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SOCKETCOMMCPPTEST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 424
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 271
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&Acerca de SocketCommCPPTest..."
+END
+
+#endif    // Spanish resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ESP)
+#ifdef _WIN32
+LANGUAGE 10, 3
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\SocketCommCPPTest.rc2"  // non-Microsoft Visual C++ edited resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

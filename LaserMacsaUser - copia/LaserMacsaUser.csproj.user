@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Views\AlarmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AppConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ArtworkSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ConfirmPromotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

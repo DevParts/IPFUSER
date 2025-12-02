@@ -27,6 +27,24 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Referencia a SocketCommNet -->
+    <ProjectReference Include="..\..\TCPIPver31\SocketCommNet\SocketCommNet.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Referencia a Microsoft.Data.SqlClient para .NET 8 (versión actualizada sin vulnerabilidades) -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Copiar SocketCommDll.dll al directorio de salida -->
+    <None Include="..\..\TCPIPver31\libs\x64\SocketCommDll.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>SocketCommDll.dll</Link>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="Properties\Settings.settings">

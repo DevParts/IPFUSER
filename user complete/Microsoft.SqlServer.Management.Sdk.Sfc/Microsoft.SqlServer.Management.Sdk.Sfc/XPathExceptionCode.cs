@@ -1,0 +1,35 @@
+namespace Microsoft.SqlServer.Management.Sdk.Sfc;
+
+public enum XPathExceptionCode
+{
+	Success,
+	UnclosedString,
+	TokenExpected,
+	NodeTestExpected,
+	ExpressionExpected,
+	NumberExpected,
+	BooleanExpected,
+	QueryExpected,
+	UnknownMethod,
+	TestExpected,
+	InvalidArgument,
+	InvalidNumArgs,
+	InvalidName,
+	InvalidNodeType,
+	InvalidToken,
+	FunctionExpected,
+	NodeSetExpected,
+	NoXPathActive,
+	NotSupported,
+	InvalidPattern,
+	BadQueryObject,
+	InvalidDataRecordFilter,
+	InvalidPrefix,
+	NoSelectedSet,
+	MovedFromSelection,
+	ConstantExpected,
+	InvalidVariable,
+	UndefinedXsltContext,
+	BadContext,
+	Last
+}

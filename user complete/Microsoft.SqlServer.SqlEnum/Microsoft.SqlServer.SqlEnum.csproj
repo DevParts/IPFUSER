@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Microsoft.SqlServer.SqlEnum</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net45</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="AditionalParameters.xml" />
+    <None Remove="AffinityInfo.xml" />
+    <None Remove="AgentPerfInfo.xml" />
+    <None Remove="AgentSubsystems.xml" />
+    <None Remove="agent_alert.xml" />
+    <None Remove="agent_alertsystem.xml" />
+    <None Remove="agent_alert_categories.xml" />
+    <None Remove="agent_ErrorLog.xml" />
+    <None Remove="agent_ErrorLogText.xml" />
+    <None Remove="agent_jobalert.xml" />
+    <None Remove="agent_jobhistory.xml" />
+    <None Remove="agent_jobschedule.xml" />
+    <None Remove="agent_jobtargetservers.xml" />
+    <None Remove="agent_job_categories.xml" />
+    <None Remove="agent_operator.xml" />
+    <None Remove="agent_operator_categories.xml" />
+    <None Remove="agent_targetserver.xml" />
+    <None Remove="agent_targetservergroup.xml" />
+    <None Remove="agent_targetservermember.xml" />
+    <None Remove="AlertNotification.xml" />
+    <None Remove="ApplicationRole.xml" />
+    <None Remove="asymmetrickey.xml" />
+    <None Remove="Audit.xml" />
+    <None Remove="AvailabilityDatabase.xml" />
+    <None Remove="AvailabilityGroup.xml" />
+    <None Remove="AvailabilityGroupListener.xml" />
+    <None Remove="AvailabilityGroupListenerIPAddress.xml" />
+    <None Remove="AvailabilityReplica.xml" />
+    <None Remove="AvailableMedia.xml" />
+    <None Remove="BackupDevice.xml" />
+    <None Remove="backupfile.xml" />
+    <None Remove="backupmediafamily.xml" />
+    <None Remove="backupmediaset.xml" />
+    <None Remove="backupset.xml" />
+    <None Remove="BoundColumn.xml" />
+    <None Remove="CdromDrive.xml" />
+    <None Remove="certificate.xml" />
+    <None Remove="Check.xml" />
+    <None Remove="ClusterMemberState.xml" />
+    <None Remove="ClusterSubnet.xml" />
+    <None Remove="Collation.xml" />
+    <None Remove="Column.xml" />
+    <None Remove="ColumnEncryptionKey.xml" />
+    <None Remove="ColumnEncryptionKeyValue.xml" />
+    <None Remove="ColumnMasterKey.xml" />
+    <None Remove="DatabaseScopedCredential.xml" />
+    <None Remove="ComputedText.xml" />
+    <None Remove="Configuration.xml" />
+    <None Remove="ConfigurationValue.xml" />
+    <None Remove="Connection.xml" />
+    <None Remove="Credential.xml" />
+    <None Remove="CryptographicProvider.xml" />
+    <None Remove="Database.xml" />
+    <None Remove="DatabaseActiveDirectory.xml" />
+    <None Remove="DatabaseAuditSpecification.xml" />
+    <None Remove="DatabaseAuditSpecificationDetail.xml" />
+    <None Remove="DatabaseDdlTrigger.xml" />
+    <None Remove="DatabaseDdlTriggerEvent.xml" />
+    <None Remove="DatabaseDiagram.xml" />
+    <None Remove="DatabaseEncryptionKey.xml" />
+    <None Remove="DatabaseLocks.xml" />
+    <None Remove="DatabaseMappings.xml" />
+    <None Remove="DatabaseMasterKey.xml" />
+    <None Remove="DatabaseMirroringWitnessRole.xml" />
+    <None Remove="DatabaseOptions.xml" />
+    <None Remove="DatabaseReplicaState.xml" />
+    <None Remove="DatabaseRole.xml" />
+    <None Remove="DatabaseRoleMember.xml" />
+    <None Remove="DbExtendedProperty.xml" />
+    <None Remove="Default.xml" />
+    <None Remove="DefaultColumn.xml" />
+    <None Remove="DefaultConstrain.xml" />
+    <None Remove="DefaultDataType.xml" />
+    <None Remove="DiskFile.xml" />
+    <None Remove="DistributionColumn.xml" />
+    <None Remove="Drive.xml" />
+    <None Remove="database_mirroring_endpoint.xml" />
+    <None Remove="endpoint.xml" />
+    <None Remove="http_endpoint.xml" />
+    <None Remove="service_broker_endpoint.xml" />
+    <None Remove="soap_endpoint.xml" />
+    <None Remove="soap_endpoint_method.xml" />
+    <None Remove="tcp_endpoint.xml" />
+    <None Remove="via_endpoint.xml" />
+    <None Remove="ErrorLog.xml" />
+    <None Remove="ErrorLogText.xml" />
+    <None Remove="ExtendedProperty.xml" />
+    <None Remove="inc_level2SupportProperties.xml" />
+    <None Remove="inc_shilohExtendedProperty.xml" />
+    <None Remove="Level0ExtendedProperty.xml" />
+    <None Remove="Level1ExtendedProperty.xml" />
+    <None Remove="Level2ExtendedProperty.xml" />
+    <None Remove="Level2IndexExtendedProperty.xml" />
+    <None Remove="ExternalDataSource.xml" />
+    <None Remove="ExternalFileFormat.xml" />
+    <None Remove="ExternalLibrary.xml" />
+    <None Remove="ExternalLibraryFile.xml" />
+    <None Remove="ExternalResourcePool.xml" />
+    <None Remove="ExternalResourcePoolAffinityInfo.xml" />
+    <None Remove="File.xml" />
+    <None Remove="FileGroup.xml" />
+    <None Remove="FixedDrive.xml" />
+    <None Remove="FKColumn.xml" />
+    <None Remove="ForeignKey.xml" />
+    <None Remove="FullTextCatalog.xml" />
+    <None Remove="FullTextFile.xml" />
+    <None Remove="FullTextIndex.xml" />
+    <None Remove="FullTextIndexColumn.xml" />
+    <None Remove="FullTextLanguage.xml" />
+    <None Remove="FulltextSemanticLanguage.xml" />
+    <None Remove="FullTextService.xml" />
+    <None Remove="FullTextStopList.xml" />
+    <None Remove="fulltext_ErrorLog.xml" />
+    <None Remove="fulltext_ErrorLogText.xml" />
+    <None Remove="mixed_module_link.xml" />
+    <None Remove="parameter.xml" />
+    <None Remove="sql_module_link.xml" />
+    <None Remove="inc_column_reference.xml" />
+    <None Remove="inc_constraint.xml" />
+    <None Remove="inc_DbFile.xml" />
+    <None Remove="inc_ddl_trigger_event.xml" />
+    <None Remove="inc_fulltext.xml" />
+    <None Remove="inc_hadr_policy_health_state.xml" />
+    <None Remove="inc_hadr_setting.xml" />
+    <None Remove="inc_IndexFrag.xml" />
+    <None Remove="inc_named_object.xml" />
+    <None Remove="inc_object.xml" />
+    <None Remove="inc_objprop_table_view.xml" />
+    <None Remove="inc_policy_health_state.xml" />
+    <None Remove="inc_ruledef80.xml" />
+    <None Remove="inc_server.xml" />
+    <None Remove="inc_server_sql_module_link.xml" />
+    <None Remove="inc_sql_module.xml" />
+    <None Remove="inc_sql_module_JustText.xml" />
+    <None Remove="inc_storage.xml" />
+    <None Remove="inc_system_object.xml" />
+    <None Remove="inc_system_table_view_sp_udf.xml" />
+    <None Remove="inc_text.xml" />
+    <None Remove="inc_type.xml" />
+    <None Remove="inc_type_reference.xml" />
+    <None Remove="inc_urn.xml" />
+    <None Remove="inc_urn_collate_default.xml" />
+    <None Remove="inc_urn_message.xml" />
+    <None Remove="inc_urn_schema.xml" />
+    <None Remove="inc_urn_single.xml" />
+    <None Remove="inc_urn_soapmethod.xml" />
+    <None Remove="Index.xml" />
+    <None Remove="IndexedColumn.xml" />
+    <None Remove="IndexedXmlPath.xml" />
+    <None Remove="IndexedXmlPathNamespace.xml" />
+    <None Remove="IndexFragDetail.xml" />
+    <None Remove="IndexFragFast.xml" />
+    <None Remove="IndexFragSampled.xml" />
+    <None Remove="Information.xml" />
+    <None Remove="Job.xml" />
+    <None Remove="JobServer.xml" />
+    <None Remove="JobStep.xml" />
+    <None Remove="JobStepOutputLog.xml" />
+    <None Remove="KeyEncryption.xml" />
+    <None Remove="Language.xml" />
+    <None Remove="LinkedServer.xml" />
+    <None Remove="LinkedServerCatalog.xml" />
+    <None Remove="LinkedServerLogin.xml" />
+    <None Remove="LinkedServerTable.xml" />
+    <None Remove="LinkedServerView.xml" />
+    <None Remove="Lock.xml" />
+    <None Remove="LogFile.xml" />
+    <None Remove="Login.xml" />
+    <None Remove="LogMarkHistory.xml" />
+    <None Remove="Mail.xml" />
+    <None Remove="MailAccount.xml" />
+    <None Remove="MailProfile.xml" />
+    <None Remove="MailProfileAccounts.xml" />
+    <None Remove="MailProfilePrincipals.xml" />
+    <None Remove="MailServer.xml" />
+    <None Remove="Mail_ErrorLog.xml" />
+    <None Remove="MaintenancePlan.xml" />
+    <None Remove="MaintenancePlanDeprecated.xml" />
+    <None Remove="MaintenanceSubPlan.xml" />
+    <None Remove="MaintSubPlanLog.xml" />
+    <None Remove="MaintSubPlanLogDetail.xml" />
+    <None Remove="MasterKeyEncryption.xml" />
+    <None Remove="Member.xml" />
+    <None Remove="NTGroup.xml" />
+    <None Remove="NTLogin.xml" />
+    <None Remove="NumberedSPParams.xml" />
+    <None Remove="NumberedStoredProcedure.xml" />
+    <None Remove="OLEDBProvider.xml" />
+    <None Remove="OLEDBProviderSetting.xml" />
+    <None Remove="OLEDBProvProp.xml" />
+    <None Remove="OperatorJobNotification.xml" />
+    <None Remove="OperatorNotification.xml" />
+    <None Remove="OrderColumn.xml" />
+    <None Remove="PartitionFunction.xml" />
+    <None Remove="PartitionFunctionParameter.xml" />
+    <None Remove="PartitionFunctionRangeValue.xml" />
+    <None Remove="PartitionScheme.xml" />
+    <None Remove="PartitionSchemeFileGroup.xml" />
+    <None Remove="PartitionSchemeParameter.xml" />
+    <None Remove="PerfInfo.xml" />
+    <None Remove="ColumnPerm.xml" />
+    <None Remove="dbfixedroleperm.xml" />
+    <None Remove="DBObjectPerm.xml" />
+    <None Remove="DBPerm.xml" />
+    <None Remove="inc_perm.xml" />
+    <None Remove="ShilohYukonPerm.xml" />
+    <None Remove="SrvObjectPerm.xml" />
+    <None Remove="SrvYukonObjectPerm.xml" />
+    <None Remove="SrvYukonPerm.xml" />
+    <None Remove="TablePerm.xml" />
+    <None Remove="YukonObjectPerm.xml" />
+    <None Remove="YukonSchemaObjectPerm.xml" />
+    <None Remove="PhysicalPartition.xml" />
+    <None Remove="PlanGuide.xml" />
+    <None Remove="PrimaryChildren.xml" />
+    <None Remove="PrimaryFile.xml" />
+    <None Remove="Process.xml" />
+    <None Remove="ProxyAccount.xml" />
+    <None Remove="ProxyAccountPrincipals.xml" />
+    <None Remove="QueryStoreOptions.xml" />
+    <None Remove="RemoteDrive.xml" />
+    <None Remove="RemoteMaintenancePlan.xml" />
+    <None Remove="RemotePlanLog.xml" />
+    <None Remove="RemotePlanLogDetail.xml" />
+    <None Remove="RemoteSubPlan.xml" />
+    <None Remove="RemovableDrive.xml" />
+    <None Remove="ReplicaClusterNode.xml" />
+    <None Remove="ResourceGovernor.xml" />
+    <None Remove="ResourcePool.xml" />
+    <None Remove="ResourcePoolAffinityInfo.xml" />
+    <None Remove="ResourcePoolScheduler.xml" />
+    <None Remove="restorefile.xml" />
+    <None Remove="restorefilegroup.xml" />
+    <None Remove="restorehistory.xml" />
+    <None Remove="restore_plan.xml" />
+    <None Remove="resumableindex.xml" />
+    <None Remove="Rule.xml" />
+    <None Remove="RuleColumn.xml" />
+    <None Remove="RuleDataType.xml" />
+    <None Remove="Schedule.xml" />
+    <None Remove="Schema.xml" />
+    <None Remove="sdt.xml" />
+    <None Remove="SearchProperty.xml" />
+    <None Remove="SearchPropertyList.xml" />
+    <None Remove="SecurityPolicy.xml" />
+    <None Remove="SecurityPredicate.xml" />
+    <None Remove="DatabaseScopedConfiguration.xml" />
+    <None Remove="sequence.xml" />
+    <None Remove="Server.xml" />
+    <None Remove="ServerActiveDirectory.xml" />
+    <None Remove="ServerAuditSpecification.xml" />
+    <None Remove="ServerAuditSpecificationDetail.xml" />
+    <None Remove="ServerDdlTrigger.xml" />
+    <None Remove="ServerDdlTriggerEvent.xml" />
+    <None Remove="ServerProxyAccount.xml" />
+    <None Remove="ServerRole.xml" />
+    <None Remove="ServiceMasterKey.xml" />
+    <None Remove="Settings.xml" />
+    <None Remove="SharedSchedule.xml" />
+    <None Remove="SmartAdmin.xml" />
+    <None Remove="SPParams.xml" />
+    <None Remove="SqlAssembly.xml" />
+    <None Remove="SqlAssemblyFile.xml" />
+    <None Remove="SqlBoot.xml" />
+    <None Remove="Statistic.xml" />
+    <None Remove="StatisticColumn.xml" />
+    <None Remove="StoredProcedure.xml" />
+    <None Remove="symmetrickey.xml" />
+    <None Remove="synonym.xml" />
+    <None Remove="sysmessage.xml" />
+    <None Remove="table.xml" />
+    <None Remove="TapeDevice.xml" />
+    <None Remove="temp_table.xml" />
+    <None Remove="Text.xml" />
+    <None Remove="transaction.xml" />
+    <None Remove="Trigger.xml" />
+    <None Remove="Uddt.xml" />
+    <None Remove="UDF.xml" />
+    <None Remove="udfcolumn.xml" />
+    <None Remove="UDFParams.xml" />
+    <None Remove="User.xml" />
+    <None Remove="UserDefinedAggregate.xml" />
+    <None Remove="UserDefinedAggregateParameter.xml" />
+    <None Remove="UserDefinedTableType.xml" />
+    <None Remove="UserDefinedType.xml" />
+    <None Remove="usermessage.xml" />
+    <None Remove="UserOption.xml" />
+    <None Remove="View.xml" />
+    <None Remove="WorkloadGroup.xml" />
+    <None Remove="XmlNamespace.xml" />
+    <None Remove="XmlSchemaCollection.xml" />
+    <None Remove="XmlType.xml" />
+    <None Remove="XStoredProcedure.xml" />
+    <None Remove="Yukonuserownedobject.xml" />
+    <None Remove="YukonuserownedobjectSchema.xml" />
+    <None Remove="CloudDependency.sql" />
+    <None Remove="KatmaiDependency.sql" />
+    <None Remove="ShilohDependency.sql" />
+    <None Remove="SQL11Dependency.sql" />
+    <None Remove="YukonDependency.sql" />
+    <EmbeddedResource Include="AditionalParameters.xml" LogicalName="AditionalParameters.xml" />
+    <EmbeddedResource Include="AffinityInfo.xml" LogicalName="AffinityInfo.xml" />
+    <EmbeddedResource Include="AgentPerfInfo.xml" LogicalName="AgentPerfInfo.xml" />
+    <EmbeddedResource Include="AgentSubsystems.xml" LogicalName="AgentSubsystems.xml" />
+    <EmbeddedResource Include="agent_alert.xml" LogicalName="agent_alert.xml" />
+    <EmbeddedResource Include="agent_alertsystem.xml" LogicalName="agent_alertsystem.xml" />
+    <EmbeddedResource Include="agent_alert_categories.xml" LogicalName="agent_alert_categories.xml" />
+    <EmbeddedResource Include="agent_ErrorLog.xml" LogicalName="agent_ErrorLog.xml" />
+    <EmbeddedResource Include="agent_ErrorLogText.xml" LogicalName="agent_ErrorLogText.xml" />
+    <EmbeddedResource Include="agent_jobalert.xml" LogicalName="agent_jobalert.xml" />
+    <EmbeddedResource Include="agent_jobhistory.xml" LogicalName="agent_jobhistory.xml" />
+    <EmbeddedResource Include="agent_jobschedule.xml" LogicalName="agent_jobschedule.xml" />
+    <EmbeddedResource Include="agent_jobtargetservers.xml" LogicalName="agent_jobtargetservers.xml" />
+    <EmbeddedResource Include="agent_job_categories.xml" LogicalName="agent_job_categories.xml" />
+    <EmbeddedResource Include="agent_operator.xml" LogicalName="agent_operator.xml" />
+    <EmbeddedResource Include="agent_operator_categories.xml" LogicalName="agent_operator_categories.xml" />
+    <EmbeddedResource Include="agent_targetserver.xml" LogicalName="agent_targetserver.xml" />
+    <EmbeddedResource Include="agent_targetservergroup.xml" LogicalName="agent_targetservergroup.xml" />
+    <EmbeddedResource Include="agent_targetservermember.xml" LogicalName="agent_targetservermember.xml" />
+    <EmbeddedResource Include="AlertNotification.xml" LogicalName="AlertNotification.xml" />
+    <EmbeddedResource Include="ApplicationRole.xml" LogicalName="ApplicationRole.xml" />
+    <EmbeddedResource Include="asymmetrickey.xml" LogicalName="asymmetrickey.xml" />
+    <EmbeddedResource Include="Audit.xml" LogicalName="Audit.xml" />
+    <EmbeddedResource Include="AvailabilityDatabase.xml" LogicalName="AvailabilityDatabase.xml" />
+    <EmbeddedResource Include="AvailabilityGroup.xml" LogicalName="AvailabilityGroup.xml" />
+    <EmbeddedResource Include="AvailabilityGroupListener.xml" LogicalName="AvailabilityGroupListener.xml" />
+    <EmbeddedResource Include="AvailabilityGroupListenerIPAddress.xml" LogicalName="AvailabilityGroupListenerIPAddress.xml" />
+    <EmbeddedResource Include="AvailabilityReplica.xml" LogicalName="AvailabilityReplica.xml" />
+    <EmbeddedResource Include="AvailableMedia.xml" LogicalName="AvailableMedia.xml" />
+    <EmbeddedResource Include="BackupDevice.xml" LogicalName="BackupDevice.xml" />
+    <EmbeddedResource Include="backupfile.xml" LogicalName="backupfile.xml" />
+    <EmbeddedResource Include="backupmediafamily.xml" LogicalName="backupmediafamily.xml" />
+    <EmbeddedResource Include="backupmediaset.xml" LogicalName="backupmediaset.xml" />
+    <EmbeddedResource Include="backupset.xml" LogicalName="backupset.xml" />
+    <EmbeddedResource Include="BoundColumn.xml" LogicalName="BoundColumn.xml" />
+    <EmbeddedResource Include="CdromDrive.xml" LogicalName="CdromDrive.xml" />
+    <EmbeddedResource Include="certificate.xml" LogicalName="certificate.xml" />
+    <EmbeddedResource Include="Check.xml" LogicalName="Check.xml" />
+    <EmbeddedResource Include="ClusterMemberState.xml" LogicalName="ClusterMemberState.xml" />
+    <EmbeddedResource Include="ClusterSubnet.xml" LogicalName="ClusterSubnet.xml" />
+    <EmbeddedResource Include="Collation.xml" LogicalName="Collation.xml" />
+    <EmbeddedResource Include="Column.xml" LogicalName="Column.xml" />
+    <EmbeddedResource Include="ColumnEncryptionKey.xml" LogicalName="ColumnEncryptionKey.xml" />
+    <EmbeddedResource Include="ColumnEncryptionKeyValue.xml" LogicalName="ColumnEncryptionKeyValue.xml" />
+    <EmbeddedResource Include="ColumnMasterKey.xml" LogicalName="ColumnMasterKey.xml" />
+    <EmbeddedResource Include="DatabaseScopedCredential.xml" LogicalName="DatabaseScopedCredential.xml" />
+    <EmbeddedResource Include="ComputedText.xml" LogicalName="ComputedText.xml" />
+    <EmbeddedResource Include="Configuration.xml" LogicalName="Configuration.xml" />
+    <EmbeddedResource Include="ConfigurationValue.xml" LogicalName="ConfigurationValue.xml" />
+    <EmbeddedResource Include="Connection.xml" LogicalName="Connection.xml" />
+    <EmbeddedResource Include="Credential.xml" LogicalName="Credential.xml" />
+    <EmbeddedResource Include="CryptographicProvider.xml" LogicalName="CryptographicProvider.xml" />
+    <EmbeddedResource Include="Database.xml" LogicalName="Database.xml" />
+    <EmbeddedResource Include="DatabaseActiveDirectory.xml" LogicalName="DatabaseActiveDirectory.xml" />
+    <EmbeddedResource Include="DatabaseAuditSpecification.xml" LogicalName="DatabaseAuditSpecification.xml" />
+    <EmbeddedResource Include="DatabaseAuditSpecificationDetail.xml" LogicalName="DatabaseAuditSpecificationDetail.xml" />
+    <EmbeddedResource Include="DatabaseDdlTrigger.xml" LogicalName="DatabaseDdlTrigger.xml" />
+    <EmbeddedResource Include="DatabaseDdlTriggerEvent.xml" LogicalName="DatabaseDdlTriggerEvent.xml" />
+    <EmbeddedResource Include="DatabaseDiagram.xml" LogicalName="DatabaseDiagram.xml" />
+    <EmbeddedResource Include="DatabaseEncryptionKey.xml" LogicalName="DatabaseEncryptionKey.xml" />
+    <EmbeddedResource Include="DatabaseLocks.xml" LogicalName="DatabaseLocks.xml" />
+    <EmbeddedResource Include="DatabaseMappings.xml" LogicalName="DatabaseMappings.xml" />
+    <EmbeddedResource Include="DatabaseMasterKey.xml" LogicalName="DatabaseMasterKey.xml" />
+    <EmbeddedResource Include="DatabaseMirroringWitnessRole.xml" LogicalName="DatabaseMirroringWitnessRole.xml" />
+    <EmbeddedResource Include="DatabaseOptions.xml" LogicalName="DatabaseOptions.xml" />
+    <EmbeddedResource Include="DatabaseReplicaState.xml" LogicalName="DatabaseReplicaState.xml" />
+    <EmbeddedResource Include="DatabaseRole.xml" LogicalName="DatabaseRole.xml" />
+    <EmbeddedResource Include="DatabaseRoleMember.xml" LogicalName="DatabaseRoleMember.xml" />
+    <EmbeddedResource Include="DbExtendedProperty.xml" LogicalName="DbExtendedProperty.xml" />
+    <EmbeddedResource Include="Default.xml" LogicalName="Default.xml" />
+    <EmbeddedResource Include="DefaultColumn.xml" LogicalName="DefaultColumn.xml" />
+    <EmbeddedResource Include="DefaultConstrain.xml" LogicalName="DefaultConstrain.xml" />
+    <EmbeddedResource Include="DefaultDataType.xml" LogicalName="DefaultDataType.xml" />
+    <EmbeddedResource Include="DiskFile.xml" LogicalName="DiskFile.xml" />
+    <EmbeddedResource Include="DistributionColumn.xml" LogicalName="DistributionColumn.xml" />
+    <EmbeddedResource Include="Drive.xml" LogicalName="Drive.xml" />
+    <EmbeddedResource Include="database_mirroring_endpoint.xml" LogicalName="database_mirroring_endpoint.xml" />
+    <EmbeddedResource Include="endpoint.xml" LogicalName="endpoint.xml" />
+    <EmbeddedResource Include="http_endpoint.xml" LogicalName="http_endpoint.xml" />
+    <EmbeddedResource Include="service_broker_endpoint.xml" LogicalName="service_broker_endpoint.xml" />
+    <EmbeddedResource Include="soap_endpoint.xml" LogicalName="soap_endpoint.xml" />
+    <EmbeddedResource Include="soap_endpoint_method.xml" LogicalName="soap_endpoint_method.xml" />
+    <EmbeddedResource Include="tcp_endpoint.xml" LogicalName="tcp_endpoint.xml" />
+    <EmbeddedResource Include="via_endpoint.xml" LogicalName="via_endpoint.xml" />
+    <EmbeddedResource Include="ErrorLog.xml" LogicalName="ErrorLog.xml" />
+    <EmbeddedResource Include="ErrorLogText.xml" LogicalName="ErrorLogText.xml" />
+    <EmbeddedResource Include="ExtendedProperty.xml" LogicalName="ExtendedProperty.xml" />
+    <EmbeddedResource Include="inc_level2SupportProperties.xml" LogicalName="inc_level2SupportProperties.xml" />
+    <EmbeddedResource Include="inc_shilohExtendedProperty.xml" LogicalName="inc_shilohExtendedProperty.xml" />
+    <EmbeddedResource Include="Level0ExtendedProperty.xml" LogicalName="Level0ExtendedProperty.xml" />
+    <EmbeddedResource Include="Level1ExtendedProperty.xml" LogicalName="Level1ExtendedProperty.xml" />
+    <EmbeddedResource Include="Level2ExtendedProperty.xml" LogicalName="Level2ExtendedProperty.xml" />
+    <EmbeddedResource Include="Level2IndexExtendedProperty.xml" LogicalName="Level2IndexExtendedProperty.xml" />
+    <EmbeddedResource Include="ExternalDataSource.xml" LogicalName="ExternalDataSource.xml" />
+    <EmbeddedResource Include="ExternalFileFormat.xml" LogicalName="ExternalFileFormat.xml" />
+    <EmbeddedResource Include="ExternalLibrary.xml" LogicalName="ExternalLibrary.xml" />
+    <EmbeddedResource Include="ExternalLibraryFile.xml" LogicalName="ExternalLibraryFile.xml" />
+    <EmbeddedResource Include="ExternalResourcePool.xml" LogicalName="ExternalResourcePool.xml" />
+    <EmbeddedResource Include="ExternalResourcePoolAffinityInfo.xml" LogicalName="ExternalResourcePoolAffinityInfo.xml" />
+    <EmbeddedResource Include="File.xml" LogicalName="File.xml" />
+    <EmbeddedResource Include="FileGroup.xml" LogicalName="FileGroup.xml" />
+    <EmbeddedResource Include="FixedDrive.xml" LogicalName="FixedDrive.xml" />
+    <EmbeddedResource Include="FKColumn.xml" LogicalName="FKColumn.xml" />
+    <EmbeddedResource Include="ForeignKey.xml" LogicalName="ForeignKey.xml" />
+    <EmbeddedResource Include="FullTextCatalog.xml" LogicalName="FullTextCatalog.xml" />
+    <EmbeddedResource Include="FullTextFile.xml" LogicalName="FullTextFile.xml" />
+    <EmbeddedResource Include="FullTextIndex.xml" LogicalName="FullTextIndex.xml" />
+    <EmbeddedResource Include="FullTextIndexColumn.xml" LogicalName="FullTextIndexColumn.xml" />
+    <EmbeddedResource Include="FullTextLanguage.xml" LogicalName="FullTextLanguage.xml" />
+    <EmbeddedResource Include="FulltextSemanticLanguage.xml" LogicalName="FulltextSemanticLanguage.xml" />
+    <EmbeddedResource Include="FullTextService.xml" LogicalName="FullTextService.xml" />
+    <EmbeddedResource Include="FullTextStopList.xml" LogicalName="FullTextStopList.xml" />
+    <EmbeddedResource Include="fulltext_ErrorLog.xml" LogicalName="fulltext_ErrorLog.xml" />
+    <EmbeddedResource Include="fulltext_ErrorLogText.xml" LogicalName="fulltext_ErrorLogText.xml" />
+    <EmbeddedResource Include="mixed_module_link.xml" LogicalName="mixed_module_link.xml" />
+    <EmbeddedResource Include="parameter.xml" LogicalName="parameter.xml" />
+    <EmbeddedResource Include="sql_module_link.xml" LogicalName="sql_module_link.xml" />
+    <EmbeddedResource Include="inc_column_reference.xml" LogicalName="inc_column_reference.xml" />
+    <EmbeddedResource Include="inc_constraint.xml" LogicalName="inc_constraint.xml" />
+    <EmbeddedResource Include="inc_DbFile.xml" LogicalName="inc_DbFile.xml" />
+    <EmbeddedResource Include="inc_ddl_trigger_event.xml" LogicalName="inc_ddl_trigger_event.xml" />
+    <EmbeddedResource Include="inc_fulltext.xml" LogicalName="inc_fulltext.xml" />
+    <EmbeddedResource Include="inc_hadr_policy_health_state.xml" LogicalName="inc_hadr_policy_health_state.xml" />
+    <EmbeddedResource Include="inc_hadr_setting.xml" LogicalName="inc_hadr_setting.xml" />
+    <EmbeddedResource Include="inc_IndexFrag.xml" LogicalName="inc_IndexFrag.xml" />
+    <EmbeddedResource Include="inc_named_object.xml" LogicalName="inc_named_object.xml" />
+    <EmbeddedResource Include="inc_object.xml" LogicalName="inc_object.xml" />
+    <EmbeddedResource Include="inc_objprop_table_view.xml" LogicalName="inc_objprop_table_view.xml" />
+    <EmbeddedResource Include="inc_policy_health_state.xml" LogicalName="inc_policy_health_state.xml" />
+    <EmbeddedResource Include="inc_ruledef80.xml" LogicalName="inc_ruledef80.xml" />
+    <EmbeddedResource Include="inc_server.xml" LogicalName="inc_server.xml" />
+    <EmbeddedResource Include="inc_server_sql_module_link.xml" LogicalName="inc_server_sql_module_link.xml" />
+    <EmbeddedResource Include="inc_sql_module.xml" LogicalName="inc_sql_module.xml" />
+    <EmbeddedResource Include="inc_sql_module_JustText.xml" LogicalName="inc_sql_module_JustText.xml" />
+    <EmbeddedResource Include="inc_storage.xml" LogicalName="inc_storage.xml" />
+    <EmbeddedResource Include="inc_system_object.xml" LogicalName="inc_system_object.xml" />
+    <EmbeddedResource Include="inc_system_table_view_sp_udf.xml" LogicalName="inc_system_table_view_sp_udf.xml" />
+    <EmbeddedResource Include="inc_text.xml" LogicalName="inc_text.xml" />
+    <EmbeddedResource Include="inc_type.xml" LogicalName="inc_type.xml" />
+    <EmbeddedResource Include="inc_type_reference.xml" LogicalName="inc_type_reference.xml" />
+    <EmbeddedResource Include="inc_urn.xml" LogicalName="inc_urn.xml" />
+    <EmbeddedResource Include="inc_urn_collate_default.xml" LogicalName="inc_urn_collate_default.xml" />
+    <EmbeddedResource Include="inc_urn_message.xml" LogicalName="inc_urn_message.xml" />
+    <EmbeddedResource Include="inc_urn_schema.xml" LogicalName="inc_urn_schema.xml" />
+    <EmbeddedResource Include="inc_urn_single.xml" LogicalName="inc_urn_single.xml" />
+    <EmbeddedResource Include="inc_urn_soapmethod.xml" LogicalName="inc_urn_soapmethod.xml" />
+    <EmbeddedResource Include="Index.xml" LogicalName="Index.xml" />
+    <EmbeddedResource Include="IndexedColumn.xml" LogicalName="IndexedColumn.xml" />
+    <EmbeddedResource Include="IndexedXmlPath.xml" LogicalName="IndexedXmlPath.xml" />
+    <EmbeddedResource Include="IndexedXmlPathNamespace.xml" LogicalName="IndexedXmlPathNamespace.xml" />
+    <EmbeddedResource Include="IndexFragDetail.xml" LogicalName="IndexFragDetail.xml" />
+    <EmbeddedResource Include="IndexFragFast.xml" LogicalName="IndexFragFast.xml" />
+    <EmbeddedResource Include="IndexFragSampled.xml" LogicalName="IndexFragSampled.xml" />
+    <EmbeddedResource Include="Information.xml" LogicalName="Information.xml" />
+    <EmbeddedResource Include="Job.xml" LogicalName="Job.xml" />
+    <EmbeddedResource Include="JobServer.xml" LogicalName="JobServer.xml" />
+    <EmbeddedResource Include="JobStep.xml" LogicalName="JobStep.xml" />
+    <EmbeddedResource Include="JobStepOutputLog.xml" LogicalName="JobStepOutputLog.xml" />
+    <EmbeddedResource Include="KeyEncryption.xml" LogicalName="KeyEncryption.xml" />
+    <EmbeddedResource Include="Language.xml" LogicalName="Language.xml" />
+    <EmbeddedResource Include="LinkedServer.xml" LogicalName="LinkedServer.xml" />
+    <EmbeddedResource Include="LinkedServerCatalog.xml" LogicalName="LinkedServerCatalog.xml" />
+    <EmbeddedResource Include="LinkedServerLogin.xml" LogicalName="LinkedServerLogin.xml" />
+    <EmbeddedResource Include="LinkedServerTable.xml" LogicalName="LinkedServerTable.xml" />
+    <EmbeddedResource Include="LinkedServerView.xml" LogicalName="LinkedServerView.xml" />
+    <EmbeddedResource Include="Lock.xml" LogicalName="Lock.xml" />
+    <EmbeddedResource Include="LogFile.xml" LogicalName="LogFile.xml" />
+    <EmbeddedResource Include="Login.xml" LogicalName="Login.xml" />
+    <EmbeddedResource Include="LogMarkHistory.xml" LogicalName="LogMarkHistory.xml" />
+    <EmbeddedResource Include="Mail.xml" LogicalName="Mail.xml" />
+    <EmbeddedResource Include="MailAccount.xml" LogicalName="MailAccount.xml" />
+    <EmbeddedResource Include="MailProfile.xml" LogicalName="MailProfile.xml" />
+    <EmbeddedResource Include="MailProfileAccounts.xml" LogicalName="MailProfileAccounts.xml" />
+    <EmbeddedResource Include="MailProfilePrincipals.xml" LogicalName="MailProfilePrincipals.xml" />
+    <EmbeddedResource Include="MailServer.xml" LogicalName="MailServer.xml" />
+    <EmbeddedResource Include="Mail_ErrorLog.xml" LogicalName="Mail_ErrorLog.xml" />
+    <EmbeddedResource Include="MaintenancePlan.xml" LogicalName="MaintenancePlan.xml" />
+    <EmbeddedResource Include="MaintenancePlanDeprecated.xml" LogicalName="MaintenancePlanDeprecated.xml" />
+    <EmbeddedResource Include="MaintenanceSubPlan.xml" LogicalName="MaintenanceSubPlan.xml" />
+    <EmbeddedResource Include="MaintSubPlanLog.xml" LogicalName="MaintSubPlanLog.xml" />
+    <EmbeddedResource Include="MaintSubPlanLogDetail.xml" LogicalName="MaintSubPlanLogDetail.xml" />
+    <EmbeddedResource Include="MasterKeyEncryption.xml" LogicalName="MasterKeyEncryption.xml" />
+    <EmbeddedResource Include="Member.xml" LogicalName="Member.xml" />
+    <EmbeddedResource Include="NTGroup.xml" LogicalName="NTGroup.xml" />
+    <EmbeddedResource Include="NTLogin.xml" LogicalName="NTLogin.xml" />
+    <EmbeddedResource Include="NumberedSPParams.xml" LogicalName="NumberedSPParams.xml" />
+    <EmbeddedResource Include="NumberedStoredProcedure.xml" LogicalName="NumberedStoredProcedure.xml" />
+    <EmbeddedResource Include="OLEDBProvider.xml" LogicalName="OLEDBProvider.xml" />
+    <EmbeddedResource Include="OLEDBProviderSetting.xml" LogicalName="OLEDBProviderSetting.xml" />
+    <EmbeddedResource Include="OLEDBProvProp.xml" LogicalName="OLEDBProvProp.xml" />
+    <EmbeddedResource Include="OperatorJobNotification.xml" LogicalName="OperatorJobNotification.xml" />
+    <EmbeddedResource Include="OperatorNotification.xml" LogicalName="OperatorNotification.xml" />
+    <EmbeddedResource Include="OrderColumn.xml" LogicalName="OrderColumn.xml" />
+    <EmbeddedResource Include="PartitionFunction.xml" LogicalName="PartitionFunction.xml" />
+    <EmbeddedResource Include="PartitionFunctionParameter.xml" LogicalName="PartitionFunctionParameter.xml" />
+    <EmbeddedResource Include="PartitionFunctionRangeValue.xml" LogicalName="PartitionFunctionRangeValue.xml" />
+    <EmbeddedResource Include="PartitionScheme.xml" LogicalName="PartitionScheme.xml" />
+    <EmbeddedResource Include="PartitionSchemeFileGroup.xml" LogicalName="PartitionSchemeFileGroup.xml" />
+    <EmbeddedResource Include="PartitionSchemeParameter.xml" LogicalName="PartitionSchemeParameter.xml" />
+    <EmbeddedResource Include="PerfInfo.xml" LogicalName="PerfInfo.xml" />
+    <EmbeddedResource Include="ColumnPerm.xml" LogicalName="ColumnPerm.xml" />
+    <EmbeddedResource Include="dbfixedroleperm.xml" LogicalName="dbfixedroleperm.xml" />
+    <EmbeddedResource Include="DBObjectPerm.xml" LogicalName="DBObjectPerm.xml" />
+    <EmbeddedResource Include="DBPerm.xml" LogicalName="DBPerm.xml" />
+    <EmbeddedResource Include="inc_perm.xml" LogicalName="inc_perm.xml" />
+    <EmbeddedResource Include="ShilohYukonPerm.xml" LogicalName="ShilohYukonPerm.xml" />
+    <EmbeddedResource Include="SrvObjectPerm.xml" LogicalName="SrvObjectPerm.xml" />
+    <EmbeddedResource Include="SrvYukonObjectPerm.xml" LogicalName="SrvYukonObjectPerm.xml" />
+    <EmbeddedResource Include="SrvYukonPerm.xml" LogicalName="SrvYukonPerm.xml" />
+    <EmbeddedResource Include="TablePerm.xml" LogicalName="TablePerm.xml" />
+    <EmbeddedResource Include="YukonObjectPerm.xml" LogicalName="YukonObjectPerm.xml" />
+    <EmbeddedResource Include="YukonSchemaObjectPerm.xml" LogicalName="YukonSchemaObjectPerm.xml" />
+    <EmbeddedResource Include="PhysicalPartition.xml" LogicalName="PhysicalPartition.xml" />
+    <EmbeddedResource Include="PlanGuide.xml" LogicalName="PlanGuide.xml" />
+    <EmbeddedResource Include="PrimaryChildren.xml" LogicalName="PrimaryChildren.xml" />
+    <EmbeddedResource Include="PrimaryFile.xml" LogicalName="PrimaryFile.xml" />
+    <EmbeddedResource Include="Process.xml" LogicalName="Process.xml" />
+    <EmbeddedResource Include="ProxyAccount.xml" LogicalName="ProxyAccount.xml" />
+    <EmbeddedResource Include="ProxyAccountPrincipals.xml" LogicalName="ProxyAccountPrincipals.xml" />
+    <EmbeddedResource Include="QueryStoreOptions.xml" LogicalName="QueryStoreOptions.xml" />
+    <EmbeddedResource Include="RemoteDrive.xml" LogicalName="RemoteDrive.xml" />
+    <EmbeddedResource Include="RemoteMaintenancePlan.xml" LogicalName="RemoteMaintenancePlan.xml" />
+    <EmbeddedResource Include="RemotePlanLog.xml" LogicalName="RemotePlanLog.xml" />
+    <EmbeddedResource Include="RemotePlanLogDetail.xml" LogicalName="RemotePlanLogDetail.xml" />
+    <EmbeddedResource Include="RemoteSubPlan.xml" LogicalName="RemoteSubPlan.xml" />
+    <EmbeddedResource Include="RemovableDrive.xml" LogicalName="RemovableDrive.xml" />
+    <EmbeddedResource Include="ReplicaClusterNode.xml" LogicalName="ReplicaClusterNode.xml" />
+    <EmbeddedResource Include="ResourceGovernor.xml" LogicalName="ResourceGovernor.xml" />
+    <EmbeddedResource Include="ResourcePool.xml" LogicalName="ResourcePool.xml" />
+    <EmbeddedResource Include="ResourcePoolAffinityInfo.xml" LogicalName="ResourcePoolAffinityInfo.xml" />
+    <EmbeddedResource Include="ResourcePoolScheduler.xml" LogicalName="ResourcePoolScheduler.xml" />
+    <EmbeddedResource Include="restorefile.xml" LogicalName="restorefile.xml" />
+    <EmbeddedResource Include="restorefilegroup.xml" LogicalName="restorefilegroup.xml" />
+    <EmbeddedResource Include="restorehistory.xml" LogicalName="restorehistory.xml" />
+    <EmbeddedResource Include="restore_plan.xml" LogicalName="restore_plan.xml" />
+    <EmbeddedResource Include="resumableindex.xml" LogicalName="resumableindex.xml" />
+    <EmbeddedResource Include="Rule.xml" LogicalName="Rule.xml" />
+    <EmbeddedResource Include="RuleColumn.xml" LogicalName="RuleColumn.xml" />
+    <EmbeddedResource Include="RuleDataType.xml" LogicalName="RuleDataType.xml" />
+    <EmbeddedResource Include="Schedule.xml" LogicalName="Schedule.xml" />
+    <EmbeddedResource Include="Schema.xml" LogicalName="Schema.xml" />
+    <EmbeddedResource Include="sdt.xml" LogicalName="sdt.xml" />
+    <EmbeddedResource Include="SearchProperty.xml" LogicalName="SearchProperty.xml" />
+    <EmbeddedResource Include="SearchPropertyList.xml" LogicalName="SearchPropertyList.xml" />
+    <EmbeddedResource Include="SecurityPolicy.xml" LogicalName="SecurityPolicy.xml" />
+    <EmbeddedResource Include="SecurityPredicate.xml" LogicalName="SecurityPredicate.xml" />
+    <EmbeddedResource Include="DatabaseScopedConfiguration.xml" LogicalName="DatabaseScopedConfiguration.xml" />
+    <EmbeddedResource Include="sequence.xml" LogicalName="sequence.xml" />
+    <EmbeddedResource Include="Server.xml" LogicalName="Server.xml" />
+    <EmbeddedResource Include="ServerActiveDirectory.xml" LogicalName="ServerActiveDirectory.xml" />
+    <EmbeddedResource Include="ServerAuditSpecification.xml" LogicalName="ServerAuditSpecification.xml" />
+    <EmbeddedResource Include="ServerAuditSpecificationDetail.xml" LogicalName="ServerAuditSpecificationDetail.xml" />
+    <EmbeddedResource Include="ServerDdlTrigger.xml" LogicalName="ServerDdlTrigger.xml" />
+    <EmbeddedResource Include="ServerDdlTriggerEvent.xml" LogicalName="ServerDdlTriggerEvent.xml" />
+    <EmbeddedResource Include="ServerProxyAccount.xml" LogicalName="ServerProxyAccount.xml" />
+    <EmbeddedResource Include="ServerRole.xml" LogicalName="ServerRole.xml" />
+    <EmbeddedResource Include="ServiceMasterKey.xml" LogicalName="ServiceMasterKey.xml" />
+    <EmbeddedResource Include="Settings.xml" LogicalName="Settings.xml" />
+    <EmbeddedResource Include="SharedSchedule.xml" LogicalName="SharedSchedule.xml" />
+    <EmbeddedResource Include="SmartAdmin.xml" LogicalName="SmartAdmin.xml" />
+    <EmbeddedResource Include="SPParams.xml" LogicalName="SPParams.xml" />
+    <EmbeddedResource Include="SqlAssembly.xml" LogicalName="SqlAssembly.xml" />
+    <EmbeddedResource Include="SqlAssemblyFile.xml" LogicalName="SqlAssemblyFile.xml" />
+    <EmbeddedResource Include="SqlBoot.xml" LogicalName="SqlBoot.xml" />
+    <EmbeddedResource Include="Statistic.xml" LogicalName="Statistic.xml" />
+    <EmbeddedResource Include="StatisticColumn.xml" LogicalName="StatisticColumn.xml" />
+    <EmbeddedResource Include="StoredProcedure.xml" LogicalName="StoredProcedure.xml" />
+    <EmbeddedResource Include="symmetrickey.xml" LogicalName="symmetrickey.xml" />
+    <EmbeddedResource Include="synonym.xml" LogicalName="synonym.xml" />
+    <EmbeddedResource Include="sysmessage.xml" LogicalName="sysmessage.xml" />
+    <EmbeddedResource Include="table.xml" LogicalName="table.xml" />
+    <EmbeddedResource Include="TapeDevice.xml" LogicalName="TapeDevice.xml" />
+    <EmbeddedResource Include="temp_table.xml" LogicalName="temp_table.xml" />
+    <EmbeddedResource Include="Text.xml" LogicalName="Text.xml" />
+    <EmbeddedResource Include="transaction.xml" LogicalName="transaction.xml" />
+    <EmbeddedResource Include="Trigger.xml" LogicalName="Trigger.xml" />
+    <EmbeddedResource Include="Uddt.xml" LogicalName="Uddt.xml" />
+    <EmbeddedResource Include="UDF.xml" LogicalName="UDF.xml" />
+    <EmbeddedResource Include="udfcolumn.xml" LogicalName="udfcolumn.xml" />
+    <EmbeddedResource Include="UDFParams.xml" LogicalName="UDFParams.xml" />
+    <EmbeddedResource Include="User.xml" LogicalName="User.xml" />
+    <EmbeddedResource Include="UserDefinedAggregate.xml" LogicalName="UserDefinedAggregate.xml" />
+    <EmbeddedResource Include="UserDefinedAggregateParameter.xml" LogicalName="UserDefinedAggregateParameter.xml" />
+    <EmbeddedResource Include="UserDefinedTableType.xml" LogicalName="UserDefinedTableType.xml" />
+    <EmbeddedResource Include="UserDefinedType.xml" LogicalName="UserDefinedType.xml" />
+    <EmbeddedResource Include="usermessage.xml" LogicalName="usermessage.xml" />
+    <EmbeddedResource Include="UserOption.xml" LogicalName="UserOption.xml" />
+    <EmbeddedResource Include="View.xml" LogicalName="View.xml" />
+    <EmbeddedResource Include="WorkloadGroup.xml" LogicalName="WorkloadGroup.xml" />
+    <EmbeddedResource Include="XmlNamespace.xml" LogicalName="XmlNamespace.xml" />
+    <EmbeddedResource Include="XmlSchemaCollection.xml" LogicalName="XmlSchemaCollection.xml" />
+    <EmbeddedResource Include="XmlType.xml" LogicalName="XmlType.xml" />
+    <EmbeddedResource Include="XStoredProcedure.xml" LogicalName="XStoredProcedure.xml" />
+    <EmbeddedResource Include="Yukonuserownedobject.xml" LogicalName="Yukonuserownedobject.xml" />
+    <EmbeddedResource Include="YukonuserownedobjectSchema.xml" LogicalName="YukonuserownedobjectSchema.xml" />
+    <EmbeddedResource Include="CloudDependency.sql" LogicalName="CloudDependency.sql" />
+    <EmbeddedResource Include="KatmaiDependency.sql" LogicalName="KatmaiDependency.sql" />
+    <EmbeddedResource Include="ShilohDependency.sql" LogicalName="ShilohDependency.sql" />
+    <EmbeddedResource Include="SQL11Dependency.sql" LogicalName="SQL11Dependency.sql" />
+    <EmbeddedResource Include="YukonDependency.sql" LogicalName="YukonDependency.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc">
+      <HintPath>..\..\PromosUser\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo">
+      <HintPath>..\..\PromosUser\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.SqlServer.SqlClrProvider">
+      <HintPath>..\..\PromosUser\Microsoft.SqlServer.SqlClrProvider.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

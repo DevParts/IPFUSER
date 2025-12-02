@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="String1" xml:space="preserve"><value>Laser is Off</value></data>
+  <data name="String2" xml:space="preserve"><value>Shutter in closed</value></data>
+  <data name="String3" xml:space="preserve"><value>DC Power Failure</value></data>
+  <data name="String4" xml:space="preserve"><value>Amplifier overtemperature</value></data>
+  <data name="String5" xml:space="preserve"><value>Q-switch overheat</value></data>
+  <data name="String6" xml:space="preserve"><value>High reverse power</value></data>
+  <data name="String7" xml:space="preserve"><value>low forward power</value></data>
+  <data name="String8" xml:space="preserve"><value>YAG RS232 error</value></data>
+  <data name="String9" xml:space="preserve"><value>Conveyor Stopped</value></data>
+  <data name="String22" xml:space="preserve"><value>Barcode creation failure</value></data>
+  <data name="String23" xml:space="preserve"><value>No license for barcode</value></data>
+  <data name="String20" xml:space="preserve"><value>Overspeed</value></data>
+  <data name="String21" xml:space="preserve"><value>File without printing permission</value></data>
+  <data name="String26" xml:space="preserve"><value>Database Alarm</value></data>
+  <data name="String27" xml:space="preserve"><value>Distance Alarm</value></data>
+  <data name="String24" xml:space="preserve"><value>No Barcode Library</value></data>
+  <data name="String25" xml:space="preserve"><value>Trigger Signal</value></data>
+  <data name="String28" xml:space="preserve"><value>Min Distance Alarm</value></data>
+  <data name="String29" xml:space="preserve"><value>Scanner X Failure</value></data>
+  <data name="String11" xml:space="preserve"><value>figure-types not valid in file</value></data>
+  <data name="String10" xml:space="preserve"><value>Program check not correct</value></data>
+  <data name="String13" xml:space="preserve"><value>File does not exist</value></data>
+  <data name="String12" xml:space="preserve"><value>Not available memory</value></data>
+  <data name="String15" xml:space="preserve"><value>Interlock</value></data>
+  <data name="String14" xml:space="preserve"><value>Water refrigeration failure</value></data>
+  <data name="String17" xml:space="preserve"><value>Invalid Source</value></data>
+  <data name="String16" xml:space="preserve"><value>Laser Failure</value></data>
+  <data name="String19" xml:space="preserve"><value>Laser Not ready</value></data>
+  <data name="String18" xml:space="preserve"><value>Overheat</value></data>
+  <data name="String44" xml:space="preserve"><value>Be sure than HD is present and restart application</value></data>
+  <data name="String45" xml:space="preserve"><value>Stopper number must be greater than 0</value></data>
+  <data name="String46" xml:space="preserve"><value>Not enogh available codes. You can indicate as maximum</value></data>
+  <data name="String47" xml:space="preserve"><value>You must indicate an order of 11 digits</value></data>
+  <data name="String40" xml:space="preserve"><value>Data Access...</value></data>
+  <data name="String41" xml:space="preserve"><value>Restoring State...</value></data>
+  <data name="String42" xml:space="preserve"><value>Codes detected</value></data>
+  <data name="String43" xml:space="preserve"><value>No database found</value></data>
+  <data name="String48" xml:space="preserve"><value>Continue</value></data>
+  <data name="String49" xml:space="preserve"><value>Laser Error</value></data>
+  <data name="String33" xml:space="preserve"><value>Laser Error:</value></data>
+  <data name="String32" xml:space="preserve"><value>Initialization</value></data>
+  <data name="String31" xml:space="preserve"><value>Empty message</value></data>
+  <data name="String30" xml:space="preserve"><value>Scanner Y Failure</value></data>
+  <data name="String37" xml:space="preserve"><value>Execution copy is yet running</value></data>
+  <data name="String36" xml:space="preserve"><value>You must indicate SQLServer datasource</value></data>
+  <data name="String35" xml:space="preserve"><value>You must restart application to apply changes</value></data>
+  <data name="String34" xml:space="preserve"><value>You must indicate SQLServer catalog</value></data>
+  <data name="String39" xml:space="preserve"><value>Starting System...</value></data>
+  <data name="String38" xml:space="preserve"><value>Invalid Key. Application Aborted</value></data>
+  <data name="String66" xml:space="preserve"><value>Database</value></data>
+  <data name="String67" xml:space="preserve"><value>ConnectionString</value></data>
+  <data name="String64" xml:space="preserve"><value>Application Version</value></data>
+  <data name="String65" xml:space="preserve"><value> Global</value></data>
+  <data name="String62" xml:space="preserve"><value>Repeat Artwork Number</value></data>
+  <data name="String63" xml:space="preserve"><value>Are you sure you want to exit from application</value></data>
+  <data name="String60" xml:space="preserve"><value>Bad artwork number. Try again.</value></data>
+  <data name="String61" xml:space="preserve"><value>Artwork Number to Activate</value></data>
+  <data name="String68" xml:space="preserve"><value>SqlServer Catalog Name</value></data>
+  <data name="String69" xml:space="preserve"><value>SqlServer Dataserver</value></data>
+  <data name="String55" xml:space="preserve"><value>of codes</value></data>
+  <data name="String54" xml:space="preserve"><value>Remains</value></data>
+  <data name="String57" xml:space="preserve"><value>You must indicate an artwork number</value></data>
+  <data name="String56" xml:space="preserve"><value>Invalid Password</value></data>
+  <data name="String51" xml:space="preserve"><value>Continue with other promotion</value></data>
+  <data name="String50" xml:space="preserve"><value>Communication Failure</value></data>
+  <data name="String53" xml:space="preserve"><value>Start</value></data>
+  <data name="String52" xml:space="preserve"><value>Production order is completed</value></data>
+  <data name="String59" xml:space="preserve"><value>is not created. Tell to supervisor</value></data>
+  <data name="String58" xml:space="preserve"><value>The Artwork number</value></data>
+  <data name="String88" xml:space="preserve"><value>Fatal Error: Can't attach DB as Read_Write. Application will be exited. Restart again. If problem persists call administrator.</value></data>
+  <data name="String89" xml:space="preserve"><value>Dongle license key is missing. System stopped.</value></data>
+  <data name="String80" xml:space="preserve"><value>Percent to show  first warning on low codes level </value></data>
+  <data name="String81" xml:space="preserve"><value>Percent to show  second warning on low codes level</value></data>
+  <data name="String82" xml:space="preserve"><value>Show  first warning on low codes level</value></data>
+  <data name="String83" xml:space="preserve"><value>Show  second warning on low codes level</value></data>
+  <data name="String84" xml:space="preserve"><value>Set the application language</value></data>
+  <data name="String85" xml:space="preserve"><value>You must restart application to apply changes</value></data>
+  <data name="String86" xml:space="preserve"><value>The selected promotion is bad configured. Execution no possible. Tell to administrator.</value></data>
+  <data name="String87" xml:space="preserve"><value>Windows User Group to set folder permissions (default may be 'Everyone')</value></data>
+  <data name="String77" xml:space="preserve"><value>Laser IP</value></data>
+  <data name="String76" xml:space="preserve"><value>Laser</value></data>
+  <data name="String75" xml:space="preserve"><value>Wait time on full queue</value></data>
+  <data name="String74" xml:space="preserve"><value>Wait time between sent blocks</value></data>
+  <data name="String73" xml:space="preserve"><value>Timing</value></data>
+  <data name="String72" xml:space="preserve"><value>Use Windows Authentication</value></data>
+  <data name="String71" xml:space="preserve"><value>SqlServer Password</value></data>
+  <data name="String70" xml:space="preserve"><value>SqlServer User Name</value></data>
+  <data name="String79" xml:space="preserve"><value>Codes</value></data>
+  <data name="String78" xml:space="preserve"><value>Laser queue memory size. Maximum number in memory</value></data>
+  <data name="String99" xml:space="preserve"><value>General Error</value></data>
+  <data name="String98" xml:space="preserve"><value>On-Line</value></data>
+  <data name="String91" xml:space="preserve"><value>IPAddress</value></data>
+  <data name="String90" xml:space="preserve"><value>Selected Data Server is not SQLServer 2008 R2 Version. Select the correct one.</value></data>
+  <data name="String93" xml:space="preserve"><value>PLC Off-Line</value></data>
+  <data name="String92" xml:space="preserve"><value>TCP Port</value></data>
+  <data name="String95" xml:space="preserve"><value>PLC Connection Failed. Program can't continue. Review connections and setup communication parameters.</value></data>
+  <data name="String94" xml:space="preserve"><value>Communication Fail</value></data>
+  <data name="String97" xml:space="preserve"><value>Stopped</value></data>
+  <data name="String96" xml:space="preserve"><value>Running</value></data>
+  <data name="String101" xml:space="preserve"><value>PLC is not ready. Can't start promotion control process.</value></data>
+  <data name="String100" xml:space="preserve"><value>Off-Line</value></data>
+  <data name="String102" xml:space="preserve"><value>PLC General Error</value></data>
+  </root>

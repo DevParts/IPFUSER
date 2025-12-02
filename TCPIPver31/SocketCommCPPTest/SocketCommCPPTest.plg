@@ -1,0 +1,50 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SocketCommCPPTest - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0xc0a /fo"Release/SocketCommCPPTest.res" /d "NDEBUG" /d "_AFXDLL" "C:\Projects\Marca32\DllProject\ExamplesHotfix\SocketCommCPPTest\SocketCommCPPTest.rc"" 
+Creating temporary file "C:\Users\sven\AppData\Local\Temp\RSP5419.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/SocketCommCPPTest.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Projects\Marca32\DllProject\ExamplesHotfix\SocketCommCPPTest\SocketCommCPPTest.cpp"
+"C:\Projects\Marca32\DllProject\ExamplesHotfix\SocketCommCPPTest\SocketCommCPPTestDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\sven\AppData\Local\Temp\RSP5419.tmp" 
+Creating temporary file "C:\Users\sven\AppData\Local\Temp\RSP542A.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/SocketCommCPPTest.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Projects\Marca32\DllProject\ExamplesHotfix\SocketCommCPPTest\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\sven\AppData\Local\Temp\RSP542A.tmp" 
+Creating temporary file "C:\Users\sven\AppData\Local\Temp\RSP542B.tmp" with contents
+[
+..\SocketCommDll.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/SocketCommCPPTest.pdb" /machine:I386 /out:"Release/SocketCommCPPTest.exe" 
+.\Release\SocketCommCPPTest.obj
+.\Release\SocketCommCPPTestDlg.obj
+.\Release\StdAfx.obj
+.\Release\SocketCommCPPTest.res
+]
+Creating command line "link.exe @C:\Users\sven\AppData\Local\Temp\RSP542B.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+SocketCommCPPTest.cpp
+SocketCommCPPTestDlg.cpp
+C:\Projects\Marca32\DllProject\ExamplesHotfix\SocketCommCPPTest\SocketCommCPPTestDlg.cpp(30) : warning C4101: 'status' : unreferenced local variable
+C:\Projects\Marca32\DllProject\ExamplesHotfix\SocketCommCPPTest\SocketCommCPPTestDlg.cpp(431) : warning C4101: 'j' : unreferenced local variable
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SocketCommCPPTest.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>
