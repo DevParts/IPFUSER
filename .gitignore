@@ -29,3 +29,75 @@ bld/
 
 # Visual Studio 2015/2017/2019/2022 cache/options directory
 .vs/
+
+# .NET Core / .NET 8 build outputs
+**/bin/
+**/obj/
+**/bin/Debug/
+**/bin/Release/
+**/obj/Debug/
+**/obj/Release/
+
+# Compiled binaries
+*.dll
+*.exe
+*.pdb
+*.cache
+*.deps.json
+*.runtimeconfig.json
+*.sourcelink.json
+
+# Build artifacts
+*.assets.cache
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.CoreCompileInputs.cache
+*.FileListAbsolute.txt
+*.GenerateResource.cache
+*.Up2Date
+*.genruntimeconfig.cache
+
+# NuGet packages
+*.nupkg
+*.snupkg
+**/packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio cache files
+*.vsidx
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Backup files
+*~
+*.bak
+*.swp
+*_backup/
+*_Backup/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+[Tt]emp/
+[Tt]mp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Project-specific ignores
+**/LaserMacsaUser - copia/
+*.zip
