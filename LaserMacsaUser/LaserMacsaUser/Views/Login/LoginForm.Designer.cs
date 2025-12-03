@@ -26,76 +26,51 @@
             // 
             // lblTitle
             // 
-            lblTitle.Dock = DockStyle.Top;
-            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            resources.ApplyResources(lblTitle, "lblTitle");
             lblTitle.ForeColor = Color.FromArgb(150, 0, 0);
-            lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(360, 60);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "ACCESS PANEL";
-            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureLogo
             // 
+            resources.ApplyResources(pictureLogo, "pictureLogo");
             pictureLogo.Image = Properties.Resources.MacsaLogo;
-            pictureLogo.Location = new Point(80, 80);
             pictureLogo.Name = "pictureLogo";
-            pictureLogo.Size = new Size(200, 120);
-            pictureLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureLogo.TabIndex = 1;
             pictureLogo.TabStop = false;
             // 
             // lblPassword
             // 
-            lblPassword.Font = new Font("Segoe UI", 11F);
-            lblPassword.Location = new Point(40, 230);
+            resources.ApplyResources(lblPassword, "lblPassword");
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(280, 22);
-            lblPassword.TabIndex = 2;
-            lblPassword.Text = "Password:";
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("Segoe UI", 11F);
-            txtPassword.Location = new Point(40, 260);
+            resources.ApplyResources(txtPassword, "txtPassword");
             txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '●';
-            txtPassword.Size = new Size(280, 27);
-            txtPassword.TabIndex = 3;
             txtPassword.KeyDown += txtPassword_KeyDown;
             // 
             // btnLogin
             // 
+            resources.ApplyResources(btnLogin, "btnLogin");
             btnLogin.BackColor = Color.Firebrick;
             btnLogin.FlatAppearance.BorderSize = 0;
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI Semibold", 11F);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(40, 310);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(280, 40);
-            btnLogin.TabIndex = 4;
-            btnLogin.Text = "ENTER";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // LoginForm
             // 
+            resources.ApplyResources(this, "$this");
             BackColor = Color.White;
-            ClientSize = new Size(360, 420);
             Controls.Add(lblTitle);
             Controls.Add(pictureLogo);
             Controls.Add(lblPassword);
             Controls.Add(txtPassword);
             Controls.Add(btnLogin);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "LoginForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "LaserMacsa Login";
             ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();

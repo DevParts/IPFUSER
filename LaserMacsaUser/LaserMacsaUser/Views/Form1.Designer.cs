@@ -88,127 +88,84 @@
             pnlArtwork.Controls.Add(txtCodes);
             pnlArtwork.Controls.Add(progressCodes);
             pnlArtwork.Controls.Add(lblProgressCodes);
-            pnlArtwork.Location = new Point(10, 45);
+            resources.ApplyResources(pnlArtwork, "pnlArtwork");
             pnlArtwork.Name = "pnlArtwork";
-            pnlArtwork.Size = new Size(970, 220);
-            pnlArtwork.TabIndex = 1;
             // 
             // cmboxtxtCodes
             // 
             cmboxtxtCodes.FormattingEnabled = true;
-            cmboxtxtCodes.Location = new Point(722, 3);
+            resources.ApplyResources(cmboxtxtCodes, "cmboxtxtCodes");
             cmboxtxtCodes.Name = "cmboxtxtCodes";
-            cmboxtxtCodes.Size = new Size(233, 23);
-            cmboxtxtCodes.TabIndex = 12;
             // 
             // lblHeaderArtwork
             // 
             lblHeaderArtwork.BackColor = Color.DarkRed;
-            lblHeaderArtwork.Dock = DockStyle.Top;
-            lblHeaderArtwork.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            resources.ApplyResources(lblHeaderArtwork, "lblHeaderArtwork");
             lblHeaderArtwork.ForeColor = Color.White;
-            lblHeaderArtwork.Location = new Point(0, 0);
             lblHeaderArtwork.Name = "lblHeaderArtwork";
-            lblHeaderArtwork.Size = new Size(968, 30);
-            lblHeaderArtwork.TabIndex = 0;
-            lblHeaderArtwork.Text = "Active Artwork";
-            lblHeaderArtwork.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblArtwork
             // 
-            lblArtwork.Font = new Font("Segoe UI", 10F);
-            lblArtwork.Location = new Point(20, 50);
+            resources.ApplyResources(lblArtwork, "lblArtwork");
             lblArtwork.Name = "lblArtwork";
-            lblArtwork.Size = new Size(74, 23);
-            lblArtwork.TabIndex = 1;
-            lblArtwork.Text = "Artwork :";
             // 
             // txtArtwork
             // 
             txtArtwork.BackColor = Color.Yellow;
-            txtArtwork.Location = new Point(110, 48);
+            resources.ApplyResources(txtArtwork, "txtArtwork");
             txtArtwork.Name = "txtArtwork";
             txtArtwork.ReadOnly = true;
-            txtArtwork.Size = new Size(150, 23);
-            txtArtwork.TabIndex = 2;
             // 
             // lblLaser
             // 
-            lblLaser.Font = new Font("Segoe UI", 10F);
-            lblLaser.Location = new Point(280, 50);
+            resources.ApplyResources(lblLaser, "lblLaser");
             lblLaser.Name = "lblLaser";
-            lblLaser.Size = new Size(74, 23);
-            lblLaser.TabIndex = 3;
-            lblLaser.Text = "Laser File:";
             // 
             // txtLaser
             // 
-            txtLaser.Location = new Point(360, 48);
+            resources.ApplyResources(txtLaser, "txtLaser");
             txtLaser.Name = "txtLaser";
             txtLaser.ReadOnly = true;
-            txtLaser.Size = new Size(310, 23);
-            txtLaser.TabIndex = 4;
             // 
             // picLogo
             // 
             picLogo.Image = Properties.Resources.MacsaLogo;
-            picLogo.Location = new Point(722, 83);
+            resources.ApplyResources(picLogo, "picLogo");
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(233, 70);
-            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            picLogo.TabIndex = 5;
             picLogo.TabStop = false;
             // 
             // lblPromotion
             // 
-            lblPromotion.Font = new Font("Segoe UI", 10F);
-            lblPromotion.Location = new Point(20, 90);
+            resources.ApplyResources(lblPromotion, "lblPromotion");
             lblPromotion.Name = "lblPromotion";
-            lblPromotion.Size = new Size(87, 23);
-            lblPromotion.TabIndex = 6;
-            lblPromotion.Text = "Promotion:";
             // 
             // txtPromotion
             // 
-            txtPromotion.Location = new Point(110, 88);
+            resources.ApplyResources(txtPromotion, "txtPromotion");
             txtPromotion.Name = "txtPromotion";
             txtPromotion.ReadOnly = true;
-            txtPromotion.Size = new Size(560, 23);
-            txtPromotion.TabIndex = 7;
             // 
             // lblCodes
             // 
-            lblCodes.Font = new Font("Segoe UI", 10F);
-            lblCodes.Location = new Point(20, 130);
+            resources.ApplyResources(lblCodes, "lblCodes");
             lblCodes.Name = "lblCodes";
-            lblCodes.Size = new Size(111, 23);
-            lblCodes.TabIndex = 8;
-            lblCodes.Text = "Available Codes:";
             lblCodes.Click += lblCodes_Click;
             // 
             // txtCodes
             // 
-            txtCodes.Location = new Point(137, 130);
+            resources.ApplyResources(txtCodes, "txtCodes");
             txtCodes.Name = "txtCodes";
             txtCodes.ReadOnly = true;
-            txtCodes.Size = new Size(533, 23);
-            txtCodes.TabIndex = 9;
             // 
             // progressCodes
             // 
-            progressCodes.Location = new Point(20, 175);
+            resources.ApplyResources(progressCodes, "progressCodes");
             progressCodes.Name = "progressCodes";
-            progressCodes.Size = new Size(520, 25);
-            progressCodes.TabIndex = 10;
             // 
             // lblProgressCodes
             // 
-            lblProgressCodes.Font = new Font("Segoe UI", 9F);
-            lblProgressCodes.Location = new Point(546, 177);
+            resources.ApplyResources(lblProgressCodes, "lblProgressCodes");
             lblProgressCodes.Name = "lblProgressCodes";
-            lblProgressCodes.Size = new Size(47, 23);
-            lblProgressCodes.TabIndex = 11;
-            lblProgressCodes.Text = "00 %";
             // 
             // pnlProduction
             // 
@@ -232,216 +189,136 @@
             pnlProduction.Controls.Add(btnStart);
             pnlProduction.Controls.Add(btnStop);
             pnlProduction.Controls.Add(btnExit);
-            pnlProduction.Location = new Point(10, 280);
+            resources.ApplyResources(pnlProduction, "pnlProduction");
             pnlProduction.Name = "pnlProduction";
-            pnlProduction.Size = new Size(970, 280);
-            pnlProduction.TabIndex = 2;
             // 
             // lblHeaderProd
             // 
             lblHeaderProd.BackColor = Color.DarkRed;
-            lblHeaderProd.Dock = DockStyle.Top;
-            lblHeaderProd.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            resources.ApplyResources(lblHeaderProd, "lblHeaderProd");
             lblHeaderProd.ForeColor = Color.White;
-            lblHeaderProd.Location = new Point(0, 0);
             lblHeaderProd.Name = "lblHeaderProd";
-            lblHeaderProd.Size = new Size(968, 30);
-            lblHeaderProd.TabIndex = 0;
-            lblHeaderProd.Text = "Production";
-            lblHeaderProd.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblStoppers
             // 
-            lblStoppers.Font = new Font("Segoe UI", 10F);
-            lblStoppers.Location = new Point(20, 60);
+            resources.ApplyResources(lblStoppers, "lblStoppers");
             lblStoppers.Name = "lblStoppers";
-            lblStoppers.Size = new Size(100, 23);
-            lblStoppers.TabIndex = 1;
-            lblStoppers.Text = "Stoppers to Produce";
             // 
             // txtStoppers
             // 
-            txtStoppers.Location = new Point(149, 59);
+            resources.ApplyResources(txtStoppers, "txtStoppers");
             txtStoppers.Name = "txtStoppers";
-            txtStoppers.Size = new Size(303, 23);
-            txtStoppers.TabIndex = 2;
             // 
             // lblPending
             // 
-            lblPending.Font = new Font("Segoe UI", 10F);
-            lblPending.Location = new Point(520, 40);
+            resources.ApplyResources(lblPending, "lblPending");
             lblPending.Name = "lblPending";
-            lblPending.Size = new Size(100, 23);
-            lblPending.TabIndex = 3;
-            lblPending.Text = "Pending";
             // 
             // txtPending
             // 
             txtPending.BackColor = Color.LightCyan;
-            txtPending.Location = new Point(520, 65);
+            resources.ApplyResources(txtPending, "txtPending");
             txtPending.Name = "txtPending";
-            txtPending.Size = new Size(190, 23);
-            txtPending.TabIndex = 4;
             // 
             // lblProduced
             // 
-            lblProduced.Font = new Font("Segoe UI", 10F);
-            lblProduced.Location = new Point(763, 39);
+            resources.ApplyResources(lblProduced, "lblProduced");
             lblProduced.Name = "lblProduced";
-            lblProduced.Size = new Size(100, 23);
-            lblProduced.TabIndex = 5;
-            lblProduced.Text = "Produced";
             // 
             // txtProduced
             // 
-            txtProduced.Location = new Point(763, 65);
+            resources.ApplyResources(txtProduced, "txtProduced");
             txtProduced.Name = "txtProduced";
-            txtProduced.Size = new Size(190, 23);
-            txtProduced.TabIndex = 6;
             // 
             // lblOrder
             // 
-            lblOrder.Font = new Font("Segoe UI", 10F);
-            lblOrder.Location = new Point(20, 110);
+            resources.ApplyResources(lblOrder, "lblOrder");
             lblOrder.Name = "lblOrder";
-            lblOrder.Size = new Size(63, 23);
-            lblOrder.TabIndex = 7;
-            lblOrder.Text = "Order:";
             // 
             // txtOrder
             // 
-            txtOrder.Location = new Point(149, 108);
+            resources.ApplyResources(txtOrder, "txtOrder");
             txtOrder.Name = "txtOrder";
-            txtOrder.Size = new Size(303, 23);
-            txtOrder.TabIndex = 8;
             // 
             // lblCode
             // 
-            lblCode.Font = new Font("Segoe UI", 10F);
-            lblCode.Location = new Point(520, 133);
+            resources.ApplyResources(lblCode, "lblCode");
             lblCode.Name = "lblCode";
-            lblCode.Size = new Size(100, 23);
-            lblCode.TabIndex = 9;
-            lblCode.Text = "Code:";
             // 
             // txtCode
             // 
-            txtCode.Enabled = false;
-            txtCode.Location = new Point(520, 159);
+            resources.ApplyResources(txtCode, "txtCode");
             txtCode.Name = "txtCode";
-            txtCode.Size = new Size(433, 23);
-            txtCode.TabIndex = 10;
             // 
             // lblPromoIndex
             // 
-            lblPromoIndex.Font = new Font("Segoe UI", 10F);
-            lblPromoIndex.Location = new Point(20, 159);
+            resources.ApplyResources(lblPromoIndex, "lblPromoIndex");
             lblPromoIndex.Name = "lblPromoIndex";
-            lblPromoIndex.Size = new Size(123, 23);
-            lblPromoIndex.TabIndex = 11;
-            lblPromoIndex.Text = "Promotion Index:";
             // 
             // txtPromoIndex
             // 
-            txtPromoIndex.Enabled = false;
-            txtPromoIndex.Location = new Point(149, 158);
+            resources.ApplyResources(txtPromoIndex, "txtPromoIndex");
             txtPromoIndex.Name = "txtPromoIndex";
-            txtPromoIndex.Size = new Size(303, 23);
-            txtPromoIndex.TabIndex = 12;
-            txtPromoIndex.Visible = false;
             // 
             // progressProd
             // 
-            progressProd.Location = new Point(20, 217);
+            resources.ApplyResources(progressProd, "progressProd");
             progressProd.Name = "progressProd";
-            progressProd.Size = new Size(520, 25);
-            progressProd.TabIndex = 13;
             // 
             // lblProgressProd
             // 
-            lblProgressProd.Font = new Font("Segoe UI", 9F);
-            lblProgressProd.Location = new Point(546, 219);
+            resources.ApplyResources(lblProgressProd, "lblProgressProd");
             lblProgressProd.Name = "lblProgressProd";
-            lblProgressProd.Size = new Size(47, 23);
-            lblProgressProd.TabIndex = 14;
-            lblProgressProd.Text = "00 %";
             // 
             // btnStart
             // 
-            btnStart.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            resources.ApplyResources(btnStart, "btnStart");
             btnStart.Image = Properties.Resources.start30x30;
-            btnStart.ImageAlign = ContentAlignment.BottomCenter;
-            btnStart.Location = new Point(613, 196);
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(100, 70);
-            btnStart.TabIndex = 15;
-            btnStart.Text = "Start";
-            btnStart.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // btnStop
             // 
-            btnStop.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            resources.ApplyResources(btnStop, "btnStop");
             btnStop.Image = Properties.Resources.stop30x301;
-            btnStop.Location = new Point(733, 196);
             btnStop.Name = "btnStop";
-            btnStop.Size = new Size(100, 70);
-            btnStop.TabIndex = 16;
-            btnStop.Text = "Stop";
-            btnStop.TextAlign = ContentAlignment.BottomCenter;
-            btnStop.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // btnExit
             // 
-            btnExit.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            resources.ApplyResources(btnExit, "btnExit");
             btnExit.Image = Properties.Resources.exit30x30;
-            btnExit.Location = new Point(853, 196);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(100, 70);
-            btnExit.TabIndex = 17;
-            btnExit.Text = "Exit";
-            btnExit.TextAlign = ContentAlignment.BottomCenter;
-            btnExit.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExit.Click += btnExit_Click;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { configurationToolStripMenuItem, configPruebaToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
+            resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1000, 24);
-            menuStrip1.TabIndex = 3;
-            menuStrip1.Text = "menuStrip1";
             // 
             // configurationToolStripMenuItem
             // 
             configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            configurationToolStripMenuItem.Size = new Size(93, 20);
-            configurationToolStripMenuItem.Text = "Configuration";
+            resources.ApplyResources(configurationToolStripMenuItem, "configurationToolStripMenuItem");
             configurationToolStripMenuItem.Click += configurationToolStripMenuItem_Click;
             // 
             // configPruebaToolStripMenuItem
             // 
             configPruebaToolStripMenuItem.Name = "configPruebaToolStripMenuItem";
-            configPruebaToolStripMenuItem.Size = new Size(95, 20);
-            configPruebaToolStripMenuItem.Text = "Config Prueba";
+            resources.ApplyResources(configPruebaToolStripMenuItem, "configPruebaToolStripMenuItem");
             configPruebaToolStripMenuItem.Click += configPruebaToolStripMenuItem_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1000, 600);
             Controls.Add(pnlArtwork);
             Controls.Add(pnlProduction);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Integra CSI - Code Marker";
             pnlArtwork.ResumeLayout(false);
             pnlArtwork.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();

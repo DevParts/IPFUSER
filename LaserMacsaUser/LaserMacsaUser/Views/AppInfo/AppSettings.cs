@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaserMacsaUser.Views.AppInfo
 {
@@ -18,11 +14,17 @@ namespace LaserMacsaUser.Views.AppInfo
 
         [Category("Global")]
         [Description("Selected language")]
-        public string Language { get; set; } = "English";
+        [TypeConverter(typeof(LanguageConverter))]
+        public string Language
+        {
+            get => Properties.Settings.Default.Language;
+            set => Properties.Settings.Default.Language = value;
+        }
+
 
 
         // ======================
-        // SECURITY (NEW)
+        // SECURITY
         // ======================
         [Category("Security")]
         [PasswordPropertyText(false)]
@@ -84,40 +86,25 @@ namespace LaserMacsaUser.Views.AppInfo
 
 
         // ======================
-        // LASER
-        // ======================
-        [Category("Laser")]
-        [Description("Laser IP Address.")]
-        //public string Laser_IP
-       // {
-           // get => Properties.Settings.Default.Laser_IP;
-            //set => Properties.Settings.Default.Laser_IP = value;
-        //}
-
-        //[Category("Laser")]
-        //[Description("Laser buffer size (número de códigos que puede almacenar el buffer del láser). Valores recomendados: 50-200. Por defecto: 100.")]
-        //public int LaserBufferSize
-        //{
-          //  get => Properties.Settings.Default.LaserBufferSize;
-           // set => Properties.Settings.Default.LaserBufferSize = value;
-        //}
-
-
-        // ======================
         // TIMING
         // ======================
-        //[Category("Timing")]
+        [Category("Timing")]
+        [Description("Seconds to wait before retry.")]
         public int WaitTime { get; set; } = 5;
 
         [Category("Timing")]
+        [Description("Extra wait time when buffer is full.")]
         public int WaitTimeBufferFull { get; set; } = 50;
 
+
+        // ======================
+        protected string myVersion = "1.0.0.0";
 
         // ======================
         // APP VERSION (READ ONLY)
         // ======================
         [Category("AppVersion")]
         [ReadOnly(true)]
-        public string ApplicationVersion => AppVersion;
+        public string ApplicationVersion => myVersion;
     }
 }

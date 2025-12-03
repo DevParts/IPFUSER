@@ -43,6 +43,22 @@ namespace LaserMacsaUser.Views.Login
 
         private void ValidatePassword()
         {
+            string lang = Properties.Settings.Default.Language ?? "English";
+
+            string msgIncorrect;
+            string titleIncorrect;
+
+            if (lang == "Español")
+            {
+                msgIncorrect = "Contraseña incorrecta.";
+                titleIncorrect = "Acceso denegado";
+            }
+            else
+            {
+                msgIncorrect = "Incorrect password.";
+                titleIncorrect = "Access Denied";
+            }
+
             if (txtPassword.Text.Trim() == Properties.Settings.Default.AppPassword)
             {
                 IsAuthenticated = true;
@@ -51,7 +67,7 @@ namespace LaserMacsaUser.Views.Login
             }
             else
             {
-                MessageBox.Show("Incorrect password.", "Access Denied",
+                MessageBox.Show(msgIncorrect, titleIncorrect,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 txtPassword.Clear();
@@ -59,6 +75,7 @@ namespace LaserMacsaUser.Views.Login
                 IsAuthenticated = false;
             }
         }
+
 
     }
 }
