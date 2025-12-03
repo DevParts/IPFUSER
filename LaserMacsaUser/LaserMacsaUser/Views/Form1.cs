@@ -4,6 +4,7 @@ using LaserMacsaUser.Views.AppInfo;
 using LaserMacsaUser.Resources;
 using LaserMacsaUser.Services;
 using LaserMacsaUser.Models;
+using LaserMacsaUser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,7 @@ namespace LaserMacsaUser.Views
 
             // Conectar eventos
             this.Load += Form1_Load;
+            this.FormClosing += Form1_FormClosing;
             btnStart.Click += btnStart_Click;
             btnStop.Click += btnStop_Click;
             cmboxtxtCodes.SelectedIndexChanged += cmboxtxtCodes_SelectedIndexChanged;
@@ -1122,10 +1124,40 @@ namespace LaserMacsaUser.Views
 
         #endregion
 
+        private void Form1_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                // Detener todos los servicios antes de cerrar
+                if (_isRunning)
+                {
+                    btnStop_Click(this, EventArgs.Empty);
+                }
+
+                // Detener timer
+                _syncTimer?.Stop();
+
+                // Detener QueueService
+                _queueService?.Stop();
+
+                // Detener láser
+                _laserService?.Stop();
+
+                // Liberar el mutex ANTES de cerrar la aplicación
+                Common.ReleaseMutex();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error al cerrar formulario: {ex.Message}");
+                // Asegurarnos de liberar el mutex incluso si hay error
+                Common.ReleaseMutex();
+            }
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Restart();
-
+            // Cerrar el formulario - el evento FormClosing se encargará de limpiar
+            this.Close();
         }
     }
 }
