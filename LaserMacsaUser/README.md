@@ -101,7 +101,7 @@
 #### 0.1 **revisar por que no se mata el proceso*** 
 - ❌ Matar proceso de laserMacsa
   
-#### 1. **Sistema de Licencias**
+#### 1. **Sistema de Licencias** Yaser
 - ❌ Validación de licencias (`LicenseManager`)
 - ❌ Verificación de archivo `license.lic`
 - ❌ Bloqueo de aplicación si licencia inválida
@@ -111,19 +111,19 @@
 - ✅ Mensajes de carga durante inicialización
 - ✅ Animación de inicio
 
-#### 3. **Sistema de Internacionalización**
+#### 3. **Sistema de Internacionalización** Luis
 - ❌ Sistema de recursos multiidioma (Español/Inglés)
 - ❌ `ResourceManager` para cadenas localizadas
 - ❌ `AppCSIUser.InitCulture()` para inicialización de cultura
 - ❌ Cambio dinámico de idioma
 
-#### 4. **Sistema de Logging**
+#### 4. **Sistema de Logging** Yaser
 - ❌ Integración con NLog o sistema de logging estructurado
 - ❌ Registro de eventos de aplicación
 - ❌ Trazabilidad de operaciones
 - ❌ Archivos de log rotativos
 
-#### 5. **Verificación de Instancia Única**
+#### 5. **Verificación de Instancia Única** Pablo
 - ❌ `Common.PrevInstance()` para evitar múltiples instancias
 - ❌ Mensaje de advertencia si ya hay una instancia ejecutándose
 
@@ -138,24 +138,19 @@
 - ❌ Envío de datos binarios al láser para DataMatrix
 - ❌ Soporte para `DatamatrixType` en promociones
 
-#### 8. **Indicadores Visuales (LEDs)**
-- ❌ LEDs de estado (pbLedLife, pbLedPLC)
-- ❌ Indicadores visuales de conexión
-- ❌ Panel de estado con iconos
-
 #### 9. **Mejoras de UI/UX**
 - ❌ Mensajes de estado más descriptivos
 - ❌ Tooltips informativos
 - ❌ Validación visual de campos
 - ❌ Mejoras en diseño visual
 
-#### 10. **Manejo de Errores Avanzado**
+#### 10. **Manejo de Errores Avanzado** Yaser
 - ❌ Sistema de reintentos automáticos
 - ❌ Recuperación de errores de conexión
 - ❌ Logging detallado de excepciones
 - ❌ Mensajes de error más informativos
 
-#### 11. **Optimizaciones de Rendimiento**
+#### 11. **Optimizaciones de Rendimiento** Yaser
 - ❌ Caché de códigos frecuentes
 - ❌ Optimización de consultas SQL
 - ❌ Gestión mejorada de memoria
@@ -610,6 +605,7 @@ Para futuras actualizaciones y mantenimiento:
 **Última actualización:** Diciembre 2024  
 **Versión documentada:** 1.0.0  
 **Estado:** En desarrollo activo
+
 
 
 
