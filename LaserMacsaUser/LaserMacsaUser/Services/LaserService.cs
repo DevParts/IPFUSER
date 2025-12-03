@@ -223,10 +223,10 @@ namespace LaserMacsaUser.Services
             }
         }
 
-        public bool SendUserMessage(int fieldIndex, string message)
+        public int SendUserMessage(int fieldIndex, string message)
         {
             if (!_isInitialized || _socketComm == null)
-                return false;
+                return -1; // Error de inicialización
 
             try
             {
@@ -239,15 +239,14 @@ namespace LaserMacsaUser.Services
                     string error = string.Empty;
                     _socketComm.CS_GetLastError(_socketHandle2, ref error);
                     _lastError = error;
-                    return false;
                 }
 
-                return true;
+                return result; // Retornar código de error directamente (0 = éxito, 8 = buffer lleno)
             }
             catch (Exception ex)
             {
                 _lastError = ex.Message;
-                return false;
+                return -1; // Error de excepción
             }
         }
 

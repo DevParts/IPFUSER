@@ -38,8 +38,8 @@ namespace LaserMacsaUser.Services
         /// </summary>
         /// <param name="fieldIndex">Índice del campo (0-3)</param>
         /// <param name="message">Mensaje a enviar</param>
-        /// <returns>True si el envío fue exitoso</returns>
-        bool SendUserMessage(int fieldIndex, string message);
+        /// <returns>0 = éxito, 8 = buffer lleno, otros = error</returns>
+        int SendUserMessage(int fieldIndex, string message);
 
         /// <summary>
         /// Detiene la impresión

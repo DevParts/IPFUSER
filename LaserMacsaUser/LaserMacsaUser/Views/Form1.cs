@@ -545,6 +545,17 @@ namespace LaserMacsaUser.Views
             };
         }
 
+        private AppSettingsPrueba LoadTestSettings()
+        {
+            // Cargar configuración de prueba desde AppSettingsPrueba
+            // Por ahora, valores por defecto - se pueden leer desde archivo de configuración
+            return new AppSettingsPrueba
+            {
+                LaserBufferSize = 100,
+                WaitTimeBufferFull = 50
+            };
+        }
+
         #endregion
 
         #region Producción
@@ -653,8 +664,12 @@ namespace LaserMacsaUser.Views
                     return;
                 }
 
-                // 8. Crear e iniciar QueueService
-                _queueService = new QueueService(_databaseService, _laserService, _currentPromotion);
+                // 8. Crear e iniciar QueueService con configuración de buffer
+                AppSettingsPrueba settings = LoadTestSettings();
+                int bufferSize = settings.LaserBufferSize > 0 ? settings.LaserBufferSize : 100;
+                int waitTimeBufferFull = settings.WaitTimeBufferFull > 0 ? settings.WaitTimeBufferFull : 50;
+                
+                _queueService = new QueueService(_databaseService, _laserService, _currentPromotion, bufferSize, waitTimeBufferFull);
                 if (_queueService != null)
                 {
                     _queueService.CodeSent += OnCodeSent;

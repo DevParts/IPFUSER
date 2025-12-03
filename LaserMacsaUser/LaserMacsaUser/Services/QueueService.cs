@@ -16,6 +16,8 @@ namespace LaserMacsaUser.Services
         private readonly IDatabaseService _databaseService;
         private readonly ILaserService _laserService;
         private readonly Promotion _promotion;
+        private readonly int _bufferSize; // Tamaño del buffer del láser
+        private readonly int _waitTimeBufferFull; // Tiempo de espera cuando buffer está lleno
 
         // Colas principales (texto)
         private readonly Queue<string> _queue1 = new Queue<string>();
@@ -54,11 +56,13 @@ namespace LaserMacsaUser.Services
         public event EventHandler<string>? ErrorOccurred;
         public event EventHandler<string>? CodeSent;
 
-        public QueueService(IDatabaseService databaseService, ILaserService laserService, Promotion promotion)
+        public QueueService(IDatabaseService databaseService, ILaserService laserService, Promotion promotion, int bufferSize = 100, int waitTimeBufferFull = 50)
         {
             _databaseService = databaseService ?? throw new ArgumentNullException(nameof(databaseService));
             _laserService = laserService ?? throw new ArgumentNullException(nameof(laserService));
             _promotion = promotion ?? throw new ArgumentNullException(nameof(promotion));
+            _bufferSize = bufferSize;
+            _waitTimeBufferFull = waitTimeBufferFull;
             _activeQueue = _queue1;
         }
 
@@ -209,40 +213,101 @@ namespace LaserMacsaUser.Services
 
         private void ConsumerLoop(CancellationToken cancellationToken)
         {
+            int errorCount = 0; // Contador de errores consecutivos
+            const int maxErrorCount = 80; // Máximo de reintentos antes de verificar estado
+
             while (_isRunning && !cancellationToken.IsCancellationRequested)
             {
                 try
                 {
                     string? code = null;
 
-                    // Tomar código de la cola activa
+                    // Tomar código de la cola activa (Peek en lugar de Dequeue para no perderlo si falla)
                     lock (_queueLock)
                     {
                         if (_activeQueue.Count > 0)
                         {
-                            code = _activeQueue.Dequeue();
+                            code = _activeQueue.Peek();
                         }
                     }
 
                     if (code != null)
                     {
-                        // Enviar al láser según UserFields
-                        bool success = SendCodeToLaser(code, _promotion);
-
-                        if (success)
+                        // Verificar buffer antes de enviar (opcional, para optimización)
+                        int bufferCount = _laserService.GetBufferCount();
+                        if (bufferCount >= _bufferSize)
                         {
+                            // Buffer lleno, esperar un poco
+                            Thread.Sleep(_waitTimeBufferFull);
+                            continue;
+                        }
+
+                        // Enviar al láser según UserFields
+                        int result = SendCodeToLaser(code, _promotion);
+
+                        if (result == 0)
+                        {
+                            // Éxito - remover código de la cola
+                            lock (_queueLock)
+                            {
+                                if (_activeQueue.Count > 0 && _activeQueue.Peek() == code)
+                                {
+                                    _activeQueue.Dequeue();
+                                }
+                            }
+
                             _lastSentCode = code;
                             CodeSent?.Invoke(this, code);
+                            errorCount = 0; // Resetear contador de errores
+                        }
+                        else if (result == 8)
+                        {
+                            // Buffer lleno - esperar y reintentar
+                            errorCount++;
+                            Thread.Sleep(_waitTimeBufferFull);
+
+                            // Si el error se repite muchas veces, verificar estado del láser
+                            if (errorCount >= maxErrorCount)
+                            {
+                                errorCount = 0;
+                                var status = _laserService.GetStatus();
+                                if (status.AlarmCode != 0)
+                                {
+                                    ErrorOccurred?.Invoke(this, $"Error del láser detectado. Código de alarma: {status.AlarmCode}");
+                                    // No remover el código de la cola, se reintentará
+                                }
+                            }
+                            // No remover el código de la cola, se reintentará en la siguiente iteración
                         }
                         else
                         {
-                            ErrorOccurred?.Invoke(this, $"Error al enviar código: {code}");
-                            // Reintentar más tarde o manejar error según sea necesario
+                            // Otro error
+                            ErrorOccurred?.Invoke(this, $"Error al enviar código: {code}. Código de error: {result}");
+                            errorCount++;
+
+                            // Remover código de la cola solo si es un error crítico
+                            // (depende de la lógica de negocio)
+                            if (result != -1) // -1 es error de inicialización, no remover
+                            {
+                                lock (_queueLock)
+                                {
+                                    if (_activeQueue.Count > 0 && _activeQueue.Peek() == code)
+                                    {
+                                        _activeQueue.Dequeue();
+                                    }
+                                }
+                            }
                         }
                     }
 
-                    // Alternar cola activa
-                    _activeQueue = _activeQueue == _queue1 ? _queue2 : _queue1;
+                    // Alternar cola activa solo si la cola actual está vacía
+                    lock (_queueLock)
+                    {
+                        if (_activeQueue.Count == 0)
+                        {
+                            _activeQueue = _activeQueue == _queue1 ? _queue2 : _queue1;
+                        }
+                    }
 
                     Thread.Sleep(10); // Pequeña espera para no sobrecargar
                 }
@@ -254,7 +319,7 @@ namespace LaserMacsaUser.Services
             }
         }
 
-        private bool SendCodeToLaser(string code, Promotion promo)
+        private int SendCodeToLaser(string code, Promotion promo)
         {
             try
             {
@@ -269,16 +334,16 @@ namespace LaserMacsaUser.Services
                     if (code.Length < promo.Split1 + promo.Split2)
                     {
                         ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {code}");
-                        return false;
+                        return -1;
                     }
 
                     string part1 = code.Substring(0, promo.Split1);
                     string part2 = code.Substring(promo.Split1, promo.Split2);
 
-                    bool r1 = _laserService.SendUserMessage(0, part1);
-                    if (!r1) return false;
+                    int r1 = _laserService.SendUserMessage(0, part1);
+                    if (r1 != 0) return r1;
 
-                    bool r2 = _laserService.SendUserMessage(1, part2);
+                    int r2 = _laserService.SendUserMessage(1, part2);
                     return r2;
                 }
                 else if (promo.UserFields == 3)
@@ -287,20 +352,20 @@ namespace LaserMacsaUser.Services
                     if (code.Length < promo.Split1 + promo.Split2 + promo.Split3)
                     {
                         ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {code}");
-                        return false;
+                        return -1;
                     }
 
                     string part1 = code.Substring(0, promo.Split1);
                     string part2 = code.Substring(promo.Split1, promo.Split2);
                     string part3 = code.Substring(promo.Split1 + promo.Split2, promo.Split3);
 
-                    bool r1 = _laserService.SendUserMessage(0, part1);
-                    if (!r1) return false;
+                    int r1 = _laserService.SendUserMessage(0, part1);
+                    if (r1 != 0) return r1;
 
-                    bool r2 = _laserService.SendUserMessage(1, part2);
-                    if (!r2) return false;
+                    int r2 = _laserService.SendUserMessage(1, part2);
+                    if (r2 != 0) return r2;
 
-                    bool r3 = _laserService.SendUserMessage(2, part3);
+                    int r3 = _laserService.SendUserMessage(2, part3);
                     return r3;
                 }
                 else if (promo.UserFields == 4)
@@ -309,7 +374,7 @@ namespace LaserMacsaUser.Services
                     if (code.Length < promo.Split1 + promo.Split2 + promo.Split3 + promo.Split4)
                     {
                         ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {code}");
-                        return false;
+                        return -1;
                     }
 
                     string part1 = code.Substring(0, promo.Split1);
@@ -317,25 +382,25 @@ namespace LaserMacsaUser.Services
                     string part3 = code.Substring(promo.Split1 + promo.Split2, promo.Split3);
                     string part4 = code.Substring(promo.Split1 + promo.Split2 + promo.Split3, promo.Split4);
 
-                    bool r1 = _laserService.SendUserMessage(0, part1);
-                    if (!r1) return false;
+                    int r1 = _laserService.SendUserMessage(0, part1);
+                    if (r1 != 0) return r1;
 
-                    bool r2 = _laserService.SendUserMessage(1, part2);
-                    if (!r2) return false;
+                    int r2 = _laserService.SendUserMessage(1, part2);
+                    if (r2 != 0) return r2;
 
-                    bool r3 = _laserService.SendUserMessage(2, part3);
-                    if (!r3) return false;
+                    int r3 = _laserService.SendUserMessage(2, part3);
+                    if (r3 != 0) return r3;
 
-                    bool r4 = _laserService.SendUserMessage(3, part4);
+                    int r4 = _laserService.SendUserMessage(3, part4);
                     return r4;
                 }
 
-                return false;
+                return -1;
             }
             catch (Exception ex)
             {
                 ErrorOccurred?.Invoke(this, $"Error al enviar código al láser: {ex.Message}");
-                return false;
+                return -1;
             }
         }
     }
