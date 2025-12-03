@@ -1,27 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LaserMacsaUser.Views
 {
     public partial class SplashForm : Form
     {
         int progress = 0;
+        private ComponentResourceManager RM;
 
         public SplashForm()
         {
             InitializeComponent();
 
-            // Inicia con 0%
+            // Cargar recursos del formulario según idioma seleccionado
+            RM = new ComponentResourceManager(typeof(SplashForm));
+
+            // Inicia con valores del idioma actual
             lblPercent.Text = "0 %";
-            lblStatus.Text = "Cargando...";
+            lblStatus.Text = RM.GetString("LoadingStart");
         }
 
         private void SplashForm_Load(object sender, EventArgs e)
@@ -31,25 +29,25 @@ namespace LaserMacsaUser.Views
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progress += 2; // velocidad de carga
+            progress += 2;
             progressBar1.Value = progress;
             lblPercent.Text = $"{progress} %";
 
-            // Puedes ir cambiando el mensaje
-            if (progress == 10) lblStatus.Text = "Inicializando...";
-            if (progress == 30) lblStatus.Text = "Cargando módulos...";
-            if (progress == 60) lblStatus.Text = "Preparando entorno...";
-            if (progress == 80) lblStatus.Text = "Listo...";
+            // Cambiar textos según progreso usando recursos del RESX del formulario
+            if (progress == 10) lblStatus.Text = RM.GetString("LoadingInit");
+            if (progress == 30) lblStatus.Text = RM.GetString("LoadingModules");
+            if (progress == 60) lblStatus.Text = RM.GetString("LoadingEnv");
+            if (progress == 80) lblStatus.Text = RM.GetString("LoadingReady");
 
-            // Cuando llega al 100% abre el Form principal
+            // Al llegar a 100%
             if (progress >= 100)
             {
                 timer1.Stop();
 
-                Form1 main = new Form1(); // tu form principal
+                Form1 main = new Form1();
                 main.Show();
 
-                this.Hide(); // oculta Splash
+                this.Hide();
             }
         }
     }

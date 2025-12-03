@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,10 +117,894 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cmboxtxtCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>722, 3</value>
+  </data>
+  <data name="cmboxtxtCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cmboxtxtCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;cmboxtxtCodes.Name" xml:space="preserve">
+    <value>cmboxtxtCodes</value>
+  </data>
+  <data name="&gt;&gt;cmboxtxtCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmboxtxtCodes.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;cmboxtxtCodes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblHeaderArtwork.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblHeaderArtwork.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="lblHeaderArtwork.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblHeaderArtwork.Size" type="System.Drawing.Size, System.Drawing">
+    <value>968, 30</value>
+  </data>
+  <data name="lblHeaderArtwork.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblHeaderArtwork.Text" xml:space="preserve">
+    <value>Active Artwork</value>
+  </data>
+  <data name="lblHeaderArtwork.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderArtwork.Name" xml:space="preserve">
+    <value>lblHeaderArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderArtwork.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderArtwork.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderArtwork.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblArtwork.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblArtwork.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 50</value>
+  </data>
+  <data name="lblArtwork.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 23</value>
+  </data>
+  <data name="lblArtwork.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblArtwork.Text" xml:space="preserve">
+    <value>Artwork :</value>
+  </data>
+  <data name="&gt;&gt;lblArtwork.Name" xml:space="preserve">
+    <value>lblArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblArtwork.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblArtwork.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblArtwork.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtArtwork.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 48</value>
+  </data>
+  <data name="txtArtwork.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 23</value>
+  </data>
+  <data name="txtArtwork.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtArtwork.Name" xml:space="preserve">
+    <value>txtArtwork</value>
+  </data>
+  <data name="&gt;&gt;txtArtwork.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtArtwork.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;txtArtwork.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblLaser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblLaser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 50</value>
+  </data>
+  <data name="lblLaser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 23</value>
+  </data>
+  <data name="lblLaser.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblLaser.Text" xml:space="preserve">
+    <value>Laser File:</value>
+  </data>
+  <data name="&gt;&gt;lblLaser.Name" xml:space="preserve">
+    <value>lblLaser</value>
+  </data>
+  <data name="&gt;&gt;lblLaser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLaser.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblLaser.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtLaser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 49</value>
+  </data>
+  <data name="txtLaser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 23</value>
+  </data>
+  <data name="txtLaser.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtLaser.Name" xml:space="preserve">
+    <value>txtLaser</value>
+  </data>
+  <data name="&gt;&gt;txtLaser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtLaser.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;txtLaser.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="picLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>722, 83</value>
+  </data>
+  <data name="picLogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 70</value>
+  </data>
+  <data name="picLogo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="picLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;picLogo.Name" xml:space="preserve">
+    <value>picLogo</value>
+  </data>
+  <data name="&gt;&gt;picLogo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picLogo.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;picLogo.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblPromotion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblPromotion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 90</value>
+  </data>
+  <data name="lblPromotion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 23</value>
+  </data>
+  <data name="lblPromotion.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblPromotion.Text" xml:space="preserve">
+    <value>Promotion:</value>
+  </data>
+  <data name="1" xml:space="preserve">
+    <value>lblPromotion</value>
+  </data>
+  <data name="&gt;&gt;lblPromotion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPromotion.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblPromotion.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtPromotion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 88</value>
+  </data>
+  <data name="txtPromotion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>560, 23</value>
+  </data>
+  <data name="txtPromotion.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtPromotion.Name" xml:space="preserve">
+    <value>txtPromotion</value>
+  </data>
+  <data name="&gt;&gt;txtPromotion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtPromotion.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;txtPromotion.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblCodes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 130</value>
+  </data>
+  <data name="lblCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 23</value>
+  </data>
+  <data name="lblCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblCodes.Text" xml:space="preserve">
+    <value>Available Codes:</value>
+  </data>
+  <data name="&gt;&gt;lblCodes.Name" xml:space="preserve">
+    <value>lblCodes</value>
+  </data>
+  <data name="&gt;&gt;lblCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCodes.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblCodes.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="txtCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 130</value>
+  </data>
+  <data name="txtCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>501, 23</value>
+  </data>
+  <data name="txtCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;txtCodes.Name" xml:space="preserve">
+    <value>txtCodes</value>
+  </data>
+  <data name="&gt;&gt;txtCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCodes.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;txtCodes.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="progressCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 175</value>
+  </data>
+  <data name="progressCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 25</value>
+  </data>
+  <data name="progressCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;progressCodes.Name" xml:space="preserve">
+    <value>progressCodes</value>
+  </data>
+  <data name="&gt;&gt;progressCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressCodes.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;progressCodes.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lblProgressCodes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="lblProgressCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>546, 177</value>
+  </data>
+  <data name="lblProgressCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 23</value>
+  </data>
+  <data name="lblProgressCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lblProgressCodes.Text" xml:space="preserve">
+    <value>00 %</value>
+  </data>
+  <data name="&gt;&gt;lblProgressCodes.Name" xml:space="preserve">
+    <value>lblProgressCodes</value>
+  </data>
+  <data name="&gt;&gt;lblProgressCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblProgressCodes.Parent" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;lblProgressCodes.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="pnlArtwork.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 45</value>
+  </data>
+  <data name="pnlArtwork.Size" type="System.Drawing.Size, System.Drawing">
+    <value>970, 220</value>
+  </data>
+  <data name="pnlArtwork.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlArtwork.Name" xml:space="preserve">
+    <value>pnlArtwork</value>
+  </data>
+  <data name="&gt;&gt;pnlArtwork.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlArtwork.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlArtwork.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblHeaderProd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="lblHeaderProd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="lblHeaderProd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lblHeaderProd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>968, 30</value>
+  </data>
+  <data name="lblHeaderProd.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblHeaderProd.Text" xml:space="preserve">
+    <value>Production</value>
+  </data>
+  <data name="lblHeaderProd.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderProd.Name" xml:space="preserve">
+    <value>lblHeaderProd</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderProd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderProd.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblHeaderProd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblStoppers.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblStoppers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 60</value>
+  </data>
+  <data name="lblStoppers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="lblStoppers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblStoppers.Text" xml:space="preserve">
+    <value>Stoppers to Produce</value>
+  </data>
+  <data name="&gt;&gt;lblStoppers.Name" xml:space="preserve">
+    <value>lblStoppers</value>
+  </data>
+  <data name="&gt;&gt;lblStoppers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStoppers.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblStoppers.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtStoppers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 59</value>
+  </data>
+  <data name="txtStoppers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 23</value>
+  </data>
+  <data name="txtStoppers.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtStoppers.Name" xml:space="preserve">
+    <value>txtStoppers</value>
+  </data>
+  <data name="&gt;&gt;txtStoppers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtStoppers.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;txtStoppers.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblPending.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblPending.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 40</value>
+  </data>
+  <data name="lblPending.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="lblPending.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblPending.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="&gt;&gt;lblPending.Name" xml:space="preserve">
+    <value>lblPending</value>
+  </data>
+  <data name="&gt;&gt;lblPending.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPending.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblPending.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtPending.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 65</value>
+  </data>
+  <data name="txtPending.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 23</value>
+  </data>
+  <data name="txtPending.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtPending.Name" xml:space="preserve">
+    <value>txtPending</value>
+  </data>
+  <data name="&gt;&gt;txtPending.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtPending.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;txtPending.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblProduced.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblProduced.Location" type="System.Drawing.Point, System.Drawing">
+    <value>763, 39</value>
+  </data>
+  <data name="lblProduced.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="lblProduced.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lblProduced.Text" xml:space="preserve">
+    <value>Produced</value>
+  </data>
+  <data name="&gt;&gt;lblProduced.Name" xml:space="preserve">
+    <value>lblProduced</value>
+  </data>
+  <data name="&gt;&gt;lblProduced.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblProduced.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblProduced.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtProduced.Location" type="System.Drawing.Point, System.Drawing">
+    <value>763, 65</value>
+  </data>
+  <data name="txtProduced.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 23</value>
+  </data>
+  <data name="txtProduced.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;txtProduced.Name" xml:space="preserve">
+    <value>txtProduced</value>
+  </data>
+  <data name="&gt;&gt;txtProduced.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtProduced.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;txtProduced.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblOrder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 110</value>
+  </data>
+  <data name="lblOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 23</value>
+  </data>
+  <data name="lblOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lblOrder.Text" xml:space="preserve">
+    <value>Order:</value>
+  </data>
+  <data name="&gt;&gt;lblOrder.Name" xml:space="preserve">
+    <value>lblOrder</value>
+  </data>
+  <data name="&gt;&gt;lblOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblOrder.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblOrder.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 108</value>
+  </data>
+  <data name="txtOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 23</value>
+  </data>
+  <data name="txtOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txtOrder.Name" xml:space="preserve">
+    <value>txtOrder</value>
+  </data>
+  <data name="&gt;&gt;txtOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtOrder.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;txtOrder.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 133</value>
+  </data>
+  <data name="lblCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="lblCode.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblCode.Text" xml:space="preserve">
+    <value>Code:</value>
+  </data>
+  <data name="&gt;&gt;lblCode.Name" xml:space="preserve">
+    <value>lblCode</value>
+  </data>
+  <data name="&gt;&gt;lblCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCode.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblCode.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="txtCode.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 159</value>
+  </data>
+  <data name="txtCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 23</value>
+  </data>
+  <data name="txtCode.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;txtCode.Name" xml:space="preserve">
+    <value>txtCode</value>
+  </data>
+  <data name="&gt;&gt;txtCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCode.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;txtCode.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblPromoIndex.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="lblPromoIndex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 159</value>
+  </data>
+  <data name="lblPromoIndex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 23</value>
+  </data>
+  <data name="lblPromoIndex.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lblPromoIndex.Text" xml:space="preserve">
+    <value>Promotion Index:</value>
+  </data>
+  <data name="&gt;&gt;lblPromoIndex.Name" xml:space="preserve">
+    <value>lblPromoIndex</value>
+  </data>
+  <data name="&gt;&gt;lblPromoIndex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPromoIndex.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblPromoIndex.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="txtPromoIndex.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtPromoIndex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 158</value>
+  </data>
+  <data name="txtPromoIndex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 23</value>
+  </data>
+  <data name="txtPromoIndex.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;txtPromoIndex.Name" xml:space="preserve">
+    <value>txtPromoIndex</value>
+  </data>
+  <data name="&gt;&gt;txtPromoIndex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtPromoIndex.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;txtPromoIndex.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="progressProd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 217</value>
+  </data>
+  <data name="progressProd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 25</value>
+  </data>
+  <data name="progressProd.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;progressProd.Name" xml:space="preserve">
+    <value>progressProd</value>
+  </data>
+  <data name="&gt;&gt;progressProd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressProd.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;progressProd.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="lblProgressProd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="lblProgressProd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>546, 219</value>
+  </data>
+  <data name="lblProgressProd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 23</value>
+  </data>
+  <data name="lblProgressProd.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="lblProgressProd.Text" xml:space="preserve">
+    <value>00 %</value>
+  </data>
+  <data name="&gt;&gt;lblProgressProd.Name" xml:space="preserve">
+    <value>lblProgressProd</value>
+  </data>
+  <data name="&gt;&gt;lblProgressProd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblProgressProd.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;lblProgressProd.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="btnStart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Bold</value>
+  </data>
+  <data name="btnStart.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>613, 196</value>
+  </data>
+  <data name="btnStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 70</value>
+  </data>
+  <data name="btnStart.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnStart.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="btnStart.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnStart.Name" xml:space="preserve">
+    <value>btnStart</value>
+  </data>
+  <data name="&gt;&gt;btnStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnStart.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;btnStart.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="btnStop.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Bold</value>
+  </data>
+  <data name="btnStop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>733, 196</value>
+  </data>
+  <data name="btnStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 70</value>
+  </data>
+  <data name="btnStop.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="btnStop.Text" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="btnStop.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnStop.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnStop.Name" xml:space="preserve">
+    <value>btnStop</value>
+  </data>
+  <data name="&gt;&gt;btnStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnStop.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;btnStop.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="btnExit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Bold</value>
+  </data>
+  <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>853, 196</value>
+  </data>
+  <data name="btnExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 70</value>
+  </data>
+  <data name="btnExit.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="btnExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="btnExit.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnExit.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
+    <value>btnExit</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Parent" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="pnlProduction.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 280</value>
+  </data>
+  <data name="pnlProduction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>970, 280</value>
+  </data>
+  <data name="pnlProduction.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.Name" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
+  </data>
+  <data name="configurationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="configurationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="configPruebaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 20</value>
+  </data>
+  <data name="configPruebaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Config Prueba</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 24</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1000, 600</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAwAEBAQAAAAAAAoAQAAxgAAABAQAAABABgAaAMAAO4BAAAQEAAAAQAgAGgEAABWBQAAICAQAAAA
@@ -1154,5 +2038,29 @@
         ////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////w==
 </value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Integra CSI - Code Marker</value>
+  </data>
+  <data name="&gt;&gt;configurationToolStripMenuItem.Name" xml:space="preserve">
+    <value>configurationToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;configurationToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;configPruebaToolStripMenuItem.Name" xml:space="preserve">
+    <value>configPruebaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;configPruebaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -38,6 +38,7 @@
             btnOk.Size = new Size(85, 28);
             btnOk.TabIndex = 1;
             btnOk.Text = "Ok";
+            btnOk.Click += BtnOk_Click;
             // 
             // AppConfigForm
             // 

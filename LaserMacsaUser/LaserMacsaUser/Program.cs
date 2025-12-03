@@ -1,19 +1,24 @@
 using LaserMacsaUser.Views;
+using LaserMacsaUser.Views.AppInfo;
 
 namespace LaserMacsaUser
-
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            // Cargar idioma guardado
+            string savedLanguage = Properties.Settings.Default.Language;
+
+            // Aplicar cultura
+            if (savedLanguage == "Español")
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es");
+            else
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+
             Application.Run(new SplashForm());
         }
     }

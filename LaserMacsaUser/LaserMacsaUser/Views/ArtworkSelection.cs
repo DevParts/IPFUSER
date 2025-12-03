@@ -42,10 +42,25 @@ namespace LaserMacsaUser.Resources
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            string lang = Properties.Settings.Default.Language ?? "English";
+
+            string msg;
+            string title;
+
+            if (lang == "Español")
+            {
+                msg = "Por favor ingrese el número del artwork.";
+                title = "Falta información";
+            }
+            else
+            {
+                msg = "Please enter the artwork number.";
+                title = "Missing Data";
+            }
+
             if (string.IsNullOrWhiteSpace(txtArtworkNumber.Text))
             {
-                MessageBox.Show("Please enter the artwork number.", "Missing Data",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -57,6 +72,11 @@ namespace LaserMacsaUser.Resources
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
