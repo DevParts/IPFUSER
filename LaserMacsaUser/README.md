@@ -97,6 +97,10 @@
 
 ### ❌ Funcionalidades Pendientes (Excluyendo PLC)
 
+
+#### 0.1 **revisar por que no se mata el proceso*** 
+- ❌ Matar proceso de laserMacsa
+  
 #### 1. **Sistema de Licencias**
 - ❌ Validación de licencias (`LicenseManager`)
 - ❌ Verificación de archivo `license.lic`
@@ -606,4 +610,5 @@ Para futuras actualizaciones y mantenimiento:
 **Última actualización:** Diciembre 2024  
 **Versión documentada:** 1.0.0  
 **Estado:** En desarrollo activo
+
 
