@@ -1145,6 +1145,10 @@ namespace LaserMacsaUser.Views
 
                 // Liberar el mutex ANTES de cerrar la aplicación
                 Common.ReleaseMutex();
+                
+                // Cerrar la aplicación completamente para que termine el proceso
+                // Esto asegura que Application.Run() termine y el proceso se cierre
+                Application.ExitThread();
             }
             catch (Exception ex)
             {
@@ -1156,8 +1160,9 @@ namespace LaserMacsaUser.Views
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            // Cerrar el formulario - el evento FormClosing se encargará de limpiar
-            this.Close();
+            // Cerrar la aplicación completamente
+            // El evento FormClosing se encargará de limpiar recursos
+            Application.Exit();
         }
     }
 }

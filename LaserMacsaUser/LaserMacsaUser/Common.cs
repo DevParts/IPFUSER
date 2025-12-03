@@ -25,20 +25,31 @@ namespace LaserMacsaUser
                 // Verificar si hay algún proceso ejecutándose que no sea el actual
                 foreach (Process proc in processes)
                 {
-                    if (proc.Id != currentProcessId)
+                    try
                     {
-                        // Verificar que el proceso todavía esté ejecutándose
-                        try
+                        if (proc.Id != currentProcessId && !proc.HasExited)
                         {
-                            // Si podemos acceder al MainModule, el proceso está activo
-                            var _ = proc.MainModule;
-                            return true;
+                            // Verificar que el proceso todavía esté ejecutándose
+                            try
+                            {
+                                // Intentar refrescar para ver si el proceso sigue activo
+                                proc.Refresh();
+                                if (!proc.HasExited)
+                                {
+                                    return true;
+                                }
+                            }
+                            catch
+                            {
+                                // Si no podemos acceder, el proceso está terminando
+                                // Continuar verificando otros procesos
+                            }
                         }
-                        catch
-                        {
-                            // Si no podemos acceder, el proceso está terminando o sin permisos
-                            // Continuar verificando otros procesos
-                        }
+                    }
+                    catch
+                    {
+                        // Ignorar errores con este proceso específico
+                        continue;
                     }
                 }
                 return false;
@@ -58,42 +69,80 @@ namespace LaserMacsaUser
         {
             try
             {
-                // Primero verificar si realmente hay procesos ejecutándose
-                if (IsProcessRunning())
+                // Primero verificar SIEMPRE si realmente hay procesos ejecutándose
+                // Esta es la verificación más confiable
+                bool hasRunningProcess = IsProcessRunning();
+                
+                if (hasRunningProcess)
                 {
-                    // Hay un proceso ejecutándose - verificar el mutex
-                    try
-                    {
-                        // Intentar abrir el mutex existente
-                        bool mutexExists = Mutex.TryOpenExisting(MutexName, out Mutex? existingMutex);
-                        if (mutexExists && existingMutex != null)
-                        {
-                            try
-                            {
-                                existingMutex.Dispose();
-                            }
-                            catch { }
-                            return true; // Hay proceso y mutex - definitivamente está corriendo
-                        }
-                        // Si no hay mutex pero hay proceso, puede ser un proceso antiguo sin mutex
-                        return true;
-                    }
-                    catch
-                    {
-                        // Si no podemos verificar el mutex, pero hay proceso, asumir que está corriendo
-                        return true;
-                    }
+                    // Hay un proceso ejecutándose - definitivamente está corriendo
+                    return true;
                 }
 
                 // No hay procesos ejecutándose - intentar crear el mutex
+                // Si el mutex existe pero no hay procesos, está abandonado y lo reclamamos
                 try
                 {
+                    // Esperar un momento para asegurarse de que no hay procesos terminando
+                    System.Threading.Thread.Sleep(200);
+                    
+                    // Verificar una vez más los procesos antes de crear el mutex
+                    if (IsProcessRunning())
+                    {
+                        return true; // Ahora sí hay un proceso ejecutándose
+                    }
+                    
                     _mutex = new Mutex(true, MutexName, out bool createdNew);
                     _mutexOwned = createdNew;
 
                     if (!createdNew)
                     {
-                        // El mutex existe pero no hay proceso - está abandonado, reclamarlo
+                        // El mutex existe pero no hay proceso - está abandonado
+                        // Esperar un momento más y verificar procesos de nuevo
+                        System.Threading.Thread.Sleep(200);
+                        
+                        // Verificar una vez más si hay procesos (podría haber un delay)
+                        if (!IsProcessRunning())
+                        {
+                            // No hay procesos - el mutex está abandonado, reclamarlo
+                            if (_mutex != null)
+                            {
+                                try
+                                {
+                                    _mutex.Dispose();
+                                }
+                                catch { }
+                            }
+                            // Forzar la creación del mutex (reclamar el abandonado)
+                            _mutex = new Mutex(true, MutexName, out createdNew);
+                            _mutexOwned = createdNew;
+                            return false; // Permitir ejecutar
+                        }
+                        else
+                        {
+                            // Ahora sí hay proceso - está corriendo
+                            if (_mutex != null)
+                            {
+                                try
+                                {
+                                    _mutex.Dispose();
+                                }
+                                catch { }
+                                _mutex = null;
+                                _mutexOwned = false;
+                            }
+                            return true;
+                        }
+                    }
+
+                    return false; // Esta es la primera instancia
+                }
+                catch (AbandonedMutexException)
+                {
+                    // Mutex abandonado - verificar procesos antes de reclamar
+                    if (!IsProcessRunning())
+                    {
+                        // No hay procesos - reclamar el mutex
                         if (_mutex != null)
                         {
                             try
@@ -102,27 +151,25 @@ namespace LaserMacsaUser
                             }
                             catch { }
                         }
-                        // Crear nuevo mutex
-                        _mutex = new Mutex(true, MutexName, out createdNew);
+                        _mutex = new Mutex(true, MutexName, out bool createdNew);
                         _mutexOwned = createdNew;
+                        return false; // Permitir ejecutar
                     }
-
-                    return false; // Esta es la primera instancia
-                }
-                catch (AbandonedMutexException)
-                {
-                    // Mutex abandonado - reclamarlo
-                    if (_mutex != null)
+                    else
                     {
-                        try
+                        // Hay procesos - está corriendo
+                        if (_mutex != null)
                         {
-                            _mutex.Dispose();
+                            try
+                            {
+                                _mutex.Dispose();
+                            }
+                            catch { }
+                            _mutex = null;
+                            _mutexOwned = false;
                         }
-                        catch { }
+                        return true;
                     }
-                    _mutex = new Mutex(true, MutexName, out bool createdNew);
-                    _mutexOwned = createdNew;
-                    return false;
                 }
             }
             catch (Exception ex)
@@ -147,7 +194,7 @@ namespace LaserMacsaUser
                     _mutex = null;
                     _mutexOwned = false;
                 }
-                return false;
+                return false; // Permitir continuar si no hay procesos
             }
         }
 
