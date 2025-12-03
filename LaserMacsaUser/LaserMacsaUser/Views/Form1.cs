@@ -362,7 +362,7 @@ namespace LaserMacsaUser.Views
             txtArtwork.Text = _artwork ?? string.Empty;
             txtLaser.Text = _currentPromotion.LaserFile ?? string.Empty;
             txtPromotion.Text = _currentPromotion.JobName ?? string.Empty;
-            
+
             // No actualizar txtCodes aquí, se actualizará cuando se seleccione un archivo en el ComboBox
             // txtCodes se actualizará en UpdateFieldsForSelectedFile()
 
@@ -507,16 +507,16 @@ namespace LaserMacsaUser.Views
                     double consumedPercent = (selectedFile.Consumed / (double)selectedFile.TotalCodes) * 100.0;
                     int percentValue = (int)Math.Round(consumedPercent);
                     percentValue = Math.Max(0, Math.Min(100, percentValue)); // Asegurar que esté entre 0 y 100
-                    
+
                     // Asegurar que Maximum esté configurado
                     if (progressCodes.Maximum != 100)
                     {
                         progressCodes.Maximum = 100;
                     }
-                    
+
                     progressCodes.Value = percentValue;
                     lblProgressCodes.Text = $"{percentValue} %";
-                    
+
                     System.Diagnostics.Debug.WriteLine($"UpdateFieldsForSelectedFile: Archivo={selectedFileName}, TotalCodes={selectedFile.TotalCodes}, Consumed={selectedFile.Consumed}, Porcentaje={percentValue}%");
                 }
                 else
@@ -835,7 +835,7 @@ namespace LaserMacsaUser.Views
                         {
                             string alarmMessage = GetAlarmDescription(alarmCode);
                             System.Diagnostics.Debug.WriteLine($"Alarma detectada: {alarmCode} - {alarmMessage}");
-                            
+
                             // Mostrar mensaje de alarma (solo una vez por tipo de alarma)
                             if (!_activeAlarms.Contains(alarmCode))
                             {
@@ -849,7 +849,7 @@ namespace LaserMacsaUser.Views
                 {
                     string alarmMessage = GetAlarmDescription((int)status.AlarmCode);
                     System.Diagnostics.Debug.WriteLine($"Alarma detectada: {status.AlarmCode} - {alarmMessage}");
-                    
+
                     if (!_activeAlarms.Contains((int)status.AlarmCode))
                     {
                         _activeAlarms.Add((int)status.AlarmCode);
@@ -975,7 +975,7 @@ namespace LaserMacsaUser.Views
 
                     progressCodes.Value = percentValue;
                     lblProgressCodes.Text = $"{percentValue} %";
-                    
+
                     // Actualizar también txtCodes con el total
                     txtCodes.Text = selectedFile.TotalCodes.ToString();
                 }
@@ -1121,6 +1121,12 @@ namespace LaserMacsaUser.Views
         }
 
         #endregion
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+
+        }
     }
 }
 

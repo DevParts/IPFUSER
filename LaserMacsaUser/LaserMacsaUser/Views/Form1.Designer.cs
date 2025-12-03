@@ -95,7 +95,6 @@
             // 
             // cmboxtxtCodes
             // 
-            cmboxtxtCodes.DropDownStyle = ComboBoxStyle.DropDown;
             cmboxtxtCodes.FormattingEnabled = true;
             cmboxtxtCodes.Location = new Point(722, 3);
             cmboxtxtCodes.Name = "cmboxtxtCodes";
@@ -198,7 +197,6 @@
             // progressCodes
             // 
             progressCodes.Location = new Point(20, 175);
-            progressCodes.Maximum = 100;
             progressCodes.Name = "progressCodes";
             progressCodes.Size = new Size(520, 25);
             progressCodes.TabIndex = 10;
@@ -371,35 +369,39 @@
             // btnStart
             // 
             btnStart.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnStart.ImageAlign = ContentAlignment.TopCenter;
+            btnStart.Image = Properties.Resources.start30x30;
+            btnStart.ImageAlign = ContentAlignment.BottomCenter;
             btnStart.Location = new Point(613, 196);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(100, 70);
             btnStart.TabIndex = 15;
             btnStart.Text = "Start";
-            btnStart.TextAlign = ContentAlignment.BottomCenter;
+            btnStart.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // btnStop
             // 
             btnStop.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnStop.ImageAlign = ContentAlignment.TopCenter;
+            btnStop.Image = Properties.Resources.stop30x301;
             btnStop.Location = new Point(733, 196);
             btnStop.Name = "btnStop";
             btnStop.Size = new Size(100, 70);
             btnStop.TabIndex = 16;
             btnStop.Text = "Stop";
             btnStop.TextAlign = ContentAlignment.BottomCenter;
+            btnStop.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // btnExit
             // 
             btnExit.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnExit.ImageAlign = ContentAlignment.TopCenter;
+            btnExit.Image = Properties.Resources.exit30x30;
             btnExit.Location = new Point(853, 196);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(100, 70);
             btnExit.TabIndex = 17;
             btnExit.Text = "Exit";
             btnExit.TextAlign = ContentAlignment.BottomCenter;
+            btnExit.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnExit.Click += btnExit_Click;
             // 
             // menuStrip1
             // 

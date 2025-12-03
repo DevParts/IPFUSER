@@ -63,9 +63,49 @@ namespace LaserMacsaUser.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit30x30 {
+            get {
+                object obj = ResourceManager.GetObject("exit30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MacsaLogo {
             get {
                 object obj = ResourceManager.GetObject("MacsaLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap start30x30 {
+            get {
+                object obj = ResourceManager.GetObject("start30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stop30x30 {
+            get {
+                object obj = ResourceManager.GetObject("stop30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stop30x301 {
+            get {
+                object obj = ResourceManager.GetObject("stop30x301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

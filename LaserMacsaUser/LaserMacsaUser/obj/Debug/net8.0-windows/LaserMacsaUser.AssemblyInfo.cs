@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LaserMacsaUser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4f77fa4ea28bd33b0e54d1a071e63237ff79dda")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fe01cf4d5a981ec2478fe5c900e876dde9af615")]
 [assembly: System.Reflection.AssemblyProductAttribute("LaserMacsaUser")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LaserMacsaUser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
