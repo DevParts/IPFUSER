@@ -101,7 +101,7 @@
 #### 0.1 **revisar por que no se mata el proceso*** 
 - ❌ Matar proceso de laserMacsa
   
-#### 1. **Sistema de Licencias** Yaser
+#### 1. **Sistema de Licencias** 
 - ❌ Validación de licencias (`LicenseManager`)
 - ❌ Verificación de archivo `license.lic`
 - ❌ Bloqueo de aplicación si licencia inválida
