@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yqlYnJ/Jrag=",
+  "dgSpecHash": "vPS1x9Ry/pk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yaser\\OneDrive\\Documentos\\trabajo\\IPFUSER\\TCPIPver31\\SocketCommNet\\SocketCommNet.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Yaser\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.22\\microsoft.netcore.app.ref.8.0.22.nupkg.sha512",
-    "C:\\Users\\Yaser\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.22\\microsoft.windowsdesktop.app.ref.8.0.22.nupkg.sha512",
-    "C:\\Users\\Yaser\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.22\\microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Luis Arias\\source\\repos\\IPFUSER\\TCPIPver31\\SocketCommNet\\SocketCommNet.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

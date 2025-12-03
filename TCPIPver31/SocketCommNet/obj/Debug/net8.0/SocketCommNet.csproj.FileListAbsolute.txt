@@ -22,3 +22,15 @@ C:\Users\Yaser\OneDrive\Documentos\trabajo\IPFUSER\TCPIPver31\SocketCommNet\obj\
 C:\Users\Yaser\OneDrive\Documentos\trabajo\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\refint\SocketCommNet.dll
 C:\Users\Yaser\OneDrive\Documentos\trabajo\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\SocketCommNet.pdb
 C:\Users\Yaser\OneDrive\Documentos\trabajo\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\ref\SocketCommNet.dll
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\bin\Debug\net8.0\SocketCommDll.dll
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\bin\Debug\net8.0\x86\SocketCommDll.dll
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\bin\Debug\net8.0\SocketCommNet.deps.json
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\bin\Debug\net8.0\SocketCommNet.dll
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\bin\Debug\net8.0\SocketCommNet.pdb
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\SocketCommNet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\SocketCommNet.csproj.CoreCompileInputs.cache
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\SocketCommNet.sourcelink.json
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\SocketCommNet.dll
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\refint\SocketCommNet.dll
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\SocketCommNet.pdb
+C:\Users\Luis Arias\source\repos\IPFUSER\TCPIPver31\SocketCommNet\obj\Debug\net8.0\ref\SocketCommNet.dll
