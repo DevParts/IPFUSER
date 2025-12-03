@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = Advantech.Adam
+build_property.ProjectDir = C:\Users\Luis Arias\source\repos\IPFUSER\user complete\Advantech.Adam\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 
