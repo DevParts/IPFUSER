@@ -4,6 +4,7 @@ using LaserMacsaUser.Views.AppInfo;
 using LaserMacsaUser.Resources;
 using LaserMacsaUser.Services;
 using LaserMacsaUser.Models;
+using LaserMacsaUser.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,6 +96,7 @@ namespace LaserMacsaUser.Views
             _syncTimer.Tick += SyncTimer_Tick;
         }
 
+
         private void Form1_Load(object? sender, EventArgs e)
         {
             try
@@ -138,16 +140,41 @@ namespace LaserMacsaUser.Views
                 var settings = LoadAppSettings();
 
                 // Conectar a la base de datos principal
-                _databaseService.Connect(
-                    settings.DataSource,
-                    settings.Catalog,
-                    settings.UseWindowsAuthentication,
-                    settings.User,
-                    settings.Password);
+                try
+                {
+                    _databaseService.Connect(
+                        settings.DataSource,
+                        settings.Catalog,
+                        settings.UseWindowsAuthentication,
+                        settings.User,
+                        settings.Password);
+                }
+                catch (DatabaseConnectionException)
+                {
+                    // Re-lanzar excepciones de base de datos
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    throw new DatabaseConnectionException(
+                        settings.DataSource,
+                        settings.Catalog,
+                        $"Error al preparar base de datos: {ex.Message}",
+                        ex);
+                }
+            }
+            catch (DatabaseConnectionException)
+            {
+                // Re-lanzar excepciones de base de datos
+                throw;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error al preparar base de datos: {ex.Message}", ex);
+                throw new DatabaseConnectionException(
+                    "(local)\\SQLEXPRESS",
+                    "IPFEu",
+                    $"Error inesperado al preparar base de datos: {ex.Message}",
+                    ex);
             }
         }
 
@@ -611,14 +638,30 @@ namespace LaserMacsaUser.Views
                     }
                 }
 
-                // 4. Inicializar láser
+                // 4. Inicializar láser con configuración de buffer
                 string laserIP = GetLaserIPFromSettings();
-                if (!_laserService.Initialize(laserIP, ".\\"))
+                AppSettingsPrueba settings = LoadTestSettings();
+                int bufferSize = settings.LaserBufferSize > 0 ? settings.LaserBufferSize : 100;
+                int userFields = _currentPromotion.UserFields;
+                
+                try
                 {
-                    string error = _laserService.GetLastError();
+                    if (!_laserService.Initialize(laserIP, ".\\", bufferSize, userFields))
+                    {
+                        string error = _laserService.GetLastError();
+                        MessageBox.Show(
+                            $"Error al inicializar el láser:\n{error}",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                catch (LaserCommunicationException ex)
+                {
                     MessageBox.Show(
-                        $"Error al inicializar el láser:\n{error}",
-                        "Error",
+                        ex.Message,
+                        "Error de Comunicación con el Láser",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return;
@@ -665,8 +708,7 @@ namespace LaserMacsaUser.Views
                 }
 
                 // 8. Crear e iniciar QueueService con configuración de buffer
-                AppSettingsPrueba settings = LoadTestSettings();
-                int bufferSize = settings.LaserBufferSize > 0 ? settings.LaserBufferSize : 100;
+                // (settings ya cargado arriba)
                 int waitTimeBufferFull = settings.WaitTimeBufferFull > 0 ? settings.WaitTimeBufferFull : 50;
                 
                 _queueService = new QueueService(_databaseService, _laserService, _currentPromotion, bufferSize, waitTimeBufferFull);
@@ -842,33 +884,42 @@ namespace LaserMacsaUser.Views
                 }
 
                 // Verificar si hay códigos de alarma
+                // Nota: El evento AlarmDetected ya se dispara desde LaserService.GetStatus()
+                // Este método solo verifica alarmas críticas para detener producción
                 if (status.AlarmCodes.Count > 0)
                 {
                     foreach (int alarmCode in status.AlarmCodes)
                     {
                         if (alarmCode != 0)
                         {
-                            string alarmMessage = GetAlarmDescription(alarmCode);
-                            System.Diagnostics.Debug.WriteLine($"Alarma detectada: {alarmCode} - {alarmMessage}");
-
-                            // Mostrar mensaje de alarma (solo una vez por tipo de alarma)
+                            // Agregar a alarmas activas
                             if (!_activeAlarms.Contains(alarmCode))
                             {
                                 _activeAlarms.Add(alarmCode);
-                                ShowAlarmMessage(alarmCode, alarmMessage);
+                            }
+
+                            // Verificar si es una alarma crítica
+                            if (IsCriticalAlarm(alarmCode) && _isRunning)
+                            {
+                                System.Diagnostics.Debug.WriteLine($"Alarma crítica detectada en CheckLaserErrors: {alarmCode}. Deteniendo producción...");
+                                btnStop_Click(this, EventArgs.Empty);
+                                break; // Salir del loop después de detener
                             }
                         }
                     }
                 }
                 else if (status.AlarmCode != 0)
                 {
-                    string alarmMessage = GetAlarmDescription((int)status.AlarmCode);
-                    System.Diagnostics.Debug.WriteLine($"Alarma detectada: {status.AlarmCode} - {alarmMessage}");
-
                     if (!_activeAlarms.Contains((int)status.AlarmCode))
                     {
                         _activeAlarms.Add((int)status.AlarmCode);
-                        ShowAlarmMessage((int)status.AlarmCode, alarmMessage);
+                    }
+
+                    // Verificar si es una alarma crítica
+                    if (IsCriticalAlarm((int)status.AlarmCode) && _isRunning)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Alarma crítica detectada en CheckLaserErrors: {status.AlarmCode}. Deteniendo producción...");
+                        btnStop_Click(this, EventArgs.Empty);
                     }
                 }
                 else
@@ -893,9 +944,41 @@ namespace LaserMacsaUser.Views
 
             try
             {
-                string alarmMessage = $"Alarma del láser: {e.AlarmCode} - {GetAlarmDescription(e.AlarmCode)}";
+                string alarmMessage = $"Alarma del láser: 0x{e.AlarmCode:X2} ({e.AlarmCode}) - {e.AlarmDescription}";
                 System.Diagnostics.Debug.WriteLine(alarmMessage);
-                ShowAlarmMessage(e.AlarmCode, GetAlarmDescription(e.AlarmCode));
+
+                // Agregar alarma activa
+                if (!_activeAlarms.Contains(e.AlarmCode))
+                {
+                    _activeAlarms.Add(e.AlarmCode);
+                }
+
+                // Mostrar mensaje de alarma solo si es nueva
+                MessageBoxIcon icon = e.IsCritical ? MessageBoxIcon.Error : MessageBoxIcon.Warning;
+                string title = e.IsCritical ? "Alarma Crítica del Láser" : "Alarma del Láser";
+                
+                MessageBox.Show(
+                    $"Alarma del láser detectada:\n\nCódigo: 0x{e.AlarmCode:X2} ({e.AlarmCode})\nDescripción: {e.AlarmDescription}\n\n" +
+                    (e.IsCritical ? "ALARMA CRÍTICA: La producción se detendrá automáticamente.\n\n" : "") +
+                    "Por favor, verifique el estado del láser.",
+                    title,
+                    MessageBoxButtons.OK,
+                    icon);
+
+                // Si es una alarma crítica y la producción está en curso, detener automáticamente
+                if (e.IsCritical && _isRunning)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Alarma crítica detectada ({e.AlarmCode}). Deteniendo producción automáticamente...");
+                    
+                    // Detener producción automáticamente
+                    btnStop_Click(this, EventArgs.Empty);
+                    
+                    MessageBox.Show(
+                        $"La producción se ha detenido automáticamente debido a una alarma crítica:\n\n{e.AlarmDescription}",
+                        "Producción Detenida",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Stop);
+                }
             }
             catch (Exception ex)
             {
@@ -905,19 +988,40 @@ namespace LaserMacsaUser.Views
 
         private string GetAlarmDescription(int alarmCode)
         {
-            // Mapeo básico de códigos de alarma comunes
+            // Usar el servicio del láser para obtener la descripción completa
+            // Si no está disponible, usar mapeo básico
+            if (_laserService != null)
+            {
+                // El servicio ya tiene el mapeo completo, pero no expone GetAlarmDescription
+                // Por ahora, usar el mapeo básico aquí también
+                // TODO: Exponer GetAlarmDescription en ILaserService o crear método helper
+            }
+
+            // Mapeo básico como fallback (el servicio tiene el mapeo completo)
             return alarmCode switch
             {
                 0 => "Sin errores",
                 1 => "Error de comunicación",
-                2 => "Error de comunicación con el láser",
-                3 => "Error de hardware",
-                4 => "Error de archivo",
-                5 => "Error de parámetros",
-                9 => "Buffer lleno",
-                10 => "Temperatura alta",
-                16 => "Error de archivo láser",
-                _ => $"Alarma desconocida: {alarmCode}"
+                2 => "Laser is OFF (interlock open)",
+                3 => "Shutter is closed (obsolete)",
+                4 => "DC Power fails (obsolete)",
+                5 => "Overtemp of amplifier (obsolete)",
+                6 => "Q-switch error",
+                7 => "High reverse power (obsolete)",
+                8 => "Low forward power (obsolete)",
+                9 => "YAG RS232 error (obsolete)",
+                0x0A => "Belt stopped",
+                0x0D => "No memory available",
+                0x10 => "File not found",
+                0x16 => "Overtemperature (CRÍTICA)",
+                0x24 => "Warmup cycle still active",
+                0x25 => "Shutter closed",
+                0x26 => "Laser not ready",
+                0x28 => "Power off",
+                0x41 => "Scanner X alarm",
+                0x42 => "Scanner Y alarm",
+                0x44 => "Initialization alarm",
+                _ => $"Alarma desconocida: 0x{alarmCode:X2} ({alarmCode})"
             };
         }
 
@@ -925,17 +1029,51 @@ namespace LaserMacsaUser.Views
         {
             try
             {
+                // Determinar si es crítica
+                bool isCritical = IsCriticalAlarm(alarmCode);
+                MessageBoxIcon icon = isCritical ? MessageBoxIcon.Error : MessageBoxIcon.Warning;
+                string title = isCritical ? "Alarma Crítica del Láser" : "Alarma del Láser";
+
                 // Mostrar mensaje de alarma en un MessageBox
                 MessageBox.Show(
-                    $"Alarma del láser detectada:\n\nCódigo: {alarmCode}\nDescripción: {message}\n\nPor favor, verifique el estado del láser.",
-                    "Alarma del Láser",
+                    $"Alarma del láser detectada:\n\nCódigo: 0x{alarmCode:X2} ({alarmCode})\nDescripción: {message}\n\n" +
+                    (isCritical ? "ALARMA CRÍTICA\n\n" : "") +
+                    "Por favor, verifique el estado del láser.",
+                    title,
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                    icon);
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error al mostrar alarma: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Determina si una alarma es crítica (detiene la impresión)
+        /// </summary>
+        private bool IsCriticalAlarm(int alarmCode)
+        {
+            // Alarmas que detienen la impresión automáticamente
+            return alarmCode switch
+            {
+                0x02 => true,  // Laser OFF (interlock open)
+                0x06 => true,  // Q-switch error
+                0x16 => true,  // Overtemperature
+                0x24 => true,  // Warmup cycle still active
+                0x25 => true,  // Shutter closed
+                0x26 => true,  // Laser not ready
+                0x28 => true,  // Power off
+                0x41 => true,  // Scanner X alarm
+                0x42 => true,  // Scanner Y alarm
+                0x44 => true,  // Initialization alarm
+                0x46 => true,  // Z scanner error
+                0x47 => true,  // Laser not armed
+                0x61 => true,  // Watchdog
+                0x62 => true,  // DSP paused
+                0x63 => true,  // FPGA failure
+                _ => false
+            };
         }
 
         private bool IsProductionComplete()

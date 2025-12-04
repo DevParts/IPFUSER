@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using LaserMacsaUser.Models;
+using LaserMacsaUser.Exceptions;
 using SocketCommNet;
 
 namespace LaserMacsaUser.Services
@@ -32,7 +34,7 @@ namespace LaserMacsaUser.Services
 
         public event EventHandler<LaserAlarmEventArgs>? AlarmDetected;
 
-        public bool Initialize(string ipAddress, string messagePath = ".\\")
+        public bool Initialize(string ipAddress, string messagePath = ".\\", int? bufferSize = null, int? userFields = null)
         {
             try
             {
@@ -52,7 +54,7 @@ namespace LaserMacsaUser.Services
                     string error = string.Empty;
                     _socketComm.CS_GetLastError(_socketHandle, ref error);
                     _lastError = error;
-                    throw new Exception($"Error al conectar socket principal: {error}");
+                    throw new LaserCommunicationException(ipAddress, "Initialize (socket principal)", result, error);
                 }
 
                 // Inicializar socket secundario (envío de códigos) - como RunThread() en CLaser.cs
@@ -66,17 +68,34 @@ namespace LaserMacsaUser.Services
                     
                     // Cerrar socket principal si falla el secundario
                     _socketComm.CS_Finish(_socketHandle);
-                    throw new Exception($"Error al conectar socket secundario: {error}");
+                    throw new LaserCommunicationException(ipAddress, "Initialize (socket secundario)", result, error);
                 }
 
                 _isInitialized = true;
+
+                // Configurar buffer automáticamente si se proporcionan los parámetros
+                if (bufferSize.HasValue && userFields.HasValue)
+                {
+                    if (!ConfigureBuffer(bufferSize.Value, userFields.Value))
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Advertencia: No se pudo configurar el buffer. Error: {_lastError}");
+                        // No fallar la inicialización si falla la configuración del buffer
+                        // El buffer puede configurarse manualmente después
+                    }
+                }
+
                 return true;
+            }
+            catch (LaserCommunicationException)
+            {
+                // Re-lanzar excepciones de comunicación
+                throw;
             }
             catch (Exception ex)
             {
                 _lastError = ex.Message;
                 System.Diagnostics.Debug.WriteLine($"Error en Initialize: {ex.Message}");
-                return false;
+                throw new LaserCommunicationException(ipAddress, "Initialize", -1, ex.Message, ex);
             }
         }
 
@@ -127,7 +146,8 @@ namespace LaserMacsaUser.Services
                                 {
                                     AlarmCode = alarmCode,
                                     AlarmDescription = GetAlarmDescription(alarmCode),
-                                    IsActive = true
+                                    IsActive = true,
+                                    IsCritical = IsCriticalAlarm(alarmCode)
                                 });
                             }
                         }
@@ -135,11 +155,13 @@ namespace LaserMacsaUser.Services
                         // También disparar si hay un código de alarma directo
                         if (status.AlarmCode != 0 && !status.AlarmCodes.Contains((int)status.AlarmCode))
                         {
+                            int directAlarmCode = (int)status.AlarmCode;
                             AlarmDetected?.Invoke(this, new LaserAlarmEventArgs
                             {
-                                AlarmCode = (int)status.AlarmCode,
-                                AlarmDescription = GetAlarmDescription((int)status.AlarmCode),
-                                IsActive = true
+                                AlarmCode = directAlarmCode,
+                                AlarmDescription = GetAlarmDescription(directAlarmCode),
+                                IsActive = true,
+                                IsCritical = IsCriticalAlarm(directAlarmCode)
                             });
                         }
                     }
@@ -165,33 +187,119 @@ namespace LaserMacsaUser.Services
         {
             var alarms = new List<int>();
 
-            // Procesar alarmMask1 y alarmMask2 para extraer códigos de alarma activos
-            // Esto es una implementación básica - puede necesitar ajustes según la documentación
+            // Procesar alarmCode directo
             if (alarmCode != 0)
             {
-                alarms.Add((int)(alarmCode & 0xFFFF)); // Lower WORD
+                alarms.Add((int)(alarmCode & 0xFFFF));
             }
 
-            // Agregar más procesamiento según sea necesario
+            // Procesar AlarmMask1 (bits 0-31)
+            for (int i = 0; i < 32; i++)
+            {
+                if ((alarmMask1 & (1u << i)) != 0)
+                {
+                    alarms.Add(i);
+                }
+            }
 
-            return alarms;
+            // Procesar AlarmMask2 (bits 32-63, alarmas extendidas)
+            for (int i = 0; i < 32; i++)
+            {
+                if ((alarmMask2 & (1u << i)) != 0)
+                {
+                    alarms.Add(32 + i);
+                }
+            }
+
+            return alarms.Distinct().ToList();
         }
 
         private string GetAlarmDescription(int alarmCode)
         {
-            // Mapeo básico de códigos de alarma comunes
+            // Mapeo completo de códigos de alarma según alarmcodes.pdf
             return alarmCode switch
             {
+                // Alarmas básicas
                 0 => "Sin errores",
                 1 => "Error de comunicación",
-                2 => "Error de comunicación con el láser",
-                3 => "Error de hardware",
-                4 => "Error de archivo",
-                5 => "Error de parámetros",
-                9 => "Buffer lleno",
-                10 => "Temperatura alta",
-                16 => "Error de archivo láser",
-                _ => $"Alarma desconocida: {alarmCode}"
+                2 => "Laser is OFF (interlock open) - Hardware",
+                3 => "Shutter is closed (obsolete)",
+                4 => "DC Power fails (obsolete)",
+                5 => "Overtemp of amplifier (obsolete)",
+                6 => "Q-switch error - Hardware",
+                7 => "High reverse power (obsolete)",
+                8 => "Low forward power (obsolete)",
+                9 => "YAG RS232 error (obsolete)",
+                0x0A => "Belt stopped - Hardware/Software",
+                0x0B => "Program check not ok (obsolete)",
+                0x0C => "Wrong figure-types in file (obsolete)",
+                0x0D => "No memory available - Software",
+                0x10 => "File not found - Software",
+                0x11 => "Overpressure (100W DEOS systems) - Hardware",
+                0x12 => "Water temperature (100W DEOS systems) - Hardware",
+                0x13 => "Water level (100W DEOS systems) - Hardware",
+                0x15 => "Invalid font (or not existing) - Software",
+                0x16 => "Overtemperature - Hardware (CRÍTICA)",
+                0x24 => "Warmup cycle still active - Hardware",
+                0x25 => "Shutter closed - Hardware",
+                0x26 => "Laser not ready - Hardware",
+                0x27 => "OEM shutter - Hardware",
+                0x28 => "Power off - Hardware",
+                0x30 => "Overspeed - Software",
+                0x31 => "Harddisk full - Software",
+                0x40 => "Client timeout - Software",
+                0x41 => "Scanner X alarm - Hardware",
+                0x42 => "Scanner Y alarm - Hardware",
+                0x43 => "Empty message alarm - Software",
+                0x44 => "Initialization alarm - Software",
+                0x45 => "User-define alarm - Hardware",
+                0x46 => "Z scanner error",
+                0x47 => "Laser not armed",
+                0x48 => "XY out of range",
+                0x49 => "Laser measurement failed",
+                0x50 => "UV laser not ready",
+                0x51 => "Pixmap out of range",
+                0x52 => "Channel status error",
+                0x53 => "PWM out of range",
+                0x54 => "RTC battery failure",
+                0x55 => "CPU temperature alarm",
+                0x56 => "Board temperature alarm",
+                0x57 => "Undervoltage 5V",
+                0x58 => "Undervoltage 3.3V",
+                0x61 => "Watchdog",
+                0x62 => "DSP paused",
+                0x63 => "FPGA failure",
+                0x64 => "DSP alarmmask",
+                0x65 => "Shutter sensor not open",
+                0x66 => "Shutter sensor not closed",
+                _ => $"Alarma desconocida: 0x{alarmCode:X2} ({alarmCode})"
+            };
+        }
+
+        /// <summary>
+        /// Determina si una alarma es crítica (detiene la impresión)
+        /// </summary>
+        private bool IsCriticalAlarm(int alarmCode)
+        {
+            // Alarmas que detienen la impresión automáticamente
+            return alarmCode switch
+            {
+                0x02 => true,  // Laser OFF (interlock open)
+                0x06 => true,  // Q-switch error
+                0x16 => true,  // Overtemperature
+                0x24 => true,  // Warmup cycle still active
+                0x25 => true,  // Shutter closed
+                0x26 => true,  // Laser not ready
+                0x28 => true,  // Power off
+                0x41 => true,  // Scanner X alarm
+                0x42 => true,  // Scanner Y alarm
+                0x44 => true,  // Initialization alarm
+                0x46 => true,  // Z scanner error
+                0x47 => true,  // Laser not armed
+                0x61 => true,  // Watchdog
+                0x62 => true,  // DSP paused
+                0x63 => true,  // FPGA failure
+                _ => false
             };
         }
 
@@ -226,7 +334,10 @@ namespace LaserMacsaUser.Services
         public int SendUserMessage(int fieldIndex, string message)
         {
             if (!_isInitialized || _socketComm == null)
+            {
+                _lastError = "Láser no inicializado";
                 return -1; // Error de inicialización
+            }
 
             try
             {
@@ -239,14 +350,33 @@ namespace LaserMacsaUser.Services
                     string error = string.Empty;
                     _socketComm.CS_GetLastError(_socketHandle2, ref error);
                     _lastError = error;
+                    
+                    // Para errores críticos de comunicación, lanzar excepción
+                    if (result == -1 || result < -1)
+                    {
+                        throw new LaserCommunicationException(
+                            "N/A", 
+                            $"SendUserMessage (Field {fieldIndex})", 
+                            result, 
+                            error);
+                    }
                 }
 
                 return result; // Retornar código de error directamente (0 = éxito, 8 = buffer lleno)
             }
+            catch (LaserCommunicationException)
+            {
+                throw;
+            }
             catch (Exception ex)
             {
                 _lastError = ex.Message;
-                return -1; // Error de excepción
+                throw new LaserCommunicationException(
+                    "N/A", 
+                    $"SendUserMessage (Field {fieldIndex})", 
+                    -1, 
+                    ex.Message, 
+                    ex);
             }
         }
 
@@ -427,6 +557,103 @@ namespace LaserMacsaUser.Services
             {
                 _lastError = $"Excepción en SetDefaultMessage: {ex.Message}";
                 System.Diagnostics.Debug.WriteLine(_lastError);
+                return false;
+            }
+        }
+
+        public string GetFastUsermessage(int fieldIndex)
+        {
+            if (!_isInitialized || _socketComm == null)
+                return string.Empty;
+
+            try
+            {
+                string message = string.Empty;
+                int result = _socketComm.CS_GetFastUsermessage(_socketHandle, fieldIndex, ref message);
+
+                if (result == 0)
+                {
+                    return message;
+                }
+                else
+                {
+                    string error = string.Empty;
+                    _socketComm.CS_GetLastError(_socketHandle, ref error);
+                    _lastError = error;
+                    return string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                _lastError = ex.Message;
+                return string.Empty;
+            }
+        }
+
+        public bool ConfigureBuffer(int bufferSize, int userFields)
+        {
+            if (!_isInitialized || _socketComm == null)
+                return false;
+
+            try
+            {
+                // Configurar buffer para cada campo de usuario
+                // set=0: configurar buffer
+                int actSize = 0;
+                int field = 0;
+                int fillStatus = 0;
+
+                for (int i = 0; i < userFields; i++)
+                {
+                    field = i;
+                    int result = _socketComm.CS_EnableBufferedUMExt(_socketHandle, 0, ref actSize, ref field, ref fillStatus, bufferSize);
+                    
+                    if (result != 0)
+                    {
+                        string error = string.Empty;
+                        _socketComm.CS_GetLastError(_socketHandle, ref error);
+                        _lastError = $"Error al configurar buffer para campo {i}: {error}";
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _lastError = ex.Message;
+                return false;
+            }
+        }
+
+        public bool ResetBuffer(int fieldIndex)
+        {
+            if (!_isInitialized || _socketComm == null)
+                return false;
+
+            try
+            {
+                // set=2: resetear buffer
+                int actSize = 0;
+                int field = fieldIndex;
+                int fillStatus = 0;
+                int defSize = 100; // Valor por defecto, no se usa en reset
+
+                int result = _socketComm.CS_EnableBufferedUMExt(_socketHandle, 2, ref actSize, ref field, ref fillStatus, defSize);
+
+                if (result != 0)
+                {
+                    string error = string.Empty;
+                    _socketComm.CS_GetLastError(_socketHandle, ref error);
+                    _lastError = $"Error al resetear buffer para campo {fieldIndex}: {error}";
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _lastError = ex.Message;
                 return false;
             }
         }

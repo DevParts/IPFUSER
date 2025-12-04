@@ -17,8 +17,10 @@ namespace LaserMacsaUser.Services
         /// </summary>
         /// <param name="ipAddress">Dirección IP del láser</param>
         /// <param name="messagePath">Ruta local (por defecto ".\\")</param>
+        /// <param name="bufferSize">Tamaño del buffer (opcional, si se proporciona se configura automáticamente)</param>
+        /// <param name="userFields">Número de campos de usuario (opcional, requerido si se proporciona bufferSize)</param>
         /// <returns>True si la inicialización fue exitosa</returns>
-        bool Initialize(string ipAddress, string messagePath = ".\\");
+        bool Initialize(string ipAddress, string messagePath = ".\\", int? bufferSize = null, int? userFields = null);
 
         /// <summary>
         /// Obtiene el estado actual del láser
@@ -72,6 +74,28 @@ namespace LaserMacsaUser.Services
         bool SetDefaultMessage(string messageName);
 
         /// <summary>
+        /// Obtiene el mensaje de usuario actual de un campo específico
+        /// </summary>
+        /// <param name="fieldIndex">Índice del campo (0-3)</param>
+        /// <returns>El mensaje de usuario actual o string vacío si hay error</returns>
+        string GetFastUsermessage(int fieldIndex);
+
+        /// <summary>
+        /// Configura el buffer del láser para los campos de usuario
+        /// </summary>
+        /// <param name="bufferSize">Tamaño del buffer (recomendado: 50-200)</param>
+        /// <param name="userFields">Número de campos de usuario (1-4)</param>
+        /// <returns>True si la configuración fue exitosa</returns>
+        bool ConfigureBuffer(int bufferSize, int userFields);
+
+        /// <summary>
+        /// Resetea el buffer del láser para un campo específico
+        /// </summary>
+        /// <param name="fieldIndex">Índice del campo (0-3)</param>
+        /// <returns>True si el reset fue exitoso</returns>
+        bool ResetBuffer(int fieldIndex);
+
+        /// <summary>
         /// Evento que se dispara cuando se detecta una alarma
         /// </summary>
         event EventHandler<LaserAlarmEventArgs>? AlarmDetected;
@@ -85,6 +109,7 @@ namespace LaserMacsaUser.Services
         public int AlarmCode { get; set; }
         public string AlarmDescription { get; set; } = string.Empty;
         public bool IsActive { get; set; }
+        public bool IsCritical { get; set; }
     }
 }
 

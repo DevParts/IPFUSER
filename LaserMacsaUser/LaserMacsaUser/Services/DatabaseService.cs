@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using LaserMacsaUser.Exceptions;
 
 namespace LaserMacsaUser.Services
 {
@@ -70,9 +71,13 @@ namespace LaserMacsaUser.Services
                 testConnection.Open();
                 return true;
             }
+            catch (SqlException sqlEx)
+            {
+                throw new DatabaseConnectionException(dataSource, catalog, sqlEx.Message, sqlEx);
+            }
             catch (Exception ex)
             {
-                throw new Exception($"Error al conectar a la base de datos: {ex.Message}", ex);
+                throw new DatabaseConnectionException(dataSource, catalog, ex.Message, ex);
             }
         }
 
@@ -89,9 +94,13 @@ namespace LaserMacsaUser.Services
 
                 return dataTable;
             }
+            catch (SqlException sqlEx)
+            {
+                throw new DatabaseConnectionException(_dataSource, _dbName, $"Error al obtener tabla: {sqlEx.Message}", sqlEx);
+            }
             catch (Exception ex)
             {
-                throw new Exception($"Error al obtener tabla: {ex.Message}", ex);
+                throw new DatabaseConnectionException(_dataSource, _dbName, $"Error al obtener tabla: {ex.Message}", ex);
             }
         }
 
