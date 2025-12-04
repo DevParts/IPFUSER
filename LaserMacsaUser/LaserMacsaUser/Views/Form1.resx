@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -307,9 +307,9 @@
     <value>6</value>
   </data>
   <data name="lblPromotion.Text" xml:space="preserve">
-    <value>Promocion:</value>
+    <value>Promotion:</value>
   </data>
-  <data name="&gt;&gt;lblPromotion.Name" xml:space="preserve">
+  <data name="1" xml:space="preserve">
     <value>lblPromotion</value>
   </data>
   <data name="&gt;&gt;lblPromotion.Type" xml:space="preserve">
@@ -458,243 +458,6 @@
   </data>
   <data name="&gt;&gt;pnlArtwork.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblHeaderProd.Name" xml:space="preserve">
-    <value>lblHeaderProd</value>
-  </data>
-  <data name="&gt;&gt;lblHeaderProd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblHeaderProd.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblHeaderProd.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblStoppers.Name" xml:space="preserve">
-    <value>lblStoppers</value>
-  </data>
-  <data name="&gt;&gt;lblStoppers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStoppers.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblStoppers.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtStoppers.Name" xml:space="preserve">
-    <value>txtStoppers</value>
-  </data>
-  <data name="&gt;&gt;txtStoppers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtStoppers.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;txtStoppers.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblPending.Name" xml:space="preserve">
-    <value>lblPending</value>
-  </data>
-  <data name="&gt;&gt;lblPending.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPending.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblPending.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtPending.Name" xml:space="preserve">
-    <value>txtPending</value>
-  </data>
-  <data name="&gt;&gt;txtPending.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtPending.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;txtPending.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblProduced.Name" xml:space="preserve">
-    <value>lblProduced</value>
-  </data>
-  <data name="&gt;&gt;lblProduced.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblProduced.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblProduced.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;txtProduced.Name" xml:space="preserve">
-    <value>txtProduced</value>
-  </data>
-  <data name="&gt;&gt;txtProduced.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtProduced.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;txtProduced.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lblOrder.Name" xml:space="preserve">
-    <value>lblOrder</value>
-  </data>
-  <data name="&gt;&gt;lblOrder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOrder.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblOrder.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;txtOrder.Name" xml:space="preserve">
-    <value>txtOrder</value>
-  </data>
-  <data name="&gt;&gt;txtOrder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtOrder.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;txtOrder.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;lblCode.Name" xml:space="preserve">
-    <value>lblCode</value>
-  </data>
-  <data name="&gt;&gt;lblCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCode.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblCode.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;txtCode.Name" xml:space="preserve">
-    <value>txtCode</value>
-  </data>
-  <data name="&gt;&gt;txtCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtCode.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;txtCode.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;lblPromoIndex.Name" xml:space="preserve">
-    <value>lblPromoIndex</value>
-  </data>
-  <data name="&gt;&gt;lblPromoIndex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPromoIndex.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblPromoIndex.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;txtPromoIndex.Name" xml:space="preserve">
-    <value>txtPromoIndex</value>
-  </data>
-  <data name="&gt;&gt;txtPromoIndex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtPromoIndex.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;txtPromoIndex.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;progressProd.Name" xml:space="preserve">
-    <value>progressProd</value>
-  </data>
-  <data name="&gt;&gt;progressProd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;progressProd.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;progressProd.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;lblProgressProd.Name" xml:space="preserve">
-    <value>lblProgressProd</value>
-  </data>
-  <data name="&gt;&gt;lblProgressProd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblProgressProd.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;lblProgressProd.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;btnStart.Name" xml:space="preserve">
-    <value>btnStart</value>
-  </data>
-  <data name="&gt;&gt;btnStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnStart.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;btnStart.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;btnStop.Name" xml:space="preserve">
-    <value>btnStop</value>
-  </data>
-  <data name="&gt;&gt;btnStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnStop.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;btnStop.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
-    <value>btnExit</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Parent" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="pnlProduction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 280</value>
-  </data>
-  <data name="pnlProduction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>970, 280</value>
-  </data>
-  <data name="pnlProduction.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pnlProduction.Name" xml:space="preserve">
-    <value>pnlProduction</value>
-  </data>
-  <data name="&gt;&gt;pnlProduction.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlProduction.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlProduction.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="lblHeaderProd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -1170,9 +933,42 @@
   <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="pnlProduction.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 280</value>
+  </data>
+  <data name="pnlProduction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>970, 280</value>
+  </data>
+  <data name="pnlProduction.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.Name" xml:space="preserve">
+    <value>pnlProduction</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlProduction.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
+  </data>
+  <data name="configurationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="configurationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="configPruebaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 20</value>
+  </data>
+  <data name="configPruebaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Config Prueba</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -1197,24 +993,12 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="configurationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
-  </data>
-  <data name="configurationToolStripMenuItem.Text" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="configPruebaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 20</value>
-  </data>
-  <data name="configPruebaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Config Prueba</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
     <value>25</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
   </data>

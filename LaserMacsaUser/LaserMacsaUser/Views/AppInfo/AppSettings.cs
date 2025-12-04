@@ -22,7 +22,6 @@ namespace LaserMacsaUser.Views.AppInfo
         }
 
 
-
         // ======================
         // SECURITY
         // ======================
@@ -83,6 +82,18 @@ namespace LaserMacsaUser.Views.AppInfo
         [Category("Database")]
         [Description("Use Windows Authentication.")]
         public bool UseWindowsAuthentication { get; set; } = true;
+
+
+        // ======================
+        // LASER  (AGREGADO AQUÍ)
+        // ======================
+        [Category("Laser")]
+        [Description("Laser IP Address.")]
+        public string LaserIP { get; set; } = "192.168.1.100";
+
+        [Category("Laser")]
+        [Description("Laser buffer capacity (recommended 50–200).")]
+        public int LaserBuffered { get; set; } = 100;
 
 
         // ======================
