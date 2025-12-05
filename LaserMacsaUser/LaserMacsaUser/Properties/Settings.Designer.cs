@@ -46,5 +46,41 @@ namespace LaserMacsaUser.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.180")]
+        public string LaserIP {
+            get {
+                return ((string)(this["LaserIP"]));
+            }
+            set {
+                this["LaserIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int LaserBufferSize {
+            get {
+                return ((int)(this["LaserBufferSize"]));
+            }
+            set {
+                this["LaserBufferSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int WaitTimeBufferFull {
+            get {
+                return ((int)(this["WaitTimeBufferFull"]));
+            }
+            set {
+                this["WaitTimeBufferFull"] = value;
+            }
+        }
     }
 }

@@ -28,6 +28,9 @@ namespace LaserMacsaUser.Services
         private int _socketHandle2;     // Socket secundario (envío de códigos)
         private bool _isInitialized = false;
         private string _lastError = string.Empty;
+        
+        // Rastrear alarmas ya notificadas para evitar eventos duplicados
+        private readonly HashSet<int> _notifiedAlarms = new HashSet<int>();
 
         public bool IsConnected => _isInitialized && _socketComm != null &&
                                    _socketComm.CS_IsConnected(_socketHandle) != 0;
@@ -135,33 +138,31 @@ namespace LaserMacsaUser.Services
                     // Procesar códigos de alarma
                     status.AlarmCodes = ProcessAlarmCodes(statusExt.alarmmask1, statusExt.alarmmask2, statusExt.err);
 
-                    // Disparar evento si hay alarmas detectadas
-                    if (status.AlarmCodes.Count > 0 || status.AlarmCode != 0)
+                    // Obtener todas las alarmas actuales (combinar AlarmCodes y AlarmCode directo)
+                    var currentAlarms = new HashSet<int>(status.AlarmCodes.Where(ac => ac != 0));
+                    if (status.AlarmCode != 0)
                     {
-                        foreach (int alarmCode in status.AlarmCodes)
-                        {
-                            if (alarmCode != 0)
-                            {
-                                AlarmDetected?.Invoke(this, new LaserAlarmEventArgs
-                                {
-                                    AlarmCode = alarmCode,
-                                    AlarmDescription = GetAlarmDescription(alarmCode),
-                                    IsActive = true,
-                                    IsCritical = IsCriticalAlarm(alarmCode)
-                                });
-                            }
-                        }
+                        currentAlarms.Add((int)status.AlarmCode);
+                    }
 
-                        // También disparar si hay un código de alarma directo
-                        if (status.AlarmCode != 0 && !status.AlarmCodes.Contains((int)status.AlarmCode))
+                    // Limpiar alarmas que ya no están activas
+                    _notifiedAlarms.RemoveWhere(alarm => !currentAlarms.Contains(alarm));
+
+                    // Disparar evento solo para alarmas nuevas (que no se han notificado antes)
+                    foreach (int alarmCode in currentAlarms)
+                    {
+                        if (!_notifiedAlarms.Contains(alarmCode))
                         {
-                            int directAlarmCode = (int)status.AlarmCode;
+                            // Marcar como notificada
+                            _notifiedAlarms.Add(alarmCode);
+                            
+                            // Disparar evento solo para alarmas nuevas
                             AlarmDetected?.Invoke(this, new LaserAlarmEventArgs
                             {
-                                AlarmCode = directAlarmCode,
-                                AlarmDescription = GetAlarmDescription(directAlarmCode),
+                                AlarmCode = alarmCode,
+                                AlarmDescription = GetAlarmDescription(alarmCode),
                                 IsActive = true,
-                                IsCritical = IsCriticalAlarm(directAlarmCode)
+                                IsCritical = IsCriticalAlarm(alarmCode)
                             });
                         }
                     }
@@ -272,6 +273,9 @@ namespace LaserMacsaUser.Services
                 0x64 => "DSP alarmmask",
                 0x65 => "Shutter sensor not open",
                 0x66 => "Shutter sensor not closed",
+                // Código especial 2120 (0x848) - Mensaje vacío
+                //2120 => "Mensaje vacío - El láser recibió un fichero/mensaje vacío (CRÍTICA)",
+                0x848 => "Mensaje vacío - El láser recibió un fichero/mensaje vacío (CRÍTICA)",
                 _ => $"Alarma desconocida: 0x{alarmCode:X2} ({alarmCode})"
             };
         }
@@ -299,6 +303,8 @@ namespace LaserMacsaUser.Services
                 0x61 => true,  // Watchdog
                 0x62 => true,  // DSP paused
                 0x63 => true,  // FPGA failure
+                0x848 => true,  // Mensaje vacío (2120)
+                //2120 => true,   // Mensaje vacío (0x848)
                 _ => false
             };
         }
@@ -401,6 +407,9 @@ namespace LaserMacsaUser.Services
                 _socketHandle = 0;
                 _socketHandle2 = 0;
                 _isInitialized = false;
+                
+                // Limpiar alarmas notificadas al detener
+                _notifiedAlarms.Clear();
             }
             catch (Exception ex)
             {

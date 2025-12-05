@@ -28,6 +28,11 @@ namespace LaserMacsaUser.Services
         bool ConnectCodesDatabase(string codesDbName);
 
         /// <summary>
+        /// Verifica si la base de datos de códigos está conectada
+        /// </summary>
+        bool IsCodesDatabaseConnected();
+
+        /// <summary>
         /// Obtiene códigos de la base de datos de códigos
         /// </summary>
         DataTable GetCodes(string sql);

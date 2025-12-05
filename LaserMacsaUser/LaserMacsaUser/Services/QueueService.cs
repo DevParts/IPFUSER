@@ -103,19 +103,35 @@ namespace LaserMacsaUser.Services
             _isRunning = false;
             _cancellationTokenSource?.Cancel();
 
-            // Esperar a que los hilos terminen (máximo 2 segundos)
-            _producerThread?.Join(2000);
-            _consumerThread?.Join(2000);
+            // Esperar a que los hilos terminen (máximo 3 segundos)
+            if (_producerThread != null && _producerThread.IsAlive)
+            {
+                _producerThread.Join(3000);
+                if (_producerThread.IsAlive)
+                {
+                    System.Diagnostics.Debug.WriteLine("Advertencia: ProducerThread no terminó en el tiempo esperado");
+                }
+            }
+
+            if (_consumerThread != null && _consumerThread.IsAlive)
+            {
+                _consumerThread.Join(3000);
+                if (_consumerThread.IsAlive)
+                {
+                    System.Diagnostics.Debug.WriteLine("Advertencia: ConsumerThread no terminó en el tiempo esperado");
+                }
+            }
 
             // Limpiar colas
             lock (_queueLock)
             {
                 _queue1.Clear();
                 _queue2.Clear();
-                // DataMatrix queues reservadas para uso futuro
-                // _dataMatrixQueue1.Clear();
-                // _dataMatrixQueue2.Clear();
             }
+
+            // Liberar recursos
+            _cancellationTokenSource?.Dispose();
+            _cancellationTokenSource = null;
         }
 
         private void ProducerLoop(CancellationToken cancellationToken)
@@ -180,17 +196,28 @@ namespace LaserMacsaUser.Services
                     string? code = row["Code"]?.ToString();
                     if (!string.IsNullOrEmpty(code))
                     {
-                        queue.Enqueue(code);
-                        row["Sent"] = 1;
-                        row["TimeStamp"] = DateTime.Now;
-
-                        // Capturar IDs
-                        int currentId = Convert.ToInt32(row["Id"]);
-                        if (idConsumedInitial == 0)
+                        // Validar que el código no esté vacío después de trim
+                        string trimmedCode = code.Trim();
+                        if (!string.IsNullOrEmpty(trimmedCode))
                         {
-                            idConsumedInitial = currentId;
+                            queue.Enqueue(trimmedCode);
+                            // Según CAMBIOS_BD_CODIGOS.md: La tabla Codes tiene columnas Id, Code, Consumed
+                            // El campo Consumed indica si el código ha sido usado (0=No, 1=Sí)
+                            row["Consumed"] = 1;
+
+                            // Capturar IDs
+                            int currentId = Convert.ToInt32(row["Id"]);
+                            if (idConsumedInitial == 0)
+                            {
+                                idConsumedInitial = currentId;
+                            }
+                            idConsumedFinal = currentId;
                         }
-                        idConsumedFinal = currentId;
+                        else
+                        {
+                            // Código vacío después de trim - loggear pero no agregar a la cola
+                            System.Diagnostics.Debug.WriteLine($"Código vacío detectado y omitido: '{code}' (Id: {row["Id"]})");
+                        }
                     }
                 }
 
@@ -323,22 +350,44 @@ namespace LaserMacsaUser.Services
         {
             try
             {
+                // VALIDACIÓN CRÍTICA: Verificar que el código no esté vacío o solo espacios
+                if (string.IsNullOrWhiteSpace(code))
+                {
+                    ErrorOccurred?.Invoke(this, $"Intento de enviar código vacío al láser. Código: '{code}'");
+                    return -1;
+                }
+
+                // Validar que el código tenga contenido válido
+                string trimmedCode = code.Trim();
+                if (string.IsNullOrEmpty(trimmedCode))
+                {
+                    ErrorOccurred?.Invoke(this, $"Código solo contiene espacios en blanco: '{code}'");
+                    return -1;
+                }
+
                 if (promo.UserFields == 1)
                 {
                     // Un solo campo - enviar código completo
-                    return _laserService.SendUserMessage(0, code);
+                    return _laserService.SendUserMessage(0, trimmedCode);
                 }
                 else if (promo.UserFields == 2)
                 {
                     // Dos campos - dividir según Split1 y Split2
-                    if (code.Length < promo.Split1 + promo.Split2)
+                    if (trimmedCode.Length < promo.Split1 + promo.Split2)
                     {
-                        ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {code}");
+                        ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {trimmedCode}");
                         return -1;
                     }
 
-                    string part1 = code.Substring(0, promo.Split1);
-                    string part2 = code.Substring(promo.Split1, promo.Split2);
+                    string part1 = trimmedCode.Substring(0, promo.Split1).Trim();
+                    string part2 = trimmedCode.Substring(promo.Split1, promo.Split2).Trim();
+
+                    // VALIDAR que las partes no estén vacías
+                    if (string.IsNullOrEmpty(part1) || string.IsNullOrEmpty(part2))
+                    {
+                        ErrorOccurred?.Invoke(this, $"Parte del código está vacía después de dividir. Part1: '{part1}', Part2: '{part2}'");
+                        return -1;
+                    }
 
                     int r1 = _laserService.SendUserMessage(0, part1);
                     if (r1 != 0) return r1;
@@ -349,15 +398,22 @@ namespace LaserMacsaUser.Services
                 else if (promo.UserFields == 3)
                 {
                     // Tres campos
-                    if (code.Length < promo.Split1 + promo.Split2 + promo.Split3)
+                    if (trimmedCode.Length < promo.Split1 + promo.Split2 + promo.Split3)
                     {
-                        ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {code}");
+                        ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {trimmedCode}");
                         return -1;
                     }
 
-                    string part1 = code.Substring(0, promo.Split1);
-                    string part2 = code.Substring(promo.Split1, promo.Split2);
-                    string part3 = code.Substring(promo.Split1 + promo.Split2, promo.Split3);
+                    string part1 = trimmedCode.Substring(0, promo.Split1).Trim();
+                    string part2 = trimmedCode.Substring(promo.Split1, promo.Split2).Trim();
+                    string part3 = trimmedCode.Substring(promo.Split1 + promo.Split2, promo.Split3).Trim();
+
+                    // VALIDAR que las partes no estén vacías
+                    if (string.IsNullOrEmpty(part1) || string.IsNullOrEmpty(part2) || string.IsNullOrEmpty(part3))
+                    {
+                        ErrorOccurred?.Invoke(this, $"Parte del código está vacía después de dividir. Part1: '{part1}', Part2: '{part2}', Part3: '{part3}'");
+                        return -1;
+                    }
 
                     int r1 = _laserService.SendUserMessage(0, part1);
                     if (r1 != 0) return r1;
@@ -371,16 +427,24 @@ namespace LaserMacsaUser.Services
                 else if (promo.UserFields == 4)
                 {
                     // Cuatro campos
-                    if (code.Length < promo.Split1 + promo.Split2 + promo.Split3 + promo.Split4)
+                    if (trimmedCode.Length < promo.Split1 + promo.Split2 + promo.Split3 + promo.Split4)
                     {
-                        ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {code}");
+                        ErrorOccurred?.Invoke(this, $"Código demasiado corto para dividir: {trimmedCode}");
                         return -1;
                     }
 
-                    string part1 = code.Substring(0, promo.Split1);
-                    string part2 = code.Substring(promo.Split1, promo.Split2);
-                    string part3 = code.Substring(promo.Split1 + promo.Split2, promo.Split3);
-                    string part4 = code.Substring(promo.Split1 + promo.Split2 + promo.Split3, promo.Split4);
+                    string part1 = trimmedCode.Substring(0, promo.Split1).Trim();
+                    string part2 = trimmedCode.Substring(promo.Split1, promo.Split2).Trim();
+                    string part3 = trimmedCode.Substring(promo.Split1 + promo.Split2, promo.Split3).Trim();
+                    string part4 = trimmedCode.Substring(promo.Split1 + promo.Split2 + promo.Split3, promo.Split4).Trim();
+
+                    // VALIDAR que las partes no estén vacías
+                    if (string.IsNullOrEmpty(part1) || string.IsNullOrEmpty(part2) || 
+                        string.IsNullOrEmpty(part3) || string.IsNullOrEmpty(part4))
+                    {
+                        ErrorOccurred?.Invoke(this, $"Parte del código está vacía después de dividir. Part1: '{part1}', Part2: '{part2}', Part3: '{part3}', Part4: '{part4}'");
+                        return -1;
+                    }
 
                     int r1 = _laserService.SendUserMessage(0, part1);
                     if (r1 != 0) return r1;

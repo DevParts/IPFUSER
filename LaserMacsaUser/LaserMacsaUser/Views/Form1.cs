@@ -1,4 +1,4 @@
-﻿using LaserMacsaUser.Views.AppInfoPrueba;
+using LaserMacsaUser.Views.AppInfoPrueba;
 using LaserMacsaUser.Views.Login;
 using LaserMacsaUser.Views.AppInfo;
 using LaserMacsaUser.Resources;
@@ -59,6 +59,8 @@ namespace LaserMacsaUser.Views
 
             // Conectar eventos
             this.Load += Form1_Load;
+            // En el constructor, después de conectar eventos (alrededor de la línea 64):
+            this.FormClosing += Form1_FormClosing;
             btnStart.Click += btnStart_Click;
             btnStop.Click += btnStop_Click;
             cmboxtxtCodes.SelectedIndexChanged += cmboxtxtCodes_SelectedIndexChanged;
@@ -84,6 +86,10 @@ namespace LaserMacsaUser.Views
         private void configPruebaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AppConfirFormPrueba formAppInfoPrueba = new AppConfirFormPrueba();
+            
+            // Pasar la promoción actual y servicios para que el botón de validación funcione
+            formAppInfoPrueba.SetPromotionAndServices(_currentPromotion, _databaseService, _promotionService, _dbPath);
+            
             formAppInfoPrueba.ShowDialog();
         }
 
@@ -341,17 +347,39 @@ namespace LaserMacsaUser.Views
                 if (_currentPromotion == null)
                     return;
 
-                // Adjuntar base de datos de códigos si es necesario
+                // Adjuntar y conectar base de datos de códigos si es necesario
                 if (!string.IsNullOrEmpty(_currentPromotion.CodesDb))
                 {
-                    if (!_promotionService.AttachCodesDatabase(_currentPromotion, _dbPath))
+                    // Verificar si ya está adjunta y conectada
+                    bool isAttached = _databaseService.IsDatabaseAttached(_currentPromotion.CodesDb);
+                    
+                    if (!isAttached)
                     {
-                        MessageBox.Show(
-                            $"Advertencia: No se pudo adjuntar la base de datos de códigos '{_currentPromotion.CodesDb}'.\n" +
-                            "La producción puede no funcionar correctamente.",
-                            "Advertencia",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
+                        // Adjuntar la base de datos
+                        if (!_promotionService.AttachCodesDatabase(_currentPromotion, _dbPath))
+                        {
+                            MessageBox.Show(
+                                $"Advertencia: No se pudo adjuntar la base de datos de códigos '{_currentPromotion.CodesDb}'.\n" +
+                                "La producción puede no funcionar correctamente.",
+                                "Advertencia",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+                    
+                    // Asegurar que esté conectada (AttachCodesDatabase ya lo hace, pero reconectar por si acaso)
+                    try
+                    {
+                        // Siempre intentar conectar explícitamente para asegurar que esté conectada
+                        _databaseService.ConnectCodesDatabase(_currentPromotion.CodesDb);
+                        System.Diagnostics.Debug.WriteLine($"Base de datos de códigos '{_currentPromotion.CodesDb}' conectada correctamente en LoadPromotionData.");
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Advertencia: No se pudo conectar a la BD de códigos en LoadPromotionData: {ex.Message}");
+                        // No mostrar error aquí, solo loggear - AttachCodesDatabase ya intentó conectar
+                        // El usuario verá el error cuando intente usar la funcionalidad si realmente hay un problema
                     }
                 }
 
@@ -575,12 +603,9 @@ namespace LaserMacsaUser.Views
         private AppSettingsPrueba LoadTestSettings()
         {
             // Cargar configuración de prueba desde AppSettingsPrueba
-            // Por ahora, valores por defecto - se pueden leer desde archivo de configuración
-            return new AppSettingsPrueba
-            {
-                LaserBufferSize = 100,
-                WaitTimeBufferFull = 50
-            };
+            // Todos los valores se leen automáticamente desde Properties.Settings a través de los getters
+            // No es necesario inicializar valores, los getters los obtienen automáticamente
+            return new AppSettingsPrueba();
         }
 
         #endregion
@@ -722,11 +747,14 @@ namespace LaserMacsaUser.Views
                 // 9. Iniciar timer de sincronización
                 _syncTimer?.Start();
 
-                // 10. Actualizar UI
+                // 10. Limpiar alarmas activas al iniciar nueva producción
+                _activeAlarms.Clear();
+
+                // 11. Actualizar UI
                 _isRunning = true;
                 UpdateUIState(isRunning: true);
 
-                // 11. Inicializar registros
+                // 12. Inicializar registros
                 _initialRecord = 0;
                 _finalRecord = 0;
             }
@@ -762,7 +790,10 @@ namespace LaserMacsaUser.Views
                     GenerateHistoric();
                 }
 
-                // 6. Actualizar UI
+                // 6. Limpiar alarmas activas al detener
+                _activeAlarms.Clear();
+
+                // 7. Actualizar UI
                 _isRunning = false;
                 UpdateUIState(isRunning: false);
             }
@@ -776,6 +807,90 @@ namespace LaserMacsaUser.Views
             }
         }
 
+        private void Form1_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                // Si la producción está en curso, detenerla primero
+                if (_isRunning)
+                {
+                    // Cancelar el cierre temporalmente para permitir detener la producción
+                    e.Cancel = true;
+                    
+                    var result = MessageBox.Show(
+                        "La producción está en curso.\n\n" +
+                        "¿Desea detener la producción y cerrar la aplicación?",
+                        "Producción en Curso",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Detener producción
+                        btnStop_Click(this, EventArgs.Empty);
+                        
+                        // Esperar un momento para que se detengan los threads
+                        System.Threading.Thread.Sleep(500);
+                        
+                        // Ahora permitir el cierre
+                        e.Cancel = false;
+                    }
+                    else
+                    {
+                        // Usuario canceló - no cerrar
+                        return;
+                    }
+                }
+
+                // 1. Detener y liberar timer
+                if (_syncTimer != null)
+                {
+                    _syncTimer.Stop();
+                    _syncTimer.Tick -= SyncTimer_Tick;
+                    _syncTimer.Dispose();
+                    _syncTimer = null;
+                }
+
+                // 2. Detener QueueService (detiene threads)
+                if (_queueService != null)
+                {
+                    _queueService.Stop();
+                    _queueService.CodeSent -= OnCodeSent;
+                    _queueService.ErrorOccurred -= OnQueueError;
+                    _queueService = null;
+                }
+
+                // 3. Cerrar conexión del láser
+                if (_laserService != null)
+                {
+                    _laserService.AlarmDetected -= LaserService_AlarmDetected;
+                    _laserService.Stop();
+                }
+
+                // 4. Cerrar conexiones de base de datos
+                if (_databaseService != null)
+                {
+                    try
+                    {
+                        _databaseService.CloseConnection();
+                        System.Diagnostics.Debug.WriteLine("Conexiones de base de datos cerradas correctamente.");
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Error al cerrar conexiones de BD: {ex.Message}");
+                    }
+                }
+
+                // 5. Forzar cierre de la aplicación
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error en Form1_FormClosing: {ex.Message}");
+                // Aún así, intentar cerrar la aplicación
+                Application.Exit();
+            }
+        }
         #endregion
 
         #region Timer de Sincronización
@@ -883,49 +998,29 @@ namespace LaserMacsaUser.Views
                     return;
                 }
 
-                // Verificar si hay códigos de alarma
-                // Nota: El evento AlarmDetected ya se dispara desde LaserService.GetStatus()
-                // Este método solo verifica alarmas críticas para detener producción
-                if (status.AlarmCodes.Count > 0)
+                // Obtener todas las alarmas actuales
+                var currentAlarms = new HashSet<int>(status.AlarmCodes.Where(ac => ac != 0));
+                if (status.AlarmCode != 0)
                 {
-                    foreach (int alarmCode in status.AlarmCodes)
-                    {
-                        if (alarmCode != 0)
-                        {
-                            // Agregar a alarmas activas
-                            if (!_activeAlarms.Contains(alarmCode))
-                            {
-                                _activeAlarms.Add(alarmCode);
-                            }
+                    currentAlarms.Add((int)status.AlarmCode);
+                }
 
-                            // Verificar si es una alarma crítica
-                            if (IsCriticalAlarm(alarmCode) && _isRunning)
-                            {
-                                System.Diagnostics.Debug.WriteLine($"Alarma crítica detectada en CheckLaserErrors: {alarmCode}. Deteniendo producción...");
-                                btnStop_Click(this, EventArgs.Empty);
-                                break; // Salir del loop después de detener
-                            }
+                // Sincronizar _activeAlarms con las alarmas actuales
+                // Remover alarmas que ya no están activas
+                _activeAlarms.RemoveWhere(alarm => !currentAlarms.Contains(alarm));
+
+                // Verificar si hay alarmas críticas activas
+                if (currentAlarms.Count > 0 && _isRunning)
+                {
+                    foreach (int alarmCode in currentAlarms)
+                    {
+                        if (IsCriticalAlarm(alarmCode))
+                        {
+                            System.Diagnostics.Debug.WriteLine($"Alarma crítica detectada en CheckLaserErrors: {alarmCode}. Deteniendo producción...");
+                            btnStop_Click(this, EventArgs.Empty);
+                            break; // Salir del loop después de detener
                         }
                     }
-                }
-                else if (status.AlarmCode != 0)
-                {
-                    if (!_activeAlarms.Contains((int)status.AlarmCode))
-                    {
-                        _activeAlarms.Add((int)status.AlarmCode);
-                    }
-
-                    // Verificar si es una alarma crítica
-                    if (IsCriticalAlarm((int)status.AlarmCode) && _isRunning)
-                    {
-                        System.Diagnostics.Debug.WriteLine($"Alarma crítica detectada en CheckLaserErrors: {status.AlarmCode}. Deteniendo producción...");
-                        btnStop_Click(this, EventArgs.Empty);
-                    }
-                }
-                else
-                {
-                    // Limpiar alarmas si no hay errores
-                    _activeAlarms.Clear();
                 }
             }
             catch (Exception ex)
@@ -944,14 +1039,19 @@ namespace LaserMacsaUser.Views
 
             try
             {
+                // Solo procesar si la alarma es nueva (no está en _activeAlarms)
+                if (_activeAlarms.Contains(e.AlarmCode))
+                {
+                    // Alarma ya mostrada, solo loggear
+                    System.Diagnostics.Debug.WriteLine($"Alarma ya mostrada anteriormente: 0x{e.AlarmCode:X2} ({e.AlarmCode}) - {e.AlarmDescription}");
+                    return;
+                }
+
+                // Agregar alarma activa ANTES de mostrar el MessageBox
+                _activeAlarms.Add(e.AlarmCode);
+
                 string alarmMessage = $"Alarma del láser: 0x{e.AlarmCode:X2} ({e.AlarmCode}) - {e.AlarmDescription}";
                 System.Diagnostics.Debug.WriteLine(alarmMessage);
-
-                // Agregar alarma activa
-                if (!_activeAlarms.Contains(e.AlarmCode))
-                {
-                    _activeAlarms.Add(e.AlarmCode);
-                }
 
                 // Mostrar mensaje de alarma solo si es nueva
                 MessageBoxIcon icon = e.IsCritical ? MessageBoxIcon.Error : MessageBoxIcon.Warning;
@@ -1240,9 +1340,9 @@ namespace LaserMacsaUser.Views
 
         private string GetLaserIPFromSettings()
         {
-            // Por ahora, valor por defecto
-            // TODO: Leer desde AppSettings
-            return "192.168.0.180";
+            // Leer desde configuración de prueba
+            AppSettingsPrueba settings = LoadTestSettings();
+            return !string.IsNullOrEmpty(settings.LaserIP) ? settings.LaserIP : "192.168.0.180";
         }
 
         private void OnCodeSent(object? sender, string code)

@@ -5,6 +5,7 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.PropertyGrid propertyGridConfig;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnValidateCodes;
 
         protected override void Dispose(bool disposing)
         {
@@ -18,6 +19,7 @@
         {
             propertyGridConfig = new PropertyGrid();
             btnOk = new Button();
+            btnValidateCodes = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
@@ -36,8 +38,18 @@
             btnOk.Location = new Point(355, 455);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(85, 28);
-            btnOk.TabIndex = 1;
+            btnOk.TabIndex = 2;
             btnOk.Text = "Ok";
+            // 
+            // btnValidateCodes
+            // 
+            btnValidateCodes.FlatStyle = FlatStyle.System;
+            btnValidateCodes.Location = new Point(10, 455);
+            btnValidateCodes.Name = "btnValidateCodes";
+            btnValidateCodes.Size = new Size(150, 28);
+            btnValidateCodes.TabIndex = 1;
+            btnValidateCodes.Text = "Validar Códigos (10)";
+            btnValidateCodes.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -57,6 +69,7 @@
             BackColor = Color.White;
             ClientSize = new Size(450, 500);
             Controls.Add(label1);
+            Controls.Add(btnValidateCodes);
             Controls.Add(propertyGridConfig);
             Controls.Add(btnOk);
             FormBorderStyle = FormBorderStyle.FixedDialog;

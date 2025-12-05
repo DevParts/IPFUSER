@@ -105,12 +105,14 @@ namespace LaserMacsaUser.Models
         /// <returns>Consulta SQL</returns>
         public string GetSqlCodes(int records)
         {
+            // Según CAMBIOS_BD_CODIGOS.md: La tabla Codes tiene columnas Id, Code, Consumed
+            // El campo Consumed indica si el código ha sido usado (0=No, 1=Sí)
             if (FilesImported.Count == 0)
             {
-                return $"SELECT TOP {records} * FROM Codes WHERE Sent=0";
+                return $"SELECT TOP {records} * FROM Codes WHERE Consumed=0";
             }
 
-            var sql = new StringBuilder($"SELECT TOP {records} * FROM Codes WHERE Sent=0 AND (");
+            var sql = new StringBuilder($"SELECT TOP {records} * FROM Codes WHERE Consumed=0 AND (");
 
             for (int i = 0; i < FilesImported.Count; i++)
             {

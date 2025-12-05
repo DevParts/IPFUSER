@@ -8,5 +8,14 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">English</Value>
     </Setting>
+    <Setting Name="LaserIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.180</Value>
+    </Setting>
+    <Setting Name="LaserBufferSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="WaitTimeBufferFull" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

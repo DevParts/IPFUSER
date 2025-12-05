@@ -17,6 +17,20 @@ namespace LaserMacsaUser.Views
 
             LoadSettings();
             ApplyLanguage();
+            
+            // Suscribirse al evento de cambio de propiedad para guardar inmediatamente
+            propertyGridConfig.PropertyValueChanged += PropertyGridConfig_PropertyValueChanged;
+        }
+        
+        private void PropertyGridConfig_PropertyValueChanged(object? s, PropertyValueChangedEventArgs e)
+        {
+            // Cuando se cambia una propiedad en el PropertyGrid, guardar inmediatamente
+            if (propertyGridConfig.SelectedObject is AppSettings settings)
+            {
+                // Los setters ya escribieron en Properties.Settings.Default
+                // Guardar inmediatamente para que los cambios se persistan
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void LoadSettings()
@@ -131,6 +145,22 @@ namespace LaserMacsaUser.Views
                     this.Close();
                     return;
                 }
+            }
+            
+            // Guardar configuración del láser cuando se presiona OK
+            if (propertyGridConfig.SelectedObject is AppSettings settings)
+            {
+                // Forzar la actualización de los valores desde el PropertyGrid
+                // El PropertyGrid puede no haber llamado a los setters todavía
+                propertyGridConfig.Refresh();
+                
+                // Leer los valores actuales del objeto y guardarlos explícitamente
+                Properties.Settings.Default.LaserIP = settings.LaserIP;
+                Properties.Settings.Default.LaserBufferSize = settings.LaserBufferSize;
+                Properties.Settings.Default.WaitTimeBufferFull = settings.WaitTimeBufferFull;
+                
+                // Guardar todos los cambios
+                Properties.Settings.Default.Save();
             }
 
             this.Close();

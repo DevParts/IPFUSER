@@ -139,23 +139,133 @@ namespace LaserMacsaUser.Services
         {
             try
             {
-                _codesDbName = codesDbName;
-
-                // Cerrar conexión anterior si existe
-                if (_codesConnection != null && _codesConnection.State == ConnectionState.Open)
+                if (string.IsNullOrEmpty(codesDbName))
                 {
-                    _codesConnection.Close();
-                    _codesConnection.Dispose();
+                    throw new ArgumentException("El nombre de la base de datos de códigos no puede estar vacío.", nameof(codesDbName));
                 }
 
+                System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Iniciando conexión a '{codesDbName}'...");
+
+                // Cerrar conexión anterior si existe
+                if (_codesConnection != null)
+                {
+                    try
+                    {
+                        if (_codesConnection.State == ConnectionState.Open)
+                        {
+                            _codesConnection.Close();
+                        }
+                    }
+                    catch { /* Ignorar errores al cerrar conexión anterior */ }
+                    finally
+                    {
+                        _codesConnection.Dispose();
+                        _codesConnection = null;
+                    }
+                }
+
+                // ⬇️ CAMBIO IMPORTANTE: Establecer el nombre ANTES de intentar conectar
+                // Esto asegura que _codesDbName esté establecido incluso si la conexión falla
+                string previousCodesDbName = _codesDbName; // Guardar el valor anterior
+                _codesDbName = codesDbName; // Establecer el nuevo valor
+                System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: _codesDbName establecido a '{_codesDbName}'");
+
                 // Probar conexión
-                _codesConnection = new SqlConnection(GetConnectionString(codesDbName));
-                _codesConnection.Open();
+                try
+                {
+                    _codesConnection = new SqlConnection(GetConnectionString(codesDbName));
+                    System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Creando conexión SQL...");
+                    _codesConnection.Open();
+                    System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Conexión abierta exitosamente.");
+                }
+                catch (Exception connectionEx)
+                {
+                    // Si falla la conexión, NO limpiar _codesDbName inmediatamente
+                    // Solo limpiar si es un error crítico que impide usar la BD
+                    System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Error al abrir conexión: {connectionEx.Message}");
+                    
+                    // Cerrar y limpiar la conexión fallida
+                    try
+                    {
+                        _codesConnection?.Dispose();
+                    }
+                    catch { }
+                    _codesConnection = null;
+                    
+                    // Limpiar _codesDbName solo si el error es crítico
+                    // Pero mantenerlo si es un error temporal (timeout, etc.)
+                    if (connectionEx is SqlException sqlEx && 
+                        (sqlEx.Number == 2 || sqlEx.Number == 53 || sqlEx.Number == -1)) // Errores de conexión de red
+                    {
+                        // Error de red - mantener _codesDbName para reintentos
+                        System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Error de red, manteniendo _codesDbName.");
+                    }
+                    else
+                    {
+                        // Error crítico - limpiar
+                        _codesDbName = string.Empty;
+                        System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Error crítico, limpiando _codesDbName.");
+                    }
+                    
+                    throw new Exception($"Error al conectar a la base de datos de códigos '{codesDbName}': {connectionEx.Message}", connectionEx);
+                }
+                
+                System.Diagnostics.Debug.WriteLine($"Conexión a base de datos de códigos '{codesDbName}' establecida correctamente.");
                 return true;
+            }
+            catch (ArgumentException)
+            {
+                // Re-lanzar ArgumentException sin modificar
+                throw;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error al conectar a la base de datos de códigos: {ex.Message}", ex);
+                // Si llegamos aquí, es un error no manejado arriba
+                System.Diagnostics.Debug.WriteLine($"ConnectCodesDatabase: Excepción no manejada: {ex.Message}");
+                // NO limpiar _codesDbName aquí si ya se estableció arriba
+                throw;
+            }
+        }
+
+        public bool IsCodesDatabaseConnected()
+        {
+            try
+            {
+                // PRIMERO verificar que _codesDbName esté establecido
+                // Esta es la verificación más importante
+                if (string.IsNullOrEmpty(_codesDbName))
+                {
+                    System.Diagnostics.Debug.WriteLine("IsCodesDatabaseConnected: _codesDbName está vacío.");
+                    return false;
+                }
+
+                // Verificar si la conexión está abierta y funcional
+                if (_codesConnection != null && _codesConnection.State == ConnectionState.Open)
+                {
+                    // La conexión existe y está abierta
+                    System.Diagnostics.Debug.WriteLine($"IsCodesDatabaseConnected: Conexión abierta para '{_codesDbName}'.");
+                    return true;
+                }
+
+                // Si no hay conexión abierta pero tenemos el nombre de la BD,
+                // verificar que podemos crear una conexión
+                try
+                {
+                    using var testConnection = new SqlConnection(GetConnectionString(_codesDbName));
+                    testConnection.Open();
+                    System.Diagnostics.Debug.WriteLine($"IsCodesDatabaseConnected: Puede crear conexión para '{_codesDbName}'.");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"IsCodesDatabaseConnected: No puede crear conexión para '{_codesDbName}': {ex.Message}");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"IsCodesDatabaseConnected: Error general: {ex.Message}");
+                return false;
             }
         }
 
@@ -163,22 +273,35 @@ namespace LaserMacsaUser.Services
         {
             try
             {
+                System.Diagnostics.Debug.WriteLine($"GetCodes llamado. _codesDbName = '{_codesDbName}'");
+                
                 if (string.IsNullOrEmpty(_codesDbName))
                 {
+                    System.Diagnostics.Debug.WriteLine("GetCodes: _codesDbName está vacío. Lanzando excepción.");
                     throw new InvalidOperationException("No se ha conectado a ninguna base de datos de códigos. Use ConnectCodesDatabase primero.");
                 }
 
+                System.Diagnostics.Debug.WriteLine($"GetCodes: Intentando obtener códigos de '{_codesDbName}' con SQL: {sql}");
                 using var connection = new SqlConnection(GetConnectionString(_codesDbName));
                 connection.Open();
+                System.Diagnostics.Debug.WriteLine($"GetCodes: Conexión abierta correctamente.");
 
                 var adapter = new SqlDataAdapter(sql, connection);
                 var dataTable = new DataTable("Codes");
                 adapter.Fill(dataTable);
+                
+                System.Diagnostics.Debug.WriteLine($"GetCodes: Se obtuvieron {dataTable.Rows.Count} filas.");
 
                 return dataTable;
             }
+            catch (InvalidOperationException)
+            {
+                // Re-lanzar InvalidOperationException sin envolver
+                throw;
+            }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"GetCodes: Error al obtener códigos: {ex.Message}");
                 throw new Exception($"Error al obtener códigos: {ex.Message}", ex);
             }
         }
@@ -330,18 +453,36 @@ namespace LaserMacsaUser.Services
 
         public void CloseConnection()
         {
-            if (_connection != null && _connection.State == ConnectionState.Open)
+            try
             {
-                _connection.Close();
-                _connection.Dispose();
-                _connection = null;
-            }
+                if (_connection != null)
+                {
+                    if (_connection.State == ConnectionState.Open)
+                    {
+                        _connection.Close();
+                    }
+                    _connection.Dispose();
+                    _connection = null;
+                }
 
-            if (_codesConnection != null && _codesConnection.State == ConnectionState.Open)
+                if (_codesConnection != null)
+                {
+                    if (_codesConnection.State == ConnectionState.Open)
+                    {
+                        _codesConnection.Close();
+                    }
+                    _codesConnection.Dispose();
+                    _codesConnection = null;
+                }
+                
+                // Limpiar el nombre de la BD de códigos
+                _codesDbName = string.Empty;
+                
+                System.Diagnostics.Debug.WriteLine("DatabaseService: Todas las conexiones cerradas.");
+            }
+            catch (Exception ex)
             {
-                _codesConnection.Close();
-                _codesConnection.Dispose();
-                _codesConnection = null;
+                System.Diagnostics.Debug.WriteLine($"Error en CloseConnection: {ex.Message}");
             }
         }
 

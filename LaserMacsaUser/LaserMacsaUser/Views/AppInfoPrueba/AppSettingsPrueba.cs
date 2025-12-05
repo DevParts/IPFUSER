@@ -74,17 +74,21 @@ namespace LaserMacsaUser.Views.AppInfoPrueba
         // ======================
         // LASER
         // ======================
-        //[Category("Laser")]
-        //[Description("Laser IP Address.")]
-        //public string Laser_IP
-        // {
-        // get => Properties.Settings.Default.Laser_IP;
-        //set => Properties.Settings.Default.Laser_IP = value;
-        //}
+        [Category("Laser")]
+        [Description("Laser IP Address.")]
+        public string LaserIP
+        {
+            get => Properties.Settings.Default.LaserIP;
+            set => Properties.Settings.Default.LaserIP = value;
+        }
 
         [Category("Laser")]
         [Description("Laser buffer size (número de códigos que puede almacenar el buffer del láser). Valores recomendados: 50-200. Por defecto: 100.")]
-        public int LaserBufferSize { get; set; } = 100;
+        public int LaserBufferSize
+        {
+            get => Properties.Settings.Default.LaserBufferSize;
+            set => Properties.Settings.Default.LaserBufferSize = value;
+        }
 
 
         // ======================
@@ -94,7 +98,12 @@ namespace LaserMacsaUser.Views.AppInfoPrueba
         public int WaitTime { get; set; } = 5;
 
         [Category("Timing")]
-        public int WaitTimeBufferFull { get; set; } = 50;
+        [Description("Tiempo de espera (ms) cuando el buffer del láser está lleno. Por defecto: 50ms.")]
+        public int WaitTimeBufferFull
+        {
+            get => Properties.Settings.Default.WaitTimeBufferFull;
+            set => Properties.Settings.Default.WaitTimeBufferFull = value;
+        }
 
 
         // ======================

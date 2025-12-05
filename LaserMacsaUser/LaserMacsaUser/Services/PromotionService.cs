@@ -232,7 +232,17 @@ namespace LaserMacsaUser.Services
                 if (attached)
                 {
                     // Conectar a la base de datos de códigos
-                    _databaseService.ConnectCodesDatabase(promotion.CodesDb);
+                    try
+                    {
+                        _databaseService.ConnectCodesDatabase(promotion.CodesDb);
+                        System.Diagnostics.Debug.WriteLine($"Base de datos de códigos '{promotion.CodesDb}' conectada después de adjuntar.");
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Error al conectar después de adjuntar: {ex.Message}");
+                        // No retornar false aquí, la BD está adjunta aunque falle la conexión
+                        // Se puede intentar conectar más tarde
+                    }
                 }
 
                 return attached;
