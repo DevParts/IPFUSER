@@ -79,6 +79,92 @@ namespace LaserMacsaUser.Views
         {
 
         }
+        public enum LaserIndicator
+        {
+            Ocupado,        // 🔴 Rojo
+            Listo,          // 🟢 Verde
+            Desconectado    // ⚪ Gris
+        }
+
+        // Colores apagados
+        Color redOff = Color.FromArgb(180, 160, 160);   // Gris con toque rojo
+        Color greenOff = Color.FromArgb(160, 180, 160);  // Gris con toque verde
+        Color yellowOff = Color.FromArgb(190, 190, 150);
+
+
+        // Colores encendidos
+        Color redOn = Color.FromArgb(255, 0, 0);
+        Color greenOn = Color.FromArgb(0, 255, 0);
+        Color yellowOn = Color.FromArgb(255, 230, 80);
+
+        // Timer para animación
+        private System.Windows.Forms.Timer fadeTimer;
+        private Panel currentLed;
+        private Color startColor;
+        private Color targetColor;
+        private int fadeStep = 0;
+
+        private void StartFade(Panel led, Color offColor, Color onColor)
+        {
+            // Apagar visualmente antes de animar
+            led.BackColor = offColor;
+
+            currentLed = led;
+            startColor = offColor;
+            targetColor = onColor;
+            fadeStep = 0;
+
+            if (fadeTimer == null)
+            {
+                fadeTimer = new System.Windows.Forms.Timer();
+                fadeTimer.Interval = 15; // velocidad del fade (15 ms suave)
+                fadeTimer.Tick += FadeTick;
+            }
+
+            fadeTimer.Start();
+        }
+
+        private void FadeTick(object sender, EventArgs e)
+        {
+            fadeStep++;
+            float t = fadeStep / 20f; // 20 pasos → 300 ms aprox.
+
+            if (t > 1f) t = 1f;
+
+            int r = (int)(startColor.R + (targetColor.R - startColor.R) * t);
+            int g = (int)(startColor.G + (targetColor.G - startColor.G) * t);
+            int b = (int)(startColor.B + (targetColor.B - startColor.B) * t);
+
+            currentLed.BackColor = Color.FromArgb(r, g, b);
+
+            if (t >= 1f)
+                fadeTimer.Stop();
+        }
+
+        public void SetLaserStatus(LaserIndicator status)
+        {
+            // Todos apagados (no se ocultan)
+            pnlLedRed.BackColor = redOff;
+            pnlLedGreen.BackColor = greenOff;
+            pnlLedGray.BackColor = yellowOff;
+
+            switch (status)
+            {
+                case LaserIndicator.Ocupado:
+                    StartFade(pnlLedRed, redOff, redOn);
+                    break;
+
+                case LaserIndicator.Listo:
+                    StartFade(pnlLedGreen, greenOff, greenOn);
+                    break;
+
+                case LaserIndicator.Desconectado:
+                    StartFade(pnlLedGray, yellowOff, yellowOn);
+                    break;
+            }
+        }
+
+
 
         private void configPruebaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -97,6 +183,11 @@ namespace LaserMacsaUser.Views
 
         private void Form1_Load(object? sender, EventArgs e)
         {
+            MakeCircle(pnlLedRed);
+            MakeCircle(pnlLedGreen);
+            MakeCircle(pnlLedGray);
+
+            SetLaserStatus(LaserIndicator.Desconectado);
             try
             {
                 // 1. Preparar base de datos
@@ -129,7 +220,12 @@ namespace LaserMacsaUser.Views
                     MessageBoxIcon.Error);
             }
         }
-
+        private void MakeCircle(Panel p)
+        {
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, p.Width - 1, p.Height - 1);
+            p.Region = new Region(gp);
+        }
         private void PrepareDataBase()
         {
             try
@@ -1126,6 +1222,26 @@ namespace LaserMacsaUser.Views
         {
             Application.Restart();
 
+        }
+
+        private void txtProduced_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ocupado_Click(object sender, EventArgs e)
+        {
+            SetLaserStatus(LaserIndicator.Ocupado);
+        }
+
+        private void lblReady_Click(object sender, EventArgs e)
+        {
+            SetLaserStatus(LaserIndicator.Listo);
+        }
+
+        private void lblDisconnected_Click(object sender, EventArgs e)
+        {
+            SetLaserStatus(LaserIndicator.Desconectado);
         }
     }
 }

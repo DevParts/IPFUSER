@@ -44,6 +44,12 @@
             progressCodes = new ProgressBar();
             lblProgressCodes = new Label();
             pnlProduction = new Panel();
+            lblDisconnected = new Label();
+            lblReady = new Label();
+            Ocupado = new Label();
+            pnlLedGray = new Panel();
+            pnlLedGreen = new Panel();
+            pnlLedRed = new Panel();
             lblHeaderProd = new Label();
             lblStoppers = new Label();
             txtStoppers = new TextBox();
@@ -171,6 +177,12 @@
             // 
             pnlProduction.BackColor = Color.White;
             pnlProduction.BorderStyle = BorderStyle.FixedSingle;
+            pnlProduction.Controls.Add(lblDisconnected);
+            pnlProduction.Controls.Add(lblReady);
+            pnlProduction.Controls.Add(Ocupado);
+            pnlProduction.Controls.Add(pnlLedGray);
+            pnlProduction.Controls.Add(pnlLedGreen);
+            pnlProduction.Controls.Add(pnlLedRed);
             pnlProduction.Controls.Add(lblHeaderProd);
             pnlProduction.Controls.Add(lblStoppers);
             pnlProduction.Controls.Add(txtStoppers);
@@ -191,6 +203,45 @@
             pnlProduction.Controls.Add(btnExit);
             resources.ApplyResources(pnlProduction, "pnlProduction");
             pnlProduction.Name = "pnlProduction";
+            // 
+            // lblDisconnected
+            // 
+            resources.ApplyResources(lblDisconnected, "lblDisconnected");
+            lblDisconnected.Name = "lblDisconnected";
+            lblDisconnected.Click += lblDisconnected_Click;
+            // 
+            // lblReady
+            // 
+            resources.ApplyResources(lblReady, "lblReady");
+            lblReady.Name = "lblReady";
+            lblReady.Click += lblReady_Click;
+            // 
+            // Ocupado
+            // 
+            resources.ApplyResources(Ocupado, "Ocupado");
+            Ocupado.Name = "Ocupado";
+            Ocupado.Click += Ocupado_Click;
+            // 
+            // pnlLedGray
+            // 
+            pnlLedGray.BackColor = Color.Gray;
+            pnlLedGray.BorderStyle = BorderStyle.FixedSingle;
+            resources.ApplyResources(pnlLedGray, "pnlLedGray");
+            pnlLedGray.Name = "pnlLedGray";
+            // 
+            // pnlLedGreen
+            // 
+            pnlLedGreen.BackColor = Color.OliveDrab;
+            pnlLedGreen.BorderStyle = BorderStyle.FixedSingle;
+            resources.ApplyResources(pnlLedGreen, "pnlLedGreen");
+            pnlLedGreen.Name = "pnlLedGreen";
+            // 
+            // pnlLedRed
+            // 
+            pnlLedRed.BackColor = Color.FromArgb(120, 40, 40);
+            pnlLedRed.BorderStyle = BorderStyle.FixedSingle;
+            resources.ApplyResources(pnlLedRed, "pnlLedRed");
+            pnlLedRed.Name = "pnlLedRed";
             // 
             // lblHeaderProd
             // 
@@ -229,6 +280,7 @@
             // 
             resources.ApplyResources(txtProduced, "txtProduced");
             txtProduced.Name = "txtProduced";
+            txtProduced.TextChanged += txtProduced_TextChanged;
             // 
             // lblOrder
             // 
@@ -368,5 +420,11 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem configurationToolStripMenuItem;
         private ToolStripMenuItem configPruebaToolStripMenuItem;
+        private Panel pnlLedRed;
+        private Panel pnlLedGray;
+        private Panel pnlLedGreen;
+        private Label lblDisconnected;
+        private Label lblReady;
+        private Label Ocupado;
     }
 }
