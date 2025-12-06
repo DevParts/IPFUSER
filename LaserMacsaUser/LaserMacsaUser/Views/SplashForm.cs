@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using LaserMacsaUser.Helpers;
 namespace LaserMacsaUser.Views
 {
     public partial class SplashForm : Form
@@ -18,6 +18,8 @@ namespace LaserMacsaUser.Views
         public SplashForm()
         {
             InitializeComponent();
+
+            ApplicationLogger.Log("Se ha iniciado la aplicación."); // Log de inicio de la app
 
             // Inicia con 0%
             lblPercent.Text = "0 %";
