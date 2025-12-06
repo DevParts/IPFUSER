@@ -12,7 +12,7 @@ using LaserMacsaUser.Helpers;
 namespace LaserMacsaUser.Views;
 
 public partial class PromotionConfirmation : Form
-{1
+{
     public bool IsConfirmed { get; private set; } = false;
     public Promotion? Promotion { get; private set; }
     public int Artwork { get; private set; }
